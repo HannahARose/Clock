@@ -31,6 +31,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - ubuntu-24.04-arm
           - macos-latest
           - windows-latest
         compiler:
@@ -74,6 +75,14 @@ jobs:
 
           # This exists solely to make sure a non-multiconfig build works
           - os: ubuntu-latest
+            compiler: gcc-14
+            generator: "Unix Makefiles"
+            build_type: Debug
+            gcov_executable: gcov-14
+            packaging_maintainer_mode: On
+            enable_ipo: Off
+
+          - os: ubuntu-24.04-arm
             compiler: gcc-14
             generator: "Unix Makefiles"
             build_type: Debug
