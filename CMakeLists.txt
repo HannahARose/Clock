@@ -17,7 +17,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Set the project name and language
 project(
   Clock
-  VERSION 0.0.2
+  VERSION 0.0.3
   DESCRIPTION ""
   HOMEPAGE_URL "https://github.com/HannahARose/Clock"
   LANGUAGES CXX C)
