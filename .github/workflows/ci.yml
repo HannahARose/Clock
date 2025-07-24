@@ -31,7 +31,11 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+<<<<<<< HEAD
           - ubuntu-24.04-arm
+=======
+          - ubuntu-latest-arm
+>>>>>>> f15c1ec (Update CI workflow to use ubuntu-latest-arm instead of ubuntu-latest-arm64)
           - macos-latest
           - windows-latest
         compiler:
