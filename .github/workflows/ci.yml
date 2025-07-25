@@ -10,7 +10,6 @@ on:
       - develop
 
 env:
-  CLANG_TIDY_VERSION: "19.1.1"
   VERBOSE: 1
 
 
@@ -59,10 +58,25 @@ jobs:
           - compiler: gcc-14
             gcov_executable: gcov-14
             enable_ipo: On
+            CLANG_TIDY_VERSION: "19.1.1"
 
           - compiler: llvm-19.1.1
             enable_ipo: Off
             gcov_executable: "llvm-cov gcov"
+            CLANG_TIDY_VERSION: "19.1.1"
+
+          - compiler: gcc-11
+            gcov_executable: gcov-11
+            enable_ipo: On
+            CLANG_TIDY_VERSION: "14.0.0"
+
+          - compiler: clang-14.0.0
+            gcov_executable: gcov-11
+            enable_ipo: On
+            CLANG_TIDY_VERSION: "14.0.0"
+
+          - compiler: msvc
+            CLANG_TIDY_VERSION: "19.1.1"
 
           - os: macos-latest
             enable_ipo: Off
@@ -77,7 +91,6 @@ jobs:
             compiler: gcc-14
             generator: "Unix Makefiles"
             build_type: Release
-            gcov_executable: gcov-14
             packaging_maintainer_mode: On
             enable_ipo: Off
 
@@ -110,7 +123,6 @@ jobs:
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
-            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Debug
             packaging_maintainer_mode: On
@@ -118,7 +130,6 @@ jobs:
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
-            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Release
             packaging_maintainer_mode: On
@@ -126,14 +137,12 @@ jobs:
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
-            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Debug
             packaging_maintainer_mode: Off
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
-            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Release
             packaging_maintainer_mode: Off
@@ -176,6 +185,13 @@ jobs:
 
 
     steps:
+      - name: Get OS version
+        id: os-version
+        uses: sersoft-gmbh/os-version-action@v3
+
+      - name: OS Version
+        run: echo "OS is ${{runner.os}} version ${{ steps.os-version.outputs.version }}"
+
       - name: Check for llvm version mismatches
         if: ${{ contains(matrix.compiler, 'llvm') && !contains(matrix.compiler, env.CLANG_TIDY_VERSION) }}
         uses: actions/github-script@v7
@@ -209,7 +225,7 @@ jobs:
           ninja: true
           vcpkg: false
           ccache: true
-          clangtidy: ${{ env.CLANG_TIDY_VERSION }}
+          clangtidy: ${{ matrix.CLANG_TIDY_VERSION }}
 
 
           cppcheck: true
@@ -227,7 +243,7 @@ jobs:
           cmake --build ./build --config ${{matrix.build_type}}
 
       - name: Unix - Test and coverage
-        if: runner.os != 'Windows' && runner.os != 'ubuntu-22.04-arm'
+        if: (runner.os != 'Windows') && (runner.os != 'ubuntu-22.04-arm')
         working-directory: ./build
         # Execute tests defined by the CMake configuration.
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
