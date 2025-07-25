@@ -47,6 +47,9 @@ jobs:
         build_shared:
           - OFF
 
+        CLANG_TIDY_VERSION: 
+          - "19.1.1"
+
         exclude:
           # mingw is determined by this author to be too buggy to support
           - os: windows-latest
@@ -58,25 +61,19 @@ jobs:
           - compiler: gcc-14
             gcov_executable: gcov-14
             enable_ipo: On
-            CLANG_TIDY_VERSION: "19.1.1"
 
           - compiler: llvm-19.1.1
             enable_ipo: Off
             gcov_executable: "llvm-cov gcov"
-            CLANG_TIDY_VERSION: "19.1.1"
 
           - compiler: gcc-11
             gcov_executable: gcov-11
             enable_ipo: On
-            CLANG_TIDY_VERSION: "14.0.0"
 
           - compiler: clang-14.0.0
             gcov_executable: gcov-11
             enable_ipo: On
             CLANG_TIDY_VERSION: "14.0.0"
-
-          - compiler: msvc
-            CLANG_TIDY_VERSION: "19.1.1"
 
           - os: macos-latest
             enable_ipo: Off
