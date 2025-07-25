@@ -31,7 +31,6 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - ubuntu-22.04-arm
           - macos-latest
           - windows-latest
         compiler:
@@ -45,6 +44,7 @@ jobs:
           - Debug
         packaging_maintainer_mode:
           - ON
+          - OFF
         build_shared:
           - OFF
 
@@ -81,13 +81,58 @@ jobs:
             packaging_maintainer_mode: On
             enable_ipo: Off
 
+          # Ubuntu 22.04 arm builds for Raspberry Pi support
           - os: ubuntu-22.04-arm
-            compiler: gcc-14
+            compiler: gcc-11
+            generator: "Unix Makefiles"
+            build_type: Debug
+            packaging_maintainer_mode: On
+            enable_ipo: On
+
+          - os: ubuntu-22.04-arm
+            compiler: gcc-11
             generator: "Unix Makefiles"
             build_type: Release
-            gcov_executable: gcov-14
             packaging_maintainer_mode: On
-            enable_ipo: Off
+            enable_ipo: On
+
+          - os: ubuntu-22.04-arm
+            compiler: gcc-11
+            generator: "Unix Makefiles"
+            build_type: Debug
+            packaging_maintainer_mode: Off
+
+          - os: ubuntu-22.04-arm
+            compiler: gcc-11
+            generator: "Unix Makefiles"
+            build_type: Release
+            packaging_maintainer_mode: Off
+
+          - os: ubuntu-22.04-arm
+            compiler: clang-14
+            generator: "Unix Makefiles"
+            build_type: Debug
+            packaging_maintainer_mode: On
+            enable_ipo: On
+
+          - os: ubuntu-22.04-arm
+            compiler: clang-14
+            generator: "Unix Makefiles"
+            build_type: Release
+            packaging_maintainer_mode: On
+            enable_ipo: On
+
+          - os: ubuntu-22.04-arm
+            compiler: clang-14
+            generator: "Unix Makefiles"
+            build_type: Debug
+            packaging_maintainer_mode: Off
+
+          - os: ubuntu-22.04-arm
+            compiler: clang-14
+            generator: "Unix Makefiles"
+            build_type: Release
+            packaging_maintainer_mode: Off
 
           # Windows msvc builds
           - os: windows-latest
@@ -103,6 +148,19 @@ jobs:
             build_type: Release
             packaging_maintainer_mode: On
             enable_ipo: On
+
+          - os: windows-latest
+            compiler: msvc
+            generator: "Visual Studio 17 2022"
+            build_type: Debug
+            packaging_maintainer_mode: Off
+
+          - os: windows-latest
+            compiler: msvc
+            generator: "Visual Studio 17 2022"
+            build_type: Release
+            packaging_maintainer_mode: Off
+            package_generator: ZIP
 
           - os: windows-latest
             compiler: msvc
