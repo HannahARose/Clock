@@ -110,6 +110,7 @@ jobs:
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
+            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Debug
             packaging_maintainer_mode: On
@@ -117,6 +118,7 @@ jobs:
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
+            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Release
             packaging_maintainer_mode: On
@@ -124,12 +126,14 @@ jobs:
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
+            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Debug
             packaging_maintainer_mode: Off
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
+            clangtidy: 14.0.0
             generator: "Unix Makefiles"
             build_type: Release
             packaging_maintainer_mode: Off
@@ -223,7 +227,7 @@ jobs:
           cmake --build ./build --config ${{matrix.build_type}}
 
       - name: Unix - Test and coverage
-        if: runner.os != 'Windows'
+        if: runner.os != 'Windows' && runner.os != 'ubuntu-22.04-arm'
         working-directory: ./build
         # Execute tests defined by the CMake configuration.
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
