@@ -83,13 +83,30 @@ jobs:
 
           # Ubuntu 22.04 arm builds for Raspberry Pi support
           - os: ubuntu-22.04-arm
+            generator: "Unix Makefiles"
             compiler: gcc-11
+            build_type: Release
+            packaging_maintainer_mode: On
             gcov_executable: gcov-11
 
           - os: ubuntu-22.04-arm
-            compiler: clang-14
+            generator: "Unix Makefiles"
+            compiler: gcc-11
+            build_type: Debug
             gcov_executable: gcov-11
-            CLANG_TIDY_VERSION: "14.0.0"
+
+          - os: ubuntu-22.04-arm
+            generator: "Unix Makefiles"
+            compiler: llvm-14.0.0
+            build_type: Release
+            packaging_maintainer_mode: On
+            gcov_executable: "llvm-cov gcov"
+
+          - os: ubuntu-22.04-arm
+            generator: "Unix Makefiles"
+            compiler: llvm-14.0.0
+            build_type: Debug
+            gcov_executable: "llvm-cov gcov"
 
 
           # Windows msvc builds
@@ -170,7 +187,7 @@ jobs:
           ninja: true
           vcpkg: false
           ccache: true
-          clangtidy: ${{ matrix.CLANG_TIDY_VERSION }}
+          clangtidy: "${{ matrix.os == 'ubuntu-22.04-arm' && '14.0.0' || env.CLANG_TIDY_VERSION }}"
 
 
           cppcheck: true
