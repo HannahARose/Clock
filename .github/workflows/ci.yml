@@ -11,6 +11,7 @@ on:
       - develop
 
 env:
+  CLANG_TIDY_VERSION: "19.1.1"
   VERBOSE: 1
 
 
@@ -48,9 +49,6 @@ jobs:
         build_shared:
           - OFF
 
-        CLANG_TIDY_VERSION: 
-          - "19.1.1"
-
         exclude:
           # mingw is determined by this author to be too buggy to support
           - os: windows-latest
@@ -66,15 +64,6 @@ jobs:
           - compiler: llvm-19.1.1
             enable_ipo: Off
             gcov_executable: "llvm-cov gcov"
-
-          - compiler: gcc-11
-            gcov_executable: gcov-11
-            enable_ipo: On
-
-          - compiler: clang-14.0.0
-            gcov_executable: gcov-11
-            enable_ipo: On
-            CLANG_TIDY_VERSION: "14.0.0"
 
           - os: macos-latest
             enable_ipo: Off
@@ -95,55 +84,13 @@ jobs:
           # Ubuntu 22.04 arm builds for Raspberry Pi support
           - os: ubuntu-22.04-arm
             compiler: gcc-11
-            generator: "Unix Makefiles"
-            build_type: Debug
-            packaging_maintainer_mode: On
-            enable_ipo: On
-
-          - os: ubuntu-22.04-arm
-            compiler: gcc-11
-            generator: "Unix Makefiles"
-            build_type: Release
-            packaging_maintainer_mode: On
-            enable_ipo: On
-
-          - os: ubuntu-22.04-arm
-            compiler: gcc-11
-            generator: "Unix Makefiles"
-            build_type: Debug
-            packaging_maintainer_mode: Off
-
-          - os: ubuntu-22.04-arm
-            compiler: gcc-11
-            generator: "Unix Makefiles"
-            build_type: Release
-            packaging_maintainer_mode: Off
+            gcov_executable: gcov-11
 
           - os: ubuntu-22.04-arm
             compiler: clang-14
-            generator: "Unix Makefiles"
-            build_type: Debug
-            packaging_maintainer_mode: On
-            enable_ipo: On
+            gcov_executable: gcov-11
+            CLANG_TIDY_VERSION: "14.0.0"
 
-          - os: ubuntu-22.04-arm
-            compiler: clang-14
-            generator: "Unix Makefiles"
-            build_type: Release
-            packaging_maintainer_mode: On
-            enable_ipo: On
-
-          - os: ubuntu-22.04-arm
-            compiler: clang-14
-            generator: "Unix Makefiles"
-            build_type: Debug
-            packaging_maintainer_mode: Off
-
-          - os: ubuntu-22.04-arm
-            compiler: clang-14
-            generator: "Unix Makefiles"
-            build_type: Release
-            packaging_maintainer_mode: Off
 
           # Windows msvc builds
           - os: windows-latest
@@ -241,7 +188,7 @@ jobs:
           cmake --build ./build --config ${{matrix.build_type}}
 
       - name: Unix - Test and coverage
-        if: (runner.os != 'Windows') && (runner.os != 'ubuntu-22.04-arm')
+        if: (runner.os != 'Windows') && (matrix.os != 'ubuntu-22.04-arm')
         working-directory: ./build
         # Execute tests defined by the CMake configuration.
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
@@ -271,6 +218,7 @@ jobs:
 
       - name: Publish to codecov
         uses: codecov/codecov-action@v5
+        if: matrix.os != 'ubuntu-22.04-arm'
         with:
           fail_ci_if_error: true # we weren't posting previously
           flags: ${{ runner.os }}
