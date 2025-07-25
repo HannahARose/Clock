@@ -276,7 +276,7 @@ void game_iteration_canvas()
       #ifdef __GNUC__
       __builtin_unreachable();
       #elif _MSC_VER
-      __assume(0);
+      __assume(false);
       #else
       std::terminate(); // Fallback for other compilers
       #endif
