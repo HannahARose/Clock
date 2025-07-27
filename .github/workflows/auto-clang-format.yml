@@ -14,6 +14,8 @@ jobs:
         extensions: 'h,cpp,hpp'
         clangFormatVersion: 19
         inplace: True
+    - name: ReCheckout
+      run: git checkout ${{ github.ref }}
     - uses: EndBug/add-and-commit@v9
       with:
         author_name: Clang Robot
