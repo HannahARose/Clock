@@ -243,7 +243,6 @@
             "cacheVariables": {
                 "BUILD_TESTING": false
             }
-
         }
     ],
     "testPresets": [
