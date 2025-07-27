@@ -97,14 +97,14 @@ jobs:
 
           - os: ubuntu-22.04-arm
             generator: "Unix Makefiles"
-            compiler: llvm-13.0.0
+            compiler: llvm-15.0.0
             build_type: Release
             packaging_maintainer_mode: On
             gcov_executable: "llvm-cov gcov"
 
           - os: ubuntu-22.04-arm
             generator: "Unix Makefiles"
-            compiler: llvm-13.0.0
+            compiler: llvm-15.0.0
             build_type: Debug
             gcov_executable: "llvm-cov gcov"
 
@@ -154,8 +154,8 @@ jobs:
       - name: Clang Format
         if: ${{ steps.os-version.outputs.version == 22.04 }}
         run: |
-          echo "Setting CLANG_TIDY_VERSION to 13.0.0"
-          echo "CLANG_TIDY_VERSION=13.0.0" >> $GITHUB_ENV
+          echo "Setting CLANG_TIDY_VERSION to 15.0.0"
+          echo "CLANG_TIDY_VERSION=15.0.0" >> $GITHUB_ENV
       
       - name: Check for llvm version mismatches
         if: ${{ contains(matrix.compiler, 'llvm') && !contains(matrix.compiler, env.CLANG_TIDY_VERSION) }}
@@ -190,13 +190,18 @@ jobs:
           ninja: true
           vcpkg: false
           ccache: true
-          clangtidy: "${{ steps.os-version.outputs.version == '22.04' && '13.0.0' || env.CLANG_TIDY_VERSION }}"
+          clangtidy: "${{ steps.os-version.outputs.version == '22.04' && '15.0.0' || env.CLANG_TIDY_VERSION }}"
 
 
           cppcheck: true
 
           gcovr: true
           opencppcoverage: true
+
+      # - name: Check clib
+      #   if: $steps.os-version.outputs.version == '22.04'
+      #   run: |
+
 
       - name: Configure CMake
         run: |
