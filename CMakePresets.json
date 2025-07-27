@@ -233,7 +233,6 @@
             "cacheVariables": {
                 "BUILD_TESTING": false
             }
-
         },
         {
             "name": "xcode-clang-release",
