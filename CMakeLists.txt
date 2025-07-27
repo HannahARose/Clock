@@ -10,8 +10,18 @@ if (NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
   if (APPLE AND CMAKE_OSX_SYSROOT STREQUAL "")
-    message(STATUS "Setting CMAKE_OSX_SYSROOT to /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk")
-    set(CMAKE_OSX_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk")
+    message(STATUS "Determining SDK path using xcrun")
+    execute_process(
+      COMMAND xcrun --show-sdk-path
+      OUTPUT_VARIABLE SDK_PATH
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    if (SDK_PATH)
+      message(STATUS "Setting CMAKE_OSX_SYSROOT to ${SDK_PATH}")
+      set(CMAKE_OSX_SYSROOT "${SDK_PATH}")
+    else()
+      message(FATAL_ERROR "Failed to determine SDK path using xcrun")
+    endif()
   endif()
 endif()
 
