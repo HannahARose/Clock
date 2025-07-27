@@ -15,7 +15,7 @@ jobs:
         clangFormatVersion: 19
         inplace: True
     - name: ReCheckout
-      run: git checkout ${{ github.ref }}
+      run: git checkout ${{ github.event.pull_request.head.ref }}
     - uses: EndBug/add-and-commit@v9
       with:
         author_name: Clang Robot
