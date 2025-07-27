@@ -1,5 +1,5 @@
 name: auto-clang-format
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -14,8 +14,6 @@ jobs:
         extensions: 'h,cpp,hpp'
         clangFormatVersion: 19
         inplace: True
-    - name: Checkout PR head branch
-      run:  git checkout -b ${{ github.event.pull_request.head.ref }} origin/${{ github.event.pull_request.head.ref }}
     - uses: EndBug/add-and-commit@v9
       with:
         author_name: Clang Robot
