@@ -31,6 +31,7 @@
 #include <utility>
 #include <vector>
 
+
 template<std::size_t Width, std::size_t Height> struct GameBoard
 {
   static constexpr std::size_t width = Width;
@@ -272,7 +273,13 @@ void game_iteration_canvas()
       small_bm_pixel.B += 11;// NOLINT Magic Number
       break;
     default:// literally impossible
-      std::unreachable();
+      #ifdef __GNUC__
+      __builtin_unreachable();
+      #elif _MSC_VER
+      __assume(false);
+      #else
+      std::terminate(); // Fallback for other compilers
+      #endif
     }
 
 

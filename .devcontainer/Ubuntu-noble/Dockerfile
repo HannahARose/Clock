@@ -1,5 +1,5 @@
 # [Choice] bionic (18.04), focal (20.04)
-ARG VARIANT="focal"
+ARG VARIANT="noble"
 FROM ubuntu:${VARIANT}
 
 # Restate the variant to use it later on in the llvm and cmake installations
@@ -11,11 +11,15 @@ RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
         software-properties-common wget apt-utils file zip \
         openssh-client gpg-agent socat rsync \
         make ninja-build git \
-        python3 python3-pip
+        python3 python3-pip python3-venv
+
+# Create a virtual environment for Python
+RUN apt install python3-setuptools && \
+    python3 -m venv .venv
+ENV PATH=$PATH:/.venv/bin
 
 # Install conan
-RUN python3 -m pip install --upgrade pip setuptools && \
-    python3 -m pip install conan && \
+RUN ./.venv/bin/python -m pip install conan && \
     conan --version
 
 # By default, anything you run in Docker is done as superuser.
@@ -30,7 +34,7 @@ ENV CONAN_SYSREQUIRES_MODE enabled
 # User-settable versions:
 # This Dockerfile should support gcc-[7, 8, 9, 10, 11] and clang-[10, 11, 12, 13]
 # Earlier versions of clang will require significant modifications to the IWYU section
-ARG GCC_VER="11"
+ARG GCC_VER="14"
 # Add gcc-${GCC_VER}
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
@@ -41,7 +45,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 RUN update-alternatives --install /usr/bin/gcc gcc $(which gcc-${GCC_VER}) 100
 RUN update-alternatives --install /usr/bin/g++ g++ $(which g++-${GCC_VER}) 100
 
-ARG LLVM_VER="13"
+ARG LLVM_VER="19"
 # Add clang-${LLVM_VER}
 ARG LLVM_URL="http://apt.llvm.org/${VARIANT}/"
 ARG LLVM_PKG="llvm-toolchain-${VARIANT}-${LLVM_VER}"
@@ -83,6 +87,7 @@ ENV IWYU /home/iwyu
 ENV IWYU_BUILD ${IWYU}/build
 ENV IWYU_SRC ${IWYU}/include-what-you-use
 RUN mkdir -p ${IWYU_BUILD} && \
+    rm -rf ${IWYU_SRC} && \
     git clone --branch clang_${LLVM_VER} \
         https://github.com/include-what-you-use/include-what-you-use.git \
         ${IWYU_SRC}
@@ -97,7 +102,7 @@ RUN CC=clang-${LLVM_VER} CXX=clang++-${LLVM_VER} cmake -S ${IWYU_SRC} \
 #  running (similarly, use include-what-you-use -print-resource-dir to learn
 #  exactly where IWYU wants the headers).`
 RUN mkdir -p $(include-what-you-use -print-resource-dir 2>/dev/null)
-RUN ln -s $(readlink -f /usr/lib/clang/${LLVM_VER}/include) \
+RUN ln -sf $(readlink -f /usr/lib/clang/${LLVM_VER}/include) \
     $(include-what-you-use -print-resource-dir 2>/dev/null)/include
 
 ## Cleanup cached apt data we don't need anymore
