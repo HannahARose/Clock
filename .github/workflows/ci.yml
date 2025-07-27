@@ -87,12 +87,31 @@ jobs:
             compiler: gcc-12
             build_type: Release
             packaging_maintainer_mode: On
+            enable_ipo: On
+            gcov_executable: gcov-12
+
+          - os: ubuntu-22.04-arm
+            generator: "Unix Makefiles"
+            compiler: gcc-12
+            build_type: Release
+            packaging_maintainer_mode: Off
+            enable_ipo: On
             gcov_executable: gcov-12
 
           - os: ubuntu-22.04-arm
             generator: "Unix Makefiles"
             compiler: gcc-12
             build_type: Debug
+            packaging_maintainer_mode: On
+            enable_ipo: On
+            gcov_executable: gcov-12
+
+          - os: ubuntu-22.04-arm
+            generator: "Unix Makefiles"
+            compiler: gcc-12
+            build_type: Debug
+            packaging_maintainer_mode: Off
+            enable_ipo: On
             gcov_executable: gcov-12
 
           - os: ubuntu-22.04-arm
@@ -100,14 +119,32 @@ jobs:
             compiler: llvm-15.0.0
             build_type: Release
             packaging_maintainer_mode: On
+            enable_ipo: Off
+            gcov_executable: "llvm-cov gcov"
+
+          - os: ubuntu-22.04-arm
+            generator: "Unix Makefiles"
+            compiler: llvm-15.0.0
+            build_type: Release
+            packaging_maintainer_mode: Off
+            enable_ipo: Off
             gcov_executable: "llvm-cov gcov"
 
           - os: ubuntu-22.04-arm
             generator: "Unix Makefiles"
             compiler: llvm-15.0.0
             build_type: Debug
+            packaging_maintainer_mode: On
+            enable_ipo: Off
             gcov_executable: "llvm-cov gcov"
 
+          - os: ubuntu-22.04-arm
+            generator: "Unix Makefiles"
+            compiler: llvm-15.0.0
+            build_type: Debug
+            packaging_maintainer_mode: Off
+            enable_ipo: Off
+            gcov_executable: "llvm-cov gcov"
 
           # Windows msvc builds
           - os: windows-latest
@@ -190,7 +227,7 @@ jobs:
           ninja: true
           vcpkg: false
           ccache: true
-          clangtidy: "${{ steps.os-version.outputs.version == '22.04' && '15.0.0' || env.CLANG_TIDY_VERSION }}"
+          clangtidy: "${{env.CLANG_TIDY_VERSION }}"
 
 
           cppcheck: true
