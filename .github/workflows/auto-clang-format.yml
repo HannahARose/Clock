@@ -14,8 +14,10 @@ jobs:
         extensions: 'h,cpp,hpp'
         clangFormatVersion: 19
         inplace: True
-    - name: ReCheckout
-      run: git checkout ${{ github.event.pull_request.head.ref }}
+    - name: Checkout PR head branch
+      uses: actions/checkout@v4 # Use the latest version of actions/checkout
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
     - uses: EndBug/add-and-commit@v9
       with:
         author_name: Clang Robot
