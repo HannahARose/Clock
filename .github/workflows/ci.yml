@@ -88,6 +88,7 @@ jobs:
             build_type: Release
             packaging_maintainer_mode: On
             enable_ipo: On
+            package_generator: TBZ2
             gcov_executable: gcov-12
 
           - os: ubuntu-22.04-arm
@@ -120,6 +121,7 @@ jobs:
             build_type: Release
             packaging_maintainer_mode: On
             enable_ipo: Off
+            package_generator: TBZ2
             gcov_executable: "llvm-cov gcov"
 
           - os: ubuntu-22.04-arm
