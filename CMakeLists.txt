@@ -33,7 +33,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Profiling enable if requested
 if (Clock_ENABLE_PROFILING)
   message(STATUS "Profiling enabled, using -pg for profiling support")
-  if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  if (DEFINED CMAKE_BUILD_TYPE AND CMAKE_BUILD_TYPE STREQUAL "Debug")
     message(WARNING "Profiling is enabled, but you are building in Debug mode. This may not give you the results you expect. Consider using Release or RelWithDebInfo instead.")
   endif()
   add_compile_options(-pg)
