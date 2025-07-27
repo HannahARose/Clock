@@ -15,9 +15,7 @@ jobs:
         clangFormatVersion: 19
         inplace: True
     - name: Checkout PR head branch
-      uses: actions/checkout@v4 # Use the latest version of actions/checkout
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
+      run:  git checkout -b ${{ github.event.pull_request.head.ref }} origin/${{ github.event.pull_request.head.ref }}
     - uses: EndBug/add-and-commit@v9
       with:
         author_name: Clang Robot
