@@ -7,12 +7,30 @@ cmake_minimum_required(VERSION 3.21)
 # Only set the cxx_standard if it is not set by someone else
 if (NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 20)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+  if (APPLE AND CMAKE_OSX_SYSROOT STREQUAL "")
+    message(STATUS "Setting CMAKE_OSX_SYSROOT to /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk")
+    set(CMAKE_OSX_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk")
+  endif()
 endif()
 
 # strongly encouraged to enable this globally to avoid conflicts between
 # -Wpedantic being enabled and -std=c++20 and -std=gnu++20 for example
 # when compiling with PCH enabled
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Profiling enable if requested
+if (Clock_ENABLE_PROFILING)
+  message(STATUS "Profiling enabled, using -pg for profiling support")
+  if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    message(WARNING "Profiling is enabled, but you are building in Debug mode. This may not give you the results you expect. Consider using Release or RelWithDebInfo instead.")
+  endif()
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+  set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
+  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -pg")
+endif()
 
 # Set the project name and language
 project(
