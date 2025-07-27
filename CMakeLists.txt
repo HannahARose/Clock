@@ -7,12 +7,42 @@ cmake_minimum_required(VERSION 3.21)
 # Only set the cxx_standard if it is not set by someone else
 if (NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 20)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+  if (APPLE AND CMAKE_OSX_SYSROOT STREQUAL "")
+    message(STATUS "Determining SDK path using xcrun")
+    execute_process(
+      COMMAND xcrun --show-sdk-path
+      OUTPUT_VARIABLE SDK_PATH
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    if (SDK_PATH)
+      message(STATUS "Setting CMAKE_OSX_SYSROOT to ${SDK_PATH}")
+      set(CMAKE_OSX_SYSROOT "${SDK_PATH}")
+    else()
+      message(FATAL_ERROR "Failed to determine SDK path using xcrun")
+    endif()
+  endif()
 endif()
 
 # strongly encouraged to enable this globally to avoid conflicts between
 # -Wpedantic being enabled and -std=c++20 and -std=gnu++20 for example
 # when compiling with PCH enabled
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Profiling enable if requested
+if (Clock_ENABLE_PROFILING)
+  message(STATUS "Profiling enabled, using -pg for profiling support")
+  if (DEFINED CMAKE_BUILD_TYPE AND CMAKE_BUILD_TYPE STREQUAL "Debug")
+    message(WARNING "Profiling is enabled, but you are building in Debug mode. This may not give you the results you expect. Consider using Release or RelWithDebInfo instead.")
+  endif()
+  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    add_compile_options(-pg)
+    add_link_options(-pg)
+  else()
+    message(WARNING "Profiling is enabled, but the current compiler does not support the -pg flag. Skipping profiling flags.")
+  endif()
+endif()
 
 # Set the project name and language
 project(

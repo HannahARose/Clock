@@ -159,6 +159,18 @@
             }
         },
         {
+            "name": "unixlike-gcc-profile",
+            "displayName": "gcc Profile",
+            "description": "Target Unix-like OS with the gcc compiler, profile build type",
+            "inherits": "conf-unixlike-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "Clock_ENABLE_PROFILING": "ON"
+            }
+        },
+        {
             "name": "unixlike-clang-debug",
             "displayName": "clang Debug",
             "description": "Target Unix-like OS with the clang compiler, debug build type",
@@ -178,6 +190,58 @@
                 "CMAKE_C_COMPILER": "clang",
                 "CMAKE_CXX_COMPILER": "clang++",
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "unixlike-clang-profile",
+            "displayName": "clang Profile",
+            "description": "Target Unix-like OS with the clang compiler, profile build type",
+            "inherits": "conf-unixlike-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "Clock_ENABLE_PROFILING": "ON"
+            }
+        },
+        {
+            "name": "xcode-gcc-debug",
+            "inherits": "unixlike-gcc-debug",
+            "displayName": "Xcode GCC Debug",
+            "description": "Target Unix-like OS with the gcc compiler, debug build type, using Xcode generator",
+            "generator": "Xcode",
+            "cacheVariables": {
+                "BUILD_TESTING": false
+            }
+        },
+        {
+            "name": "xcode-gcc-release",
+            "inherits": "unixlike-gcc-release",
+            "displayName": "Xcode GCC Release",
+            "description": "Target Unix-like OS with the gcc compiler, release build type, using Xcode generator",
+            "generator": "Xcode",
+            "cacheVariables": {
+                "BUILD_TESTING": false
+            }
+        },
+        {
+            "name": "xcode-clang-debug",
+            "inherits": "unixlike-clang-debug",
+            "displayName": "Xcode Clang Debug",
+            "description": "Target Unix-like OS with the clang compiler, debug build type, using Xcode generator",
+            "generator": "Xcode",
+            "cacheVariables": {
+                "BUILD_TESTING": false
+            }
+        },
+        {
+            "name": "xcode-clang-release",
+            "inherits": "unixlike-clang-release",
+            "displayName": "Xcode Clang Release",
+            "description": "Target Unix-like OS with the clang compiler, release build type, using Xcode generator",
+            "generator": "Xcode",
+            "cacheVariables": {
+                "BUILD_TESTING": false
             }
         }
     ],
@@ -249,6 +313,34 @@
             "description": "Enable output and stop on failure",
             "inherits": "test-common",
             "configurePreset": "unixlike-clang-release"
+        },
+        {
+            "name": "test-xcode-gcc-debug",
+            "displayName": "Strict",
+            "description": "Enable output and stop on failure",
+            "inherits": "test-common",
+            "configurePreset": "xcode-gcc-debug"
+        },
+        {
+            "name": "test-xcode-gcc-release",
+            "displayName": "Strict",
+            "description": "Enable output and stop on failure",
+            "inherits": "test-common",
+            "configurePreset": "xcode-gcc-release"
+        },
+        {
+            "name": "test-xcode-clang-debug",
+            "displayName": "Strict",
+            "description": "Enable output and stop on failure",
+            "inherits": "test-common",
+            "configurePreset": "xcode-clang-debug"
+        },
+        {
+            "name": "test-xcode-clang-release",
+            "displayName": "Strict",
+            "description": "Enable output and stop on failure",
+            "inherits": "test-common",
+            "configurePreset": "xcode-clang-release"
         }
     ]
 }
