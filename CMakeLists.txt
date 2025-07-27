@@ -36,10 +36,8 @@ if (Clock_ENABLE_PROFILING)
   if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     message(WARNING "Profiling is enabled, but you are building in Debug mode. This may not give you the results you expect. Consider using Release or RelWithDebInfo instead.")
   endif()
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
-  set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
-  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -pg")
+  add_compile_options(-pg)
+  add_link_options(-pg)
 endif()
 
 # Set the project name and language
