@@ -223,7 +223,6 @@
             "cacheVariables": {
                 "BUILD_TESTING": false
             }
-
         },
         {
             "name": "xcode-clang-debug",
