@@ -273,13 +273,13 @@ void game_iteration_canvas()
       small_bm_pixel.B += 11;// NOLINT Magic Number
       break;
     default:// literally impossible
-      #ifdef __GNUC__
+#ifdef __GNUC__
       __builtin_unreachable();
-      #elif _MSC_VER
+#elif _MSC_VER
       __assume(false);
-      #else
-      std::terminate(); // Fallback for other compilers
-      #endif
+#else
+      std::terminate();// Fallback for other compilers
+#endif
     }
 
 
