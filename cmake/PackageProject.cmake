@@ -40,12 +40,16 @@ function(Clock_package_project)
     "${ARGN}")
 
   # Set default options
-  include(GNUInstallDirs) # Define GNU standard installation directories such as CMAKE_INSTALL_DATADIR
+  include(GNUInstallDirs
+  )# Define GNU standard installation directories such as CMAKE_INSTALL_DATADIR
 
   # set default packaged targets
   if(NOT _PackageProject_TARGETS)
     get_all_installable_targets(_PackageProject_TARGETS)
-    message(STATUS "package_project: considering ${_PackageProject_TARGETS} as the exported targets")
+    message(
+      STATUS
+        "package_project: considering ${_PackageProject_TARGETS} as the exported targets"
+    )
   endif()
 
   # default to the name of the project or the given name
@@ -71,14 +75,17 @@ function(Clock_package_project)
   if("${_PackageProject_CONFIG_EXPORT_DESTINATION}" STREQUAL "")
     set(_PackageProject_CONFIG_EXPORT_DESTINATION "${CMAKE_BINARY_DIR}")
   endif()
-  set(_PackageProject_EXPORT_DESTINATION "${_PackageProject_CONFIG_EXPORT_DESTINATION}")
+  set(_PackageProject_EXPORT_DESTINATION
+      "${_PackageProject_CONFIG_EXPORT_DESTINATION}")
 
   # use datadir (works better with vcpkg, etc)
   if("${_PackageProject_CONFIG_INSTALL_DESTINATION}" STREQUAL "")
-    set(_PackageProject_CONFIG_INSTALL_DESTINATION "${CMAKE_INSTALL_DATADIR}/${_PackageProject_NAME}")
+    set(_PackageProject_CONFIG_INSTALL_DESTINATION
+        "${CMAKE_INSTALL_DATADIR}/${_PackageProject_NAME}")
   endif()
   # ycm args
-  set(_PackageProject_INSTALL_DESTINATION "${_PackageProject_CONFIG_INSTALL_DESTINATION}")
+  set(_PackageProject_INSTALL_DESTINATION
+      "${_PackageProject_CONFIG_INSTALL_DESTINATION}")
 
   # Installation of the public/interface includes
   if(NOT
@@ -110,7 +117,8 @@ function(Clock_package_project)
       list(APPEND _PUBLIC_DEPENDENCIES_CONFIG "${DEP} CONFIG")
     endforeach()
   endif()
-  list(APPEND _PackageProject_PUBLIC_DEPENDENCIES ${_PUBLIC_DEPENDENCIES_CONFIG})
+  list(APPEND _PackageProject_PUBLIC_DEPENDENCIES
+       ${_PUBLIC_DEPENDENCIES_CONFIG})
   # ycm arg
   set(_PackageProject_DEPENDENCIES ${_PackageProject_PUBLIC_DEPENDENCIES})
 
@@ -125,7 +133,8 @@ function(Clock_package_project)
     endforeach()
   endif()
   # ycm arg
-  list(APPEND _PackageProject_PRIVATE_DEPENDENCIES ${_PRIVATE_DEPENDENCIES_CONFIG})
+  list(APPEND _PackageProject_PRIVATE_DEPENDENCIES
+       ${_PRIVATE_DEPENDENCIES_CONFIG})
 
   # Installation of package (compatible with vcpkg, etc)
   install(
@@ -134,7 +143,9 @@ function(Clock_package_project)
     LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT shlib
     ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT lib
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT bin
-    PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${_PackageProject_NAME}" COMPONENT dev)
+    PUBLIC_HEADER
+      DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${_PackageProject_NAME}"
+      COMPONENT dev)
 
   # install the usage file
   set(_targets_str "")
@@ -148,16 +159,18 @@ function(Clock_package_project)
     target_link_libraries(main PRIVATE ${_targets_str})
   ")
   install(CODE "MESSAGE(STATUS \"${USAGE_FILE_CONTENT}\")")
-  file(WRITE "${_PackageProject_EXPORT_DESTINATION}/usage" "${USAGE_FILE_CONTENT}")
+  file(WRITE "${_PackageProject_EXPORT_DESTINATION}/usage"
+       "${USAGE_FILE_CONTENT}")
   install(FILES "${_PackageProject_EXPORT_DESTINATION}/usage"
           DESTINATION "${_PackageProject_CONFIG_INSTALL_DESTINATION}")
 
   unset(_PackageProject_TARGETS)
 
   # download ForwardArguments
-  FetchContent_Populate (
+  FetchContent_Populate(
     _fargs
-    URL https://github.com/polysquare/cmake-forward-arguments/archive/8c50d1f956172edb34e95efa52a2d5cb1f686ed2.zip)
+    URL https://github.com/polysquare/cmake-forward-arguments/archive/8c50d1f956172edb34e95efa52a2d5cb1f686ed2.zip
+  )
 
   FetchContent_GetProperties(_fargs)
 
@@ -176,7 +189,8 @@ function(Clock_package_project)
     "${_multiValueArgs};DEPENDENCIES;PRIVATE_DEPENDENCIES")
 
   # download ycm
-  FetchContent_Populate(_ycm URL https://github.com/robotology/ycm/archive/refs/tags/v0.13.0.zip)
+  FetchContent_Populate(
+    _ycm URL https://github.com/robotology/ycm/archive/refs/tags/v0.13.0.zip)
   FetchContent_GetProperties(_ycm)
   include("${_ycm_SOURCE_DIR}/modules/InstallBasicPackageFiles.cmake")
 

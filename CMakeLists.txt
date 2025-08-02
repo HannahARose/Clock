@@ -5,18 +5,17 @@ cmake_minimum_required(VERSION 3.21)
 # manual dependency management
 
 # Only set the cxx_standard if it is not set by someone else
-if (NOT DEFINED CMAKE_CXX_STANDARD)
+if(NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 20)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-  if (APPLE AND CMAKE_OSX_SYSROOT STREQUAL "")
+  if(APPLE AND CMAKE_OSX_SYSROOT STREQUAL "")
     message(STATUS "Determining SDK path using xcrun")
     execute_process(
       COMMAND xcrun --show-sdk-path
       OUTPUT_VARIABLE SDK_PATH
-      OUTPUT_STRIP_TRAILING_WHITESPACE
-    )
-    if (SDK_PATH)
+      OUTPUT_STRIP_TRAILING_WHITESPACE)
+    if(SDK_PATH)
       message(STATUS "Setting CMAKE_OSX_SYSROOT to ${SDK_PATH}")
       set(CMAKE_OSX_SYSROOT "${SDK_PATH}")
     else()
@@ -31,16 +30,23 @@ endif()
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Profiling enable if requested
-if (Clock_ENABLE_PROFILING)
+if(Clock_ENABLE_PROFILING)
   message(STATUS "Profiling enabled, using -pg for profiling support")
-  if (DEFINED CMAKE_BUILD_TYPE AND CMAKE_BUILD_TYPE STREQUAL "Debug")
-    message(WARNING "Profiling is enabled, but you are building in Debug mode. This may not give you the results you expect. Consider using Release or RelWithDebInfo instead.")
+  if(DEFINED CMAKE_BUILD_TYPE AND CMAKE_BUILD_TYPE STREQUAL "Debug")
+    message(
+      WARNING
+        "Profiling is enabled, but you are building in Debug mode. This may not give you the results you expect. Consider using Release or RelWithDebInfo instead."
+    )
   endif()
-  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL
+                                             "Clang")
     add_compile_options(-pg)
     add_link_options(-pg)
   else()
-    message(WARNING "Profiling is enabled, but the current compiler does not support the -pg flag. Skipping profiling flags.")
+    message(
+      WARNING
+        "Profiling is enabled, but the current compiler does not support the -pg flag. Skipping profiling flags."
+    )
   endif()
 endif()
 
@@ -55,14 +61,13 @@ project(
 include(cmake/PreventInSourceBuilds.cmake)
 include(ProjectOptions.cmake)
 
+clock_setup_options()
 
-Clock_setup_options()
-
-Clock_global_options()
+clock_global_options()
 include(Dependencies.cmake)
-Clock_setup_dependencies()
+clock_setup_dependencies()
 
-Clock_local_options()
+clock_local_options()
 
 # don't know if this should be set globally from here or not...
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
@@ -99,14 +104,19 @@ endif()
 include(CTest)
 
 if(BUILD_TESTING)
-  message(AUTHOR_WARNING "Building Tests. Be sure to check out test/constexpr_tests.cpp for constexpr testing")
+  message(
+    AUTHOR_WARNING
+      "Building Tests. Be sure to check out test/constexpr_tests.cpp for constexpr testing"
+  )
   add_subdirectory(test)
 endif()
 
-
 if(Clock_BUILD_FUZZ_TESTS)
-  message(AUTHOR_WARNING "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
-  if (NOT Clock_ENABLE_SANITIZER_ADDRESS AND NOT Clock_ENABLE_SANITIZER_THREAD)
+  message(
+    AUTHOR_WARNING
+      "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html"
+  )
+  if(NOT Clock_ENABLE_SANITIZER_ADDRESS AND NOT Clock_ENABLE_SANITIZER_THREAD)
     message(WARNING "You need asan or tsan enabled for meaningful fuzz testing")
   endif()
   add_subdirectory(fuzz_test)
@@ -118,7 +128,9 @@ endif()
 if(MSVC)
   get_all_installable_targets(all_targets)
   message("all_targets=${all_targets}")
-  set_target_properties(${all_targets} PROPERTIES VS_DEBUGGER_ENVIRONMENT "PATH=$(VC_ExecutablePath_x64);%PATH%")
+  set_target_properties(
+    ${all_targets} PROPERTIES VS_DEBUGGER_ENVIRONMENT
+                              "PATH=$(VC_ExecutablePath_x64);%PATH%")
 endif()
 
 # set the startup project for the "play" button in MSVC
@@ -132,7 +144,7 @@ include(cmake/PackageProject.cmake)
 
 # Add other targets that you want installed here, by default we just package the one executable
 # we know we want to ship
-Clock_package_project(
+clock_package_project(
   TARGETS
   intro
   Clock_options
