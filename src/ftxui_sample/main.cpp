@@ -32,22 +32,55 @@
 #include <vector>
 
 
+/**
+ * Game board representation.
+ */
 template<std::size_t Width, std::size_t Height> struct GameBoard
 {
+  /**
+   * The width of the game board.
+   */
   static constexpr std::size_t WIDTH = Width;
+  /**
+   * The height of the game board.
+   */
   static constexpr std::size_t HEIGHT = Height;
 
+  /**
+   * The game board is represented as a 2D array of strings and values.
+   * The strings are used to display the state of each cell, and the values
+   * are used to store the actual state of each cell.
+   */
   std::array<std::array<std::string, HEIGHT>, WIDTH> strings;
+
+  /**
+   * The values are used to store the actual state of each cell.
+   */
   std::array<std::array<bool, HEIGHT>, WIDTH> values{};
 
+  /**
+   * The number of moves made in the game.
+   */
   std::size_t move_count{ 0 };
 
+  /**
+   * Accessor for the string at the given coordinates.
+   * @param cur_x The x-coordinate of the string.
+   * @param cur_y The y-coordinate of the string.
+   */
   std::string &getString(std::size_t cur_x, std::size_t cur_y)
   {
     return strings.at(cur_x).at(cur_y);
   }
 
 
+  /**
+   * Sets the value at the given coordinates and updates the string
+   * representation.
+   * @param cur_x The x-coordinate of the value.
+   * @param cur_y The y-coordinate of the value.
+   * @param new_value The new value to set.
+   */
   void set(std::size_t cur_x, std::size_t cur_y, bool new_value)
   {
     get(cur_x, cur_y) = new_value;
@@ -59,6 +92,10 @@ template<std::size_t Width, std::size_t Height> struct GameBoard
     }
   }
 
+  /**
+   * Visits each cell in the game board and applies the given visitor function.
+   * @param visitor The function to apply to each cell.
+   */
   void visit(auto visitor)
   {
     for (std::size_t cur_x = 0; cur_x < WIDTH; ++cur_x) {
@@ -68,11 +105,23 @@ template<std::size_t Width, std::size_t Height> struct GameBoard
     }
   }
 
+  /**
+   * Accessor for the value at the given coordinates.
+   * @param cur_x The x-coordinate of the value.
+   * @param cur_y The y-coordinate of the value.
+   * @return A reference to the value at the given coordinates.
+   */
   [[nodiscard]] bool get(std::size_t cur_x, std::size_t cur_y) const
   {
     return values.at(cur_x).at(cur_y);
   }
 
+  /**
+   * Accessor for the value at the given coordinates.
+   * @param cur_x The x-coordinate of the value.
+   * @param cur_y The y-coordinate of the value.
+   * @return A reference to the value at the given coordinates.
+   */
   [[nodiscard]] bool &get(std::size_t cur_x, std::size_t cur_y)
   {
     return values.at(cur_x).at(cur_y);
@@ -85,6 +134,9 @@ template<std::size_t Width, std::size_t Height> struct GameBoard
     });
   }
 
+  /**
+   * Updates the string representation of the game board.
+   */
   void updateStrings()
   {
     for (std::size_t cur_x = 0; cur_x < WIDTH; ++cur_x) {
@@ -94,11 +146,23 @@ template<std::size_t Width, std::size_t Height> struct GameBoard
     }
   }
 
+  /**
+   * Toggles the value at the given coordinates and updates the surrounding
+   * values.
+   * @param cur_x The x-coordinate of the value.
+   * @param cur_y The y-coordinate of the value.
+   */
   void toggle(std::size_t cur_x, std::size_t cur_y)
   {
     set(cur_x, cur_y, !get(cur_x, cur_y));
   }
 
+  /**
+   * Presses the button at the given coordinates and toggles the surrounding
+   * values.
+   * @param cur_x The x-coordinate of the button.
+   * @param cur_y The y-coordinate of the button.
+   */
   void press(std::size_t cur_x, std::size_t cur_y)
   {
     ++move_count;
@@ -109,6 +173,10 @@ template<std::size_t Width, std::size_t Height> struct GameBoard
     if (cur_y < HEIGHT - 1) { toggle(cur_x, cur_y + 1); }
   }
 
+  /**
+   * Checks if the game board is solved.
+   * @return True if all values are true, false otherwise.
+   */
   [[nodiscard]] bool solved() const
   {
     for (std::size_t cur_x = 0; cur_x < WIDTH; ++cur_x) {
@@ -201,32 +269,64 @@ void consequenceGame()
 }
 }// namespace
 
+/**
+ * RGB color representation.
+ */
 struct Color
 {
+  /// Represents the red component of the color.
   lefticus::tools::uint_np8_t r{ static_cast<std::uint8_t>(0) };
+  /// Represents the green component of the color.
   lefticus::tools::uint_np8_t g{ static_cast<std::uint8_t>(0) };
+  /// Represents the blue component of the color.
   lefticus::tools::uint_np8_t b{ static_cast<std::uint8_t>(0) };
 };
 
 // A simple way of representing a bitmap on screen using only characters
+/**
+ * This is a custom Node that can be used to render a bitmap on the screen.
+ */
 struct Bitmap : ftxui::Node
 {
+  /**
+   * Constructor for Bitmap.
+   *
+   * @param width The width of the bitmap.
+   * @param height The height of the bitmap.
+   */
   Bitmap(std::size_t width,// NOLINT
     std::size_t height)// NOLINT same typed parameters adjacent to each other
     : width_(width), height_(height)
   {}
 
+  /**
+   * Accessor for the pixel at the given coordinates.
+   *
+   * @param cur_x The x-coordinate of the pixel.
+   * @param cur_y The y-coordinate of the pixel.
+   * @return A reference to the pixel at the given coordinates.
+   */
   Color &at(std::size_t cur_x, std::size_t cur_y)
   {
     return pixels_.at((width_ * cur_y) + cur_x);
   }
 
+  /**
+   * Computes the requirement for the bitmap.
+   * This is used to determine how much space the bitmap needs on the screen.
+   * It sets the minimum width and height of the bitmap.
+   */
   void ComputeRequirement() override
   {
     requirement_.min_x = static_cast<int>(width_);
     requirement_.min_y = static_cast<int>(height_ / 2);
   }
 
+  /**
+   * Renders the bitmap on the given screen.
+   *
+   * @param screen The screen to render the bitmap on.
+   */
   void Render(ftxui::Screen &screen) override
   {
     for (std::size_t cur_x = 0; cur_x < width_; ++cur_x) {
@@ -246,10 +346,32 @@ struct Bitmap : ftxui::Node
     }
   }
 
+  /**
+   * Accessor for the width of the bitmap.
+   *
+   * @return The width of the bitmap.
+   */
   [[nodiscard]] auto width() const noexcept { return width_; }
 
+  /**
+   * Accessor for the height of the bitmap.
+   *
+   * @return The height of the bitmap.
+   */
   [[nodiscard]] auto height() const noexcept { return height_; }
 
+  /**
+   * Accessor for the pixel data of the bitmap.
+   *
+   * @return A reference to the pixel data.
+   */
+  [[nodiscard]] const auto &data() const noexcept { return pixels_; }
+
+  /**
+   * Accessor for the pixel data of the bitmap.
+   *
+   * @return A reference to the pixel data.
+   */
   [[nodiscard]] auto &data() noexcept { return pixels_; }
 
 private:

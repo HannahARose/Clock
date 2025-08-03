@@ -13,16 +13,25 @@ function(Clock_enable_doxygen DOXYGEN_THEME)
   endif()
   set(DOXYGEN_CALLER_GRAPH YES)
   set(DOXYGEN_CALL_GRAPH YES)
-  set(DOXYGEN_EXTRACT_ALL YES)
+  set(DOXYGEN_EXTRACT_ALL NO)
   set(DOXYGEN_GENERATE_TREEVIEW YES)
   # svg files are much smaller than jpeg and png, and yet they have higher quality
   set(DOXYGEN_DOT_IMAGE_FORMAT svg)
   set(DOXYGEN_DOT_TRANSPARENT YES)
 
+  # set warnings
+  set(DOXYGEN_WARNINGS YES)
+  set(DOXYGEN_WARN_IF_UNDOCUMENTED YES)
+  set(DOXYGEN_WARN_IF_DOC_ERROR YES)
+  set(DOXYGEN_WARN_IF_DOCS_DISCARDED YES)
+  set(DOXYGEN_WARN_NO_PARMADOC YES)
+  set(DOXYGEN_WARN_AS_ERROR YES)
+
   # If not specified, exclude the vcpkg files and the files CMake downloads under _deps (like project_options)
   if(NOT DOXYGEN_EXCLUDE_PATTERNS)
-    set(DOXYGEN_EXCLUDE_PATTERNS "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/*"
-                                 "${CMAKE_CURRENT_BINARY_DIR}/_deps/*")
+    set(DOXYGEN_EXCLUDE_PATTERNS
+        "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/*"
+        "${CMAKE_CURRENT_BINARY_DIR}/_deps/*" "${PROJECT_SOURCE_DIR}/out/*")
   endif()
 
   if("${DOXYGEN_THEME}" STREQUAL "")

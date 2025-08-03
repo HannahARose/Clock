@@ -127,6 +127,10 @@ macro(Clock_setup_options)
       Clock_ENABLE_CACHE)
   endif()
 
+  if(PROJECT_IS_TOP_LEVEL)
+    set(Clock_ENABLE_Doxygen ON)
+  endif()
+
   clock_check_libfuzzer_support(LIBFUZZER_SUPPORTED)
   if(LIBFUZZER_SUPPORTED
      AND (Clock_ENABLE_SANITIZER_ADDRESS
@@ -139,7 +143,6 @@ macro(Clock_setup_options)
 
   option(Clock_BUILD_FUZZ_TESTS "Enable fuzz testing executable"
          ${DEFAULT_FUZZER})
-
 endmacro()
 
 macro(Clock_global_options)
@@ -152,6 +155,7 @@ macro(Clock_global_options)
 
   if(Clock_ENABLE_HARDENING AND Clock_ENABLE_GLOBAL_HARDENING)
     include(cmake/Hardening.cmake)
+
     if(NOT SUPPORTS_UBSAN
        OR Clock_ENABLE_SANITIZER_UNDEFINED
        OR Clock_ENABLE_SANITIZER_ADDRESS
@@ -161,6 +165,7 @@ macro(Clock_global_options)
     else()
       set(ENABLE_UBSAN_MINIMAL_RUNTIME TRUE)
     endif()
+
     message(
       "${Clock_ENABLE_HARDENING} ${ENABLE_UBSAN_MINIMAL_RUNTIME} ${Clock_ENABLE_SANITIZER_UNDEFINED}"
     )
@@ -216,7 +221,14 @@ macro(Clock_local_options)
     clock_enable_cache()
   endif()
 
+  include(cmake/Doxygen.cmake)
+
+  if(Clock_ENABLE_Doxygen)
+    clock_enable_doxygen("awesome-sidebar")
+  endif()
+
   include(cmake/StaticAnalyzers.cmake)
+
   if(Clock_ENABLE_CLANG_TIDY)
     clock_enable_clang_tidy(Clock_options ${Clock_WARNINGS_AS_ERRORS})
   endif()
@@ -234,6 +246,7 @@ macro(Clock_local_options)
 
   if(Clock_WARNINGS_AS_ERRORS)
     check_cxx_compiler_flag("-Wl,--fatal-warnings" LINKER_FATAL_WARNINGS)
+
     if(LINKER_FATAL_WARNINGS)
       # This is not working consistently, so disabling for now
       # target_link_options(Clock_options INTERFACE -Wl,--fatal-warnings)
