@@ -16,4 +16,4 @@ function(Clock_assure_out_of_source_builds)
   endif()
 endfunction()
 
-Clock_assure_out_of_source_builds()
+clock_assure_out_of_source_builds()

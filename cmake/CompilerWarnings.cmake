@@ -96,7 +96,9 @@ function(
   elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     set(PROJECT_WARNINGS_CXX ${GCC_WARNINGS})
   else()
-    message(AUTHOR_WARNING "No compiler warnings set for CXX compiler: '${CMAKE_CXX_COMPILER_ID}'")
+    message(
+      AUTHOR_WARNING
+        "No compiler warnings set for CXX compiler: '${CMAKE_CXX_COMPILER_ID}'")
     # TODO support Intel compiler
   endif()
 
