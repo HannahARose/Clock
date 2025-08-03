@@ -127,7 +127,7 @@ macro(Clock_setup_options)
       Clock_ENABLE_CACHE)
   endif()
 
-  if(PROJECT_IS_TOP_LEVEL)
+  if(PROJECT_IS_TOP_LEVEL AND Clock_ENABLE_DOCUMENTATION)
     set(Clock_ENABLE_Doxygen ON)
   endif()
 

@@ -196,6 +196,15 @@
             }
         },
         {
+            "name": "unixlike-clang-release-docs",
+            "inherits": "unixlike-clang-release",
+            "displayName": "clang Release with Docs",
+            "description": "Target Unix-like OS with the clang compiler, release build type, with documentation generation enabled",
+            "cacheVariables": {
+                "Clock_ENABLE_DOCUMENTATION": "ON"
+            }
+        },
+        {
             "name": "unixlike-clang-profile",
             "displayName": "clang Profile",
             "description": "Target Unix-like OS with the clang compiler, profile build type",
@@ -316,6 +325,13 @@
             "description": "Enable output and stop on failure",
             "inherits": "test-common",
             "configurePreset": "unixlike-clang-release"
+        },
+        {
+            "name": "test-unixlike-clang-release-docs",
+            "displayName": "Strict",
+            "description": "Enable output and stop on failure",
+            "inherits": "test-common",
+            "configurePreset": "unixlike-clang-release-docs"
         },
         {
             "name": "test-xcode-gcc-debug",
