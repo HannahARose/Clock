@@ -11,3 +11,8 @@ set_tests_properties(cli.has_help PROPERTIES PASS_REGULAR_EXPRESSION "si3sim")
 add_test(NAME cli.version_matches COMMAND si3sim --version)
 set_tests_properties(cli.version_matches PROPERTIES PASS_REGULAR_EXPRESSION
                                                     "${PROJECT_VERSION}")
+
+# Add a test to test the response to an invalid command
+add_test(NAME cli.invalid_command COMMAND si3sim --invalid)
+set_tests_properties(cli.invalid_command PROPERTIES PASS_REGULAR_EXPRESSION
+                                                    "not expected: --invalid")

@@ -3,7 +3,6 @@
 
 #include <Clock/misc_lib_export.hpp>
 
-#include <iomanip>
 #include <sstream>
 #include <string>
 
@@ -77,7 +76,7 @@ public:
       break;
     case OFFSET:
       time_str << (offset_negative_ ? "-" : "+") << std::setfill('0')
-               << std::setw(2) << offset_h_ << std::setw(2);
+               << std::setw(2) << offset_h_ << ":" << std::setw(2) << offset_m_;
       break;
     default:
       // For LOCAL time, no suffix is added
