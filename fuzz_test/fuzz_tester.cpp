@@ -17,7 +17,7 @@
 
 // Fuzzer that attempts to invoke undefined behavior for signed integer overflow
 // cppcheck-suppress unusedFunction symbolName=LLVMFuzzerTestOneInput
-extern "C" int llvmFuzzerTestOneInput(const uint8_t *Data, size_t Size)
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)// NOLINT
 {
   fmt::print("Value sum: {}, len{}\n", sumValues(Data, Size), Size);
   return 0;
