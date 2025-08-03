@@ -58,6 +58,11 @@ jobs:
           - os: windows-latest
             compiler: gcc-14
 
+          # Throwing false errors
+          - os: windows-latest
+            compiler: llvm-19.1.1
+            packaging_maintainer_mode: Off
+
         include:
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
