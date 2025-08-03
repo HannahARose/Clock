@@ -3,7 +3,8 @@
 
 #include <Clock/misc_lib_export.hpp>
 
-#include <format>
+#include <iomanip>
+#include <sstream>
 #include <string>
 
 #include <boost/date_time/posix_time/posix_time.hpp>
@@ -68,17 +69,22 @@ public:
    */
   [[nodiscard]] std::string toString() const
   {
-    std::string time_str =
-      boost::posix_time::to_iso_extended_string(time_point_);
+    std::stringstream time_str;
+    time_str << boost::posix_time::to_iso_extended_string(time_point_);
     switch (time_zone_) {
     case UTC:
-      return time_str + "Z";// Append 'Z' for UTC
-    case LOCAL:
-      return time_str + " Local";// Local time, no modification
+      time_str << "Z";// Append 'Z' for UTC
+      break;
     case OFFSET:
-      return time_str + (offset_negative_ ? "-" : "+")
-             + std::format("{:02}:{:02}", offset_h_, offset_m_);
+      time_str << (offset_negative_ ? "-" : "+") << std::setfill('0')
+               << std::setw(2) << offset_h_ << std::setw(2);
+      break;
+    default:
+      // For LOCAL time, no suffix is added
+      break;
     }
+
+    return time_str.str();
   }
 
   /**

@@ -46,13 +46,5 @@ int main(int argc, char **argv)
     return EXIT_FAILURE;
   }
 
-  // Example usage of the Time class
-  try {
-
-  } catch (const std::exception &e) {
-    std::cerr << "Error creating Time object: " << e.what() << "\n";
-    return EXIT_FAILURE;
-  }
-
   return EXIT_SUCCESS;
 }
