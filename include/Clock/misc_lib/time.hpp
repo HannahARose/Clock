@@ -81,15 +81,106 @@ public:
     }
   }
 
+  /**
+   * @name Time Accessors
+   * @brief Methods to access various components of the time point.
+   * @details These methods provide access to the year, month, day, hour,
+   * minute, and second of the time point.
+   * @{
+   */
+
+  /**
+   * @brief Get the time point as a boost::posix_time::ptime object.
+   * @return The underlying time point.
+   */
+  [[nodiscard]] const boost::posix_time::ptime &timePoint() const
+  {
+    return time_point_;
+  }
+
+  /**
+   * @brief Get the time zone of the time point.
+   * @return The time zone of the time point.
+   */
+  [[nodiscard]] TimeZone timeZone() const { return time_zone_; }
+
+  /**
+   * @brief Get the offset in hours for custom time zones.
+   * @return The offset in hours.
+   */
+  [[nodiscard]] double offset() const
+  {
+    constexpr double MINUTE_CONV = 60.0;
+    return (offset_negative_ ? -1 : 1)
+           * (static_cast<int>(offset_h_)
+              + static_cast<int>(offset_m_) / MINUTE_CONV);
+  }
+
+  /**
+   * @brief Get the year of the time point.
+   * @return The year of the time point.
+   */
+  [[nodiscard]] int year() const { return time_point_.date().year(); }
+
+  /**
+   * @brief Get the month of the time point.
+   * @return The month of the time point (1-12).
+   */
+  [[nodiscard]] int month() const { return time_point_.date().month(); }
+
+  /**
+   * @brief Get the day of the month of the time point.
+   * @return The day of the month (1-31).
+   */
+  [[nodiscard]] int day() const { return time_point_.date().day(); }
+
+  /**
+   * @brief Get the hour of the time point.
+   * @return The hour of the time point (0-23).
+   */
+  [[nodiscard]] int hour() const
+  {
+    return static_cast<int>(time_point_.time_of_day().hours());
+  }
+
+  /**
+   * @brief Get the minute of the time point.
+   * @return The minute of the time point (0-59).
+   */
+  [[nodiscard]] int minute() const
+  {
+    return static_cast<int>(time_point_.time_of_day().minutes());
+  }
+
+  /**
+   * @brief Get the second of the time point.
+   * @return The second of the time point (0-59).
+   * @details This method returns the total seconds including fractional
+   * seconds.
+   */
+  [[nodiscard]] double seconds() const
+  {
+    return static_cast<double>(time_point_.time_of_day().seconds())
+           + (static_cast<double>(
+                time_point_.time_of_day().fractional_seconds())
+              / static_cast<double>(
+                time_point_.time_of_day().ticks_per_second()));
+  }
+  /**
+   * @} // End of Time Accessors group
+   */
+
 private:
-  boost::posix_time::ptime
-    time_point_;///< The time point represented by this Time object.
-  TimeZone time_zone_ =
-    UTC;///< The time zone of the time point, default is UTC.
-  bool offset_negative_ =
-    false;///< Flag for negative offsets in custom time zones
-  unsigned int offset_h_ = 0;///< Offset in hours for custom time zones
-  unsigned int offset_m_ = 0;///< Offset in minutes for custom time zones
+  /// The time point represented by this Time object.
+  boost::posix_time::ptime time_point_;
+  /// The time zone of the time point, default is UTC.
+  TimeZone time_zone_ = UTC;
+  /// The flag for negative offsets in custom time zones.
+  bool offset_negative_ = false;
+  /// The offset in hours for custom time zones.
+  unsigned int offset_h_ = 0;
+  /// The offset in minutes for custom time zones.
+  unsigned int offset_m_ = 0;
 };
 
 }// namespace clk::misc_lib
