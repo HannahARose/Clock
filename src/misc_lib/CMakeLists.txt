@@ -25,5 +25,5 @@ generate_export_header(misc_lib EXPORT_FILE_NAME
                        ${PROJECT_BINARY_DIR}/include/Clock/misc_lib_export.hpp)
 
 if(NOT BUILD_SHARED_LIBS)
-  target_compile_definitions(misc_lib PUBLIC SAMPLE_LIBRARY_STATIC_DEFINE)
+  target_compile_definitions(misc_lib PUBLIC MISC_LIB_STATIC_DEFINE)
 endif()

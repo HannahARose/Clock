@@ -1,15 +1,6 @@
-add_executable(si3sim
-  main.cpp
-)
+add_executable(si3sim main.cpp)
 
-target_sources(si3sim PRIVATE
-  config.cpp
-)
-
-target_link_libraries(
-  si3sim
-  PRIVATE Clock::Clock_options
-  Clock::Clock_warnings)
+target_link_libraries(si3sim PRIVATE Clock::Clock_options Clock::Clock_warnings)
 
 target_link_system_libraries(
   si3sim
@@ -21,4 +12,5 @@ target_link_system_libraries(
   Boost::json
   Clock::misc_lib)
 
-target_include_directories(si3sim PRIVATE "${CMAKE_BINARY_DIR}/configured_files/include")
+target_include_directories(
+  si3sim PRIVATE "${CMAKE_BINARY_DIR}/configured_files/include")
