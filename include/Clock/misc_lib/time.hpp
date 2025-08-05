@@ -3,13 +3,13 @@
 
 #include <Clock/misc_lib_export.hpp>
 
-#include <boost/date_time/posix_time/posix_time_duration.hpp>
-#include <boost/date_time/time_duration.hpp>
 #include <cmath>
+#include <string>
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/date_time/posix_time/posix_time_config.hpp>
-#include <string>
+#include <boost/date_time/posix_time/posix_time_duration.hpp>
+#include <boost/date_time/time_duration.hpp>
 
 /**
  * @file time.hpp

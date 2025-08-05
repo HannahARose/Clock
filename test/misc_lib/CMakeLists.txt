@@ -12,8 +12,8 @@ if(WIN32 AND BUILD_SHARED_LIBS)
   add_custom_command(
     TARGET date_time_tests
     PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:time_tests>
-            $<TARGET_FILE_DIR:time_tests>
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:date_time_tests>
+            $<TARGET_FILE_DIR:date_time_tests>
     COMMAND_EXPAND_LISTS)
 endif()
 

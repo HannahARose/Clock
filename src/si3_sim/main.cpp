@@ -1,5 +1,3 @@
-#include <internal_use_only/config.hpp>
-
 #include <cstdlib>
 #include <exception>
 #include <fstream>
@@ -14,6 +12,7 @@
 #include <Clock/misc_lib/run_record.hpp>
 #include <Clock/si3_sim/config.hpp>
 #include <Clock/si3_sim/si3_sim.hpp>
+#include <internal_use_only/config.hpp>
 
 // Define constants for tool name and description
 constexpr std::string_view TOOL_NAME = "si3sim";

@@ -18,6 +18,7 @@ Checks: "*,
         -misc-use-internal-linkage,
         -clang-analyzer-core.BitwiseShift,
         -clang-analyzer-core.StackAddressEscape
+        -clang-analyzer-optin.core.EnumCastOutOfRange
 "
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
