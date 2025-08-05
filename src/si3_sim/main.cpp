@@ -1,15 +1,19 @@
+#include <internal_use_only/config.hpp>
+
+#include <cstdlib>
+#include <exception>
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
+#include <string_view>
+
 #include <CLI/CLI.hpp>
 #include <fmt/base.h>
 #include <fmt/format.h>
 
-#include <internal_use_only/config.hpp>
-
-#include <cstdint>
-#include <cstdlib>
-#include <exception>
-#include <iostream>
-// #include <string>
-#include <string_view>
+#include <Clock/misc_lib/run_record.hpp>
+#include <Clock/si3_sim/config.hpp>
+#include <Clock/si3_sim/si3_sim.hpp>
 
 // Define constants for tool name and description
 constexpr std::string_view TOOL_NAME = "si3sim";
@@ -18,6 +22,8 @@ constexpr std::string_view TOOL_DESCRIPTION =
 
 int main(int argc, char **argv)
 {
+  clk::si3_sim::Config config;
+
   try {
     // Initialize the CLI application
     CLI::App app(fmt::format("{} {} v{}: {}",
@@ -25,19 +31,52 @@ int main(int argc, char **argv)
       TOOL_NAME,
       clk::cmake::PROJECT_VERSION,
       TOOL_DESCRIPTION));
-    app.add_flag(
-      "-v,--version",
-      [](std::int64_t) {
-        fmt::print("{} {} v{}\n",
-          clk::cmake::PROJECT_NAME,
-          TOOL_NAME,
-          clk::cmake::PROJECT_VERSION);
-      },
-      "Show version information");
+
+    app.set_version_flag("-v,--version",
+      fmt::format("{} {} v{}\n",
+        clk::cmake::PROJECT_NAME,
+        TOOL_NAME,
+        clk::cmake::PROJECT_VERSION));
+
+    app.add_option("-c,--config", "Path to the configuration file")
+      ->required()
+      ->check(CLI::ExistingFile);
+
+    app.add_option("-o,--output", "Path to the output file")->required();
+
 
     CLI11_PARSE(app, argc, argv);
+
+    if (app.get_option("-v")->count() > 0) { return EXIT_SUCCESS; }
+
+    config = clk::si3_sim::Config::readFromFile(
+      app.get_option("-c")->as<std::string>());
+
+    config.addRunRecord(clk::misc_lib::RunRecord{
+      .output_file = app.get_option("-o")->as<std::string>(),
+      .tool_name = std::string(TOOL_NAME),
+      .command_line_args = app.config_to_str() });
+    clk::si3_sim::Si3Sim sim(config);
+
+    std::ofstream out(app.get_option("-o")->as<std::string>());
+    if (!out) {
+      throw std::runtime_error("Failed to open output file for writing.");
+    }
+    sim.generateData(out);
   } catch (const std::exception &e) {
     std::cerr << "Unexpected error: " << e.what() << "\n";
+    return EXIT_FAILURE;
+  }
+
+  try {
+    clk::misc_lib::RunRecord run_record = config.lastRunRecord();
+    run_record.end_time = clk::misc_lib::DateTime();
+    run_record.clean_run = true;
+
+    config.updateLastRunRecord(run_record);
+    config.writeToFile(run_record.output_file + ".json");
+  } catch (const std::exception &e) {
+    std::cerr << "Error writing run record: " << e.what() << "\n";
     return EXIT_FAILURE;
   }
 

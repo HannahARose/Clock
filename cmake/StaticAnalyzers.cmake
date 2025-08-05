@@ -11,7 +11,7 @@ macro(Clock_enable_cppcheck WARNINGS_AS_ERRORS CPPCHECK_OPTIONS)
     if("${CPPCHECK_OPTIONS}" STREQUAL "")
       # Enable all warnings that are actionable by the user of this toolset
       # style should enable the other 3, but we'll be explicit just in case
-      set(SUPPRESS_DIR "*:${CMAKE_CURRENT_BINARY_DIR}/_deps/*.h")
+      set(SUPPRESS_DIR "*:${CMAKE_CURRENT_BINARY_DIR}/_deps/*")
       message(STATUS "CPPCHECK_OPTIONS suppress: ${SUPPRESS_DIR}")
       set(CMAKE_CXX_CPPCHECK
           ${CPPCHECK}
@@ -77,11 +77,13 @@ macro(Clock_enable_clang_tidy target WARNINGS_AS_ERRORS)
     endif()
 
     # construct the clang-tidy command line
+    set(CLANG_TIDY_HEADER_FILTER ".*Clock/include/.*") # ignore _deps directory
     set(CLANG_TIDY_OPTIONS
         ${CLANGTIDY}
         -extra-arg=-Wno-unknown-warning-option
         -extra-arg=-Wno-ignored-optimization-argument
         -extra-arg=-Wno-unused-command-line-argument
+        -header-filter=${CLANG_TIDY_HEADER_FILTER}
         -p)
     # set standard
     if(NOT

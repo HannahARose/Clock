@@ -24,7 +24,14 @@ inline constexpr int PROJECT_VERSION_PATCH = { @PROJECT_VERSION_PATCH@ };
 /// Tweak version number
 inline constexpr int PROJECT_VERSION_TWEAK = { @PROJECT_VERSION_TWEAK@ };
 // clang-format on
-inline constexpr std::string_view GIT_SHA = "@GIT_SHA@";
+
+/// Git branch name
+inline constexpr std::string_view GIT_BRANCH = "@GIT_BRANCH@";
+/// Git commit SHA
+inline constexpr std::string_view GIT_COMMIT = "@GIT_COMMIT@";
+// clang-format off
+inline constexpr bool GIT_CLEAN = @GIT_CLEAN@;
+// clang-format on
 }// namespace clk::cmake
 
 #endif// CLOCK_CONFIG_H__

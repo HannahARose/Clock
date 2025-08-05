@@ -46,7 +46,11 @@ function(Clock_setup_dependencies)
     )
     set(BOOST_URL_SHA256
         7da75f171837577a52bbf217e17f8ea576c7c246e4594d617bfde7fafd408be5)
-    set(BOOST_INCLUDE_LIBRARIES date_time json)
+    set(BOOST_INCLUDE_LIBRARIES
+        date_time
+        json
+        multiprecision
+        uuid)
     cpmaddpackage("gh:HannahARose/boost-cmake#v1.87.0-rc5")
   endif()
 

@@ -1,193 +1,191 @@
-#ifndef CLOCK_MISC_LIB_TIME_H__
-#define CLOCK_MISC_LIB_TIME_H__
+#ifndef CLOCK_MISC_LIB_TIME_H_
+#define CLOCK_MISC_LIB_TIME_H_
 
 #include <Clock/misc_lib_export.hpp>
 
-#include <sstream>
-#include <string>
+#include <boost/date_time/posix_time/posix_time_duration.hpp>
+#include <boost/date_time/time_duration.hpp>
+#include <cmath>
 
 #include <boost/date_time/posix_time/posix_time.hpp>
-#include <boost/date_time/posix_time/time_parsers.hpp>
+#include <boost/date_time/posix_time/posix_time_config.hpp>
+#include <string>
 
 /**
  * @file time.hpp
- * @brief Time-related utilities for the simulation.
+ * @brief Time data structure and utilities.
  */
 
 namespace clk::misc_lib {
 
 /**
- * @brief Class representing a point in time.
- * @details This class encapsulates a time point using boost's posix_time
- * library and provides methods to manipulate and retrieve time information.
+ * @brief Convert seconds to a Boost time_duration.
+ * @param seconds The time in seconds.
+ * @return A Boost time_duration representing the time.
+ */
+[[nodiscard]] inline boost::posix_time::time_duration fromSeconds(
+  double seconds)
+{
+  constexpr double MICRO = 1e6;
+  return boost::posix_time::microseconds(std::lround(seconds * MICRO));
+}
+
+/**
+ * @brief Represents a time on the 24 hour clock
  */
 struct Time
 {
 public:
   /**
-   * @brief Enumeration of time zones options.
+   * @brief Default constructor for Time.
+   * Initializes the time to 00:00:00.
    */
-  enum TimeZone {
-    UTC,///< Coordinated Universal Time
-    LOCAL,///< Local time zone
-    OFFSET///< Custom time zone (not implemented)
-  };
+  Time() : time_(0, 0, 0) {}
 
   /**
-   * @brief Default constructor for Time.
-   * Initializes the time point to the current time in UTC.
+   * @brief Constructor for Time with a Boost time_duration.
+   * @param time The Boost time_duration to initialize the Time object.
    */
-  explicit Time(boost::posix_time::ptime time_point =
-                  boost::posix_time::microsec_clock::universal_time(),
-    TimeZone time_zone = UTC,
-    bool offset_negative = false,
-    unsigned int offset_h = 0,
-    unsigned int offset_m = 0)
-    : time_point_(time_point), time_zone_(time_zone),
-      offset_negative_(offset_negative), offset_h_(offset_h),
-      offset_m_(offset_m)
+  explicit Time(const boost::posix_time::time_duration &time) : time_(time) {}
+
+  /**
+   * @brief Constructor for Time with specific hours, minutes, and seconds.
+   * @param hours The hour of the day (0-23).
+   * @param minutes The minute of the hour (0-59).
+   * @param seconds The second of the minute (0-59).
+   */
+  Time(int hours, int minutes, double seconds)
+    : time_(boost::posix_time::time_duration(hours, minutes, 0)
+            + fromSeconds(seconds))
   {}
 
   /**
-   * @brief Factory method to create a Time object from an ISO 8601 string.
-   * @param iso_string The iso formatted string to parse.
-   * @return A Time object representing the parsed time.
-   * @throws std::invalid_argument if the iso_string is empty or invalid.
-   * @details This method uses boost's posix_time to parse the ISO string.
-   * It assumes the string is in the format "YYYY-MM-DDTHH:MM:SS"
-   * Followed by a time zone suffix:
-   * - "" for Local time
-   * - "Z" for UTC
-   * - "+HH:MM" or "-HH:MM" for custom offsets.
-   */
-  [[nodiscard]] static Time fromISO(const std::string &iso_string);
-
-  /**
-   * @brief Convert the Time object to an ISO 8601 string.
-   * @return A string representing the time in ISO 8601 format.
-   */
-  [[nodiscard]] std::string toString() const
-  {
-    std::stringstream time_str;
-    time_str << boost::posix_time::to_iso_extended_string(time_point_);
-    switch (time_zone_) {
-    case UTC:
-      time_str << "Z";// Append 'Z' for UTC
-      break;
-    case OFFSET:
-      time_str << (offset_negative_ ? "-" : "+") << std::setfill('0')
-               << std::setw(2) << offset_h_ << ":" << std::setw(2) << offset_m_;
-      break;
-    default:
-      // For LOCAL time, no suffix is added
-      break;
-    }
-
-    return time_str.str();
-  }
-
-  /**
-   * @name Time Accessors
-   * @brief Methods to access various components of the time point.
-   * @details These methods provide access to the year, month, day, hour,
-   * minute, and second of the time point.
+   * @name Comparators
    * @{
    */
 
   /**
-   * @brief Get the time point as a boost::posix_time::ptime object.
-   * @return The underlying time point.
+   * @brief Compare two time objects <
+   * @param other The other Time to compare with
+   * @return result
    */
-  [[nodiscard]] const boost::posix_time::ptime &timePoint() const
+  [[nodiscard]] bool operator<(const Time &other) const
   {
-    return time_point_;
+    return time_ < other.time_;
   }
 
   /**
-   * @brief Get the time zone of the time point.
-   * @return The time zone of the time point.
+   * @brief Compare two time objects <=
+   * @param other The other Time to compare with
+   * @return result
    */
-  [[nodiscard]] TimeZone timeZone() const { return time_zone_; }
-
-  /**
-   * @brief Get the offset in hours for custom time zones.
-   * @return The offset in hours.
-   */
-  [[nodiscard]] double offset() const
+  [[nodiscard]] bool operator<=(const Time &other) const
   {
-    constexpr double MINUTE_CONV = 60.0;
-    return (offset_negative_ ? -1 : 1)
-           * (static_cast<int>(offset_h_)
-              + static_cast<int>(offset_m_) / MINUTE_CONV);
+    return time_ <= other.time_;
   }
 
   /**
-   * @brief Get the year of the time point.
-   * @return The year of the time point.
+   * @brief Compare two time objects >
+   * @param other The other Time to compare with
+   * @return result
    */
-  [[nodiscard]] int year() const { return time_point_.date().year(); }
-
-  /**
-   * @brief Get the month of the time point.
-   * @return The month of the time point (1-12).
-   */
-  [[nodiscard]] int month() const { return time_point_.date().month(); }
-
-  /**
-   * @brief Get the day of the month of the time point.
-   * @return The day of the month (1-31).
-   */
-  [[nodiscard]] int day() const { return time_point_.date().day(); }
-
-  /**
-   * @brief Get the hour of the time point.
-   * @return The hour of the time point (0-23).
-   */
-  [[nodiscard]] int hour() const
+  [[nodiscard]] bool operator>(const Time &other) const
   {
-    return static_cast<int>(time_point_.time_of_day().hours());
+    return time_ > other.time_;
   }
 
   /**
-   * @brief Get the minute of the time point.
-   * @return The minute of the time point (0-59).
+   * @brief Compare two time objects >=
+   * @param other The other Time to compare with
+   * @return result
    */
-  [[nodiscard]] int minute() const
+  [[nodiscard]] bool operator>=(const Time &other) const
   {
-    return static_cast<int>(time_point_.time_of_day().minutes());
+    return time_ >= other.time_;
+  }
+
+  /// @} // End Comparators group
+
+  /**
+   * @name Accessors
+   * @{
+   */
+
+  /**
+   * @brief Computes the fraction of the day elapsed since midnight
+   *
+   */
+  [[nodiscard]] double fraction() const
+  {
+    const double nanosec_in_day = 86400e9;
+    return static_cast<double>(time_.total_nanoseconds()) / nanosec_in_day;
   }
 
   /**
-   * @brief Get the second of the time point.
-   * @return The second of the time point (0-59).
-   * @details This method returns the total seconds including fractional
-   * seconds.
+   * @brief Returns the time as a boost object
    */
-  [[nodiscard]] double seconds() const
+  [[nodiscard]] boost::posix_time::time_duration toBoostDuration() const
   {
-    return static_cast<double>(time_point_.time_of_day().seconds())
-           + (static_cast<double>(
-                time_point_.time_of_day().fractional_seconds())
-              / static_cast<double>(
-                time_point_.time_of_day().ticks_per_second()));
+    return time_;
   }
+
   /**
-   * @} // End of Time Accessors group
+   * @} // End of Accessors group
+   */
+
+  /**
+   * @name Serialization IO
+   * @{
+   */
+
+  /**
+   * @brief Convert the Time object to a string representation.
+   * @return A string representation of the Time object in "HH:MM:SS.ff" format.
+   */
+  [[nodiscard]] std::string toString() const
+  {
+    return boost::posix_time::to_simple_string(time_);
+  }
+
+  /**
+   * @brief Write the Time object to an output stream.
+   * @param out_stream The output stream to write to.
+   * @return The output stream after writing the Time object.
+   */
+  std::ostream &operator<<(std::ostream &out_stream) const
+  {
+    return out_stream << toString();
+  }
+
+  /**
+   * @brief Read a Time object from a string
+   */
+  static Time fromString(const std::string &time_str)
+  {
+    return Time(boost::posix_time::duration_from_string(time_str));
+  }
+
+  /**
+   * @brief Read a Time object from an input stream.
+   * @param in_stream The input stream to read from.
+   * @return The input stream after reading the Time object.
+   */
+  std::istream &operator>>(std::istream &in_stream)
+  {
+    std::string time_str;
+    in_stream >> time_str;
+    time_ = boost::posix_time::duration_from_string(time_str);
+    return in_stream;
+  }
+
+  /**
+   * @} // End of Serialization IO group
    */
 
 private:
-  /// The time point represented by this Time object.
-  boost::posix_time::ptime time_point_;
-  /// The time zone of the time point, default is UTC.
-  TimeZone time_zone_ = UTC;
-  /// The flag for negative offsets in custom time zones.
-  bool offset_negative_ = false;
-  /// The offset in hours for custom time zones.
-  unsigned int offset_h_ = 0;
-  /// The offset in minutes for custom time zones.
-  unsigned int offset_m_ = 0;
+  boost::posix_time::time_duration time_;
 };
 
 }// namespace clk::misc_lib
 
-#endif// CLOCK_MISC_LIB_TIME_H__
+#endif// CLOCK_MISC_LIB_TIME_H_

@@ -1,0 +1,40 @@
+{
+  "run_schedule": "WEEKLY",
+  "start_time": "2025-07-01T00:00:00",
+  "end_time": "2025-07-15T00:00:00",
+  "measurements": [
+    {
+      "day": "Monday",
+      "start_time": "20:00:00",
+      "end_time": "21:00:00",
+      "interval_seconds": 600
+    },
+    {
+      "day": "Tuesday",
+      "start_time": "20:00:00",
+      "end_time": "21:00:00",
+      "interval_seconds": 600
+    },
+    {
+      "day": "Wednesday",
+      "start_time": "20:00:00",
+      "end_time": "21:00:00",
+      "interval_seconds": 600
+    },
+    {
+      "day": "Thursday",
+      "start_time": "20:00:00",
+      "end_time": "21:00:00",
+      "interval_seconds": 600
+    },
+    {
+      "day": "Friday",
+      "start_time": "20:00:00",
+      "end_time": "21:00:00",
+      "interval_seconds": 600
+    }
+  ],
+  "start_frequency": "-2753484.34",
+  "drift_rate": "0.0002",
+  "run_records": []
+}

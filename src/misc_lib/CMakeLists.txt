@@ -1,12 +1,17 @@
 include(GenerateExportHeader)
 
-add_library(misc_lib STATIC time.cpp)
+add_library(misc_lib STATIC date_time.cpp time.cpp)
 
 add_library(Clock::misc_lib ALIAS misc_lib)
 
 target_link_libraries(misc_lib PRIVATE Clock_options Clock_warnings)
 
-target_link_libraries(misc_lib PUBLIC Boost::date_time)
+target_link_libraries(
+  misc_lib
+  PUBLIC Boost::date_time
+         Boost::multiprecision
+         Boost::json
+         Boost::uuid)
 
 target_include_directories(
   misc_lib ${WARNING_GUARD}

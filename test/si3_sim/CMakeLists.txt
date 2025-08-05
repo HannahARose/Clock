@@ -10,9 +10,18 @@ set_tests_properties(cli.has_help PROPERTIES PASS_REGULAR_EXPRESSION "si3sim")
 # to make, but also easy to test for.
 add_test(NAME cli.version_matches COMMAND si3sim --version)
 set_tests_properties(cli.version_matches PROPERTIES PASS_REGULAR_EXPRESSION
-                                                    "${PROJECT_VERSION}")
+                                                    "${Clock_VERSION}")
 
-# Add a test to test the response to an invalid command
-add_test(NAME cli.invalid_command COMMAND si3sim --invalid)
-set_tests_properties(cli.invalid_command PROPERTIES PASS_REGULAR_EXPRESSION
-                                                    "not expected: --invalid")
+# Add a few test to test the response to insufficient arguments.
+add_test(NAME cli.missing_output
+         COMMAND si3sim --config
+                 ${CMAKE_SOURCE_DIR}/examples/si3sim/weekdays.json)
+set_tests_properties(cli.missing_output PROPERTIES PASS_REGULAR_EXPRESSION
+                                                   "is required")
+add_test(NAME cli.config_dne COMMAND si3sim --config
+                                     examples/si3sim/does_not_exist.json)
+set_tests_properties(cli.config_dne PROPERTIES PASS_REGULAR_EXPRESSION
+                                               "File does not exist")
+add_test(NAME cli.missing_config COMMAND si3sim -o output/file/example.txt)
+set_tests_properties(cli.missing_config PROPERTIES PASS_REGULAR_EXPRESSION
+                                                   "is required")
