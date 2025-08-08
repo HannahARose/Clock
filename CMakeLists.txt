@@ -24,10 +24,25 @@ if(NOT DEFINED CMAKE_CXX_STANDARD)
   endif()
 endif()
 
-if((APPLE OR WIN32) AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  set(HAVE_CXX_ATOMICS64_WITHOUT_LIB True)
-  set(HAVE_CXX_ATOMICS_WITHOUT_LIB True)
+if(APPLE AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  # Set the C++ standard library to libc++ for Clang on macOS
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++")
 endif()
+
+if(WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  # Set the C++ standard library to libc++ for Clang on Windows
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++")
+endif()
+
+# if((APPLE OR WIN32) AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+# export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
+
+# export CPLUS_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1
+#   set(HAVE_CXX_ATOMICS64_WITHOUT_LIB True)
+#   set(HAVE_CXX_ATOMICS_WITHOUT_LIB True)
+# endif()
 
 # strongly encouraged to enable this globally to avoid conflicts between
 # -Wpedantic being enabled and -std=c++20 and -std=gnu++20 for example
