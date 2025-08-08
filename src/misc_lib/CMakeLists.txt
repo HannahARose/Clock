@@ -10,11 +10,8 @@ add_library(Clock::misc_lib ALIAS misc_lib)
 target_link_libraries(misc_lib PRIVATE Clock_options Clock_warnings)
 
 target_link_libraries(
-  misc_lib
-  PUBLIC Boost::date_time
-  #  Boost::multiprecision
-  #  Boost::json
-  #  Boost::uuid
+  misc_lib PUBLIC Boost::date_time Boost::multiprecision #  Boost::json
+                                                         #  Boost::uuid
 )
 
 target_include_directories(
