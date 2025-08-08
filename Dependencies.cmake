@@ -8,7 +8,7 @@ function(Clock_setup_dependencies)
   # For each dependency, see if it's
   # already been provided to us by a parent project
 
-  if(NOT TARGET fmtlib::fmtlib)
+  if(NOT TARGET fmt::fmt)
     cpmaddpackage("gh:fmtlib/fmt#11.1.4")
   endif()
 
@@ -46,12 +46,7 @@ function(Clock_setup_dependencies)
     )
     set(BOOST_URL_SHA256
         7da75f171837577a52bbf217e17f8ea576c7c246e4594d617bfde7fafd408be5)
-    set(BOOST_INCLUDE_LIBRARIES
-        date_time
-        json
-        multiprecision
-        uuid
-        atomic)
+    set(BOOST_INCLUDE_LIBRARIES date_time json multiprecision)
     cpmaddpackage("gh:HannahARose/boost-cmake#v1.87.0-rc5")
   endif()
 

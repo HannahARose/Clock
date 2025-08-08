@@ -3,15 +3,14 @@
 
 #include <Clock/misc_lib_export.hpp>
 
+#include <random>
 #include <string>
 
 #include <boost/date_time/posix_time/time_formatters.hpp>
 #include <boost/json.hpp>
 #include <boost/json/object.hpp>
 #include <boost/lexical_cast.hpp>
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-#include <boost/uuid/uuid_io.hpp>
+#include <fmt/format.h>
 
 #include <Clock/misc_lib/date_time.hpp>
 #include <Clock/misc_lib/time.hpp>
@@ -29,11 +28,11 @@ public:
    * Unique identifier for the run.
    * @details This is a random number generated at runtime to ensure uniqueness.
    */
-  boost::uuids::uuid run_id = boost::uuids::random_generator()();
-  /**
-   * @brief ID of the run this is a continuation of, if any.
-   */
-  boost::uuids::uuid continued_from = boost::uuids::nil_uuid();
+  std::string run_id = fmt::format("{:x}", std::mt19937_64{}())
+    /**
+     * @brief ID of the run this is a continuation of, if any.
+     */
+    std::string continued_from;
 
   /**
    * @brief Path to the output file.
@@ -101,10 +100,8 @@ public:
   [[nodiscard]] boost::json::object toJson() const
   {
     boost::json::object obj;
-    obj["run_id"] = boost::uuids::to_string(run_id);
-    if (continued_from != boost::uuids::nil_uuid()) {
-      obj["continued_from"] = boost::uuids::to_string(continued_from);
-    }
+    obj["run_id"] = run_id;
+    if (!continued_from.empty()) { obj["continued_from"] = continued_from; }
     obj["output_file"] = output_file;
     obj["start_time"] = start_time.toString();
     obj["end_time"] = end_time.toString();
@@ -130,12 +127,10 @@ public:
   [[nodiscard]] static RunRecord fromJson(const boost::json::object &obj)
   {
     RunRecord record;
-    record.run_id = boost::lexical_cast<boost::uuids::uuid>(
-      obj.at("run_id").as_string().c_str());
+    record.run_id = obj.at("run_id").as_string().c_str();
     if (obj.contains("continued_from")
         && !obj.at("continued_from").as_string().empty()) {
-      record.continued_from = boost::lexical_cast<boost::uuids::uuid>(
-        obj.at("continued_from").as_string().c_str());
+      record.continued_from = obj.at("continued_from").as_string().c_str();
     }
     record.output_file = obj.at("output_file").as_string();
     record.start_time =
