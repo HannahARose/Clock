@@ -5,10 +5,9 @@ add_executable(date_time_conv_tests date_time_tests.cpp)
 
 target_link_libraries(
   date_time_conv_tests
-  # PRIVATE # Clock::Clock_warnings
-  # Clock::Clock_options
-  # Clock::misc_lib
-  Catch2::Catch2WithMain)
+  PRIVATE # Clock::Clock_warnings # Clock::Clock_options
+                                  # Clock::misc_lib
+          Catch2::Catch2WithMain)
 
 if(WIN32 AND BUILD_SHARED_LIBS)
   add_custom_command(
