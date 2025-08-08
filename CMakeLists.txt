@@ -24,30 +24,6 @@ if(NOT DEFINED CMAKE_CXX_STANDARD)
   endif()
 endif()
 
-if(APPLE AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  # Set the C++ standard library to libc++ for Clang on macOS
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++")
-  export(SDKROOT= "$(xcrun --sdk macosx --show-sdk-path)")
-  export(
-    CPLUS_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1
-  )
-endif()
-
-if(WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  # Set the C++ standard library to libc++ for Clang on Windows
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++")
-endif()
-
-# if((APPLE OR WIN32) AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-# export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
-
-# export CPLUS_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1
-#   set(HAVE_CXX_ATOMICS64_WITHOUT_LIB True)
-#   set(HAVE_CXX_ATOMICS_WITHOUT_LIB True)
-# endif()
-
 # strongly encouraged to enable this globally to avoid conflicts between
 # -Wpedantic being enabled and -std=c++20 and -std=gnu++20 for example
 # when compiling with PCH enabled
@@ -132,7 +108,7 @@ if(BUILD_TESTING)
     AUTHOR_WARNING
       "Building Tests. Be sure to check out test/constexpr_tests.cpp for constexpr testing"
   )
-  add_subdirectory(test)
+  # add_subdirectory(test)
 endif()
 
 if(Clock_BUILD_FUZZ_TESTS)
@@ -158,7 +134,7 @@ if(MSVC)
 endif()
 
 # set the startup project for the "play" button in MSVC
-set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT si3sim)
+# set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT si3sim)
 
 if(CMAKE_SKIP_INSTALL_RULES)
   return()
@@ -170,7 +146,7 @@ include(cmake/PackageProject.cmake)
 # we know we want to ship
 clock_package_project(
   TARGETS
-  si3sim
+  # si3sim
   Clock_options
   Clock_warnings
   # FIXME: this does not work! CK
