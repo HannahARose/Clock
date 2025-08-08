@@ -32,3 +32,5 @@ generate_export_header(misc_lib EXPORT_FILE_NAME
 if(NOT BUILD_SHARED_LIBS)
   target_compile_definitions(misc_lib PUBLIC MISC_LIB_STATIC_DEFINE)
 endif()
+
+clock_enable_clang_tidy(misc_lib ${Clock_WARNINGS_AS_ERRORS})

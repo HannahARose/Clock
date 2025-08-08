@@ -16,10 +16,7 @@ Checks: "*,
         -misc-no-recursion,
         -misc-use-anonymous-namespace,
         -misc-use-internal-linkage,
-        -clang-analyzer-core.BitwiseShift,
-        -clang-analyzer-core.StackAddressEscape
-        -clang-analyzer-optin.core.EnumCastOutOfRange
-"
+
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 FormatStyle:     none

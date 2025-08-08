@@ -54,4 +54,10 @@ function(Clock_setup_dependencies)
     cpmaddpackage("gh:HannahARose/boost-cmake#v1.87.0-rc5")
   endif()
 
+  # Set SKIP_LINTING property on boost libraries to avoid warnings
+  # Set for each file in the target
+  foreach(file in ${Boost_sources})
+    set_property(SOURCE ${file} PROPERTY SKIP_LINTING TRUE)
+  endforeach()
+
 endfunction()

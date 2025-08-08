@@ -16,3 +16,5 @@ target_link_system_libraries(
 
 target_include_directories(
   si3sim PRIVATE "${CMAKE_BINARY_DIR}/configured_files/include")
+
+clock_enable_clang_tidy(si3sim ${Clock_WARNINGS_AS_ERRORS})

@@ -31,3 +31,5 @@ catch_discover_tests(
   "unittests."
   OUTPUT_SUFFIX
   .xml)
+
+clock_enable_clang_tidy(date_time_tests ${Clock_WARNINGS_AS_ERRORS})
