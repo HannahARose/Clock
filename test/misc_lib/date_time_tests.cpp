@@ -1,5 +1,5 @@
 // #include <Clock/misc_lib/date_time.hpp>
-// #include <catch2/catch_test_macros.hpp>
+#include <catch2/catch_test_macros.hpp>
 
 // #include <string>
 
@@ -9,10 +9,10 @@
 
 // NOLINTBEGIN: cppcoreguidelines-avoid-magic-numbers
 
-// TEST_CASE("ISO Parsing", "[Time]")
-// {
-//   SECTION("Generic test") { REQUIRE(1 + 2 == 3); }
-
+TEST_CASE("ISO Parsing", "[Time]")
+{
+  SECTION("Generic test") { REQUIRE(1 + 2 == 3); }
+}
 //   SECTION("Basic UTC Time")
 //   {
 //     const DateTime time = DateTime::fromISO("2024-05-23T12:00:12Z");
