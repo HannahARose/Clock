@@ -108,7 +108,7 @@ if(BUILD_TESTING)
     AUTHOR_WARNING
       "Building Tests. Be sure to check out test/constexpr_tests.cpp for constexpr testing"
   )
-  # add_subdirectory(test)
+  add_subdirectory(test)
 endif()
 
 if(Clock_BUILD_FUZZ_TESTS)
@@ -146,7 +146,7 @@ include(cmake/PackageProject.cmake)
 # we know we want to ship
 clock_package_project(
   TARGETS
-  # si3sim
+  si3sim
   Clock_options
   Clock_warnings
   # FIXME: this does not work! CK

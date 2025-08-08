@@ -1,9 +1,6 @@
 include(GenerateExportHeader)
 
-add_library(
-  misc_lib SHARED
-  # date_time.cpp
-  time.cpp)
+add_library(misc_lib SHARED date_time.cpp time.cpp)
 
 add_library(Clock::misc_lib ALIAS misc_lib)
 
@@ -37,10 +34,3 @@ if(NOT BUILD_SHARED_LIBS)
 endif()
 
 clock_enable_clang_tidy(misc_lib ${Clock_WARNINGS_AS_ERRORS})
-
-# Print out every link option being used
-get_target_property(misc_lib_LINK_OPTIONS misc_lib LINK_OPTIONS)
-message(WARNING "Link options for misc_lib:")
-foreach(OPTION IN LISTS misc_lib_LINK_OPTIONS)
-  message(STATUS "Link option: ${OPTION}")
-endforeach()

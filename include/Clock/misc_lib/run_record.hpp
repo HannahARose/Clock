@@ -28,11 +28,11 @@ public:
    * Unique identifier for the run.
    * @details This is a random number generated at runtime to ensure uniqueness.
    */
-  std::string run_id = fmt::format("{:x}", std::mt19937_64{}())
-    /**
-     * @brief ID of the run this is a continuation of, if any.
-     */
-    std::string continued_from;
+  std::string run_id = fmt::format("{:X}", std::mt19937_64{}());
+  /**
+   * @brief ID of the run this is a continuation of, if any.
+   */
+  std::string continued_from;
 
   /**
    * @brief Path to the output file.
