@@ -8,6 +8,11 @@ target_link_libraries(
           Clock::misc_lib
           Catch2::Catch2WithMain)
 
+find_library(ATOMIC_LIB atomic)
+if(ATOMIC_LIB)
+  target_link_libraries(date_time_tests PRIVATE ${ATOMIC_LIB})
+endif()
+
 if(WIN32 AND BUILD_SHARED_LIBS)
   add_custom_command(
     TARGET date_time_tests

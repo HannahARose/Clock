@@ -45,6 +45,8 @@ public:
     case RunSchedule::MJD:
       return current_time_.mjd() % config_.interval();
     }
+    throw std::invalid_argument(
+      "Unknown RunSchedule: " + std::string(toString(config_.runSchedule())));
   }
 
   /**

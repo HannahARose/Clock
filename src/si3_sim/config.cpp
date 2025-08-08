@@ -98,9 +98,7 @@ bool Config::write(std::ostream &out_stream) const
   } catch (...) {
     std::cerr << "Unknown error occurred while writing configuration."
               << "\n";
-    return false;
   }
-
   return false;
 }
 
