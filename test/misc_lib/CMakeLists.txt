@@ -1,5 +1,6 @@
 # ---- CMakeLists.txt for the misc_lib test suite ----
 
+include(../../cmake/Atomic.cmake)
 add_executable(date_time_tests date_time_tests.cpp)
 
 target_link_libraries(

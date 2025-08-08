@@ -5,6 +5,7 @@ find_package(Threads REQUIRED)
 # Check if we need to link libatomic explicitly
 include(CheckCXXSourceCompiles)
 set(CMAKE_REQUIRED_QUIET TRUE)
+set(CMAKE_REQUIRED_FLAGS_STORE CMAKE_REQUIRED_FLAGS)
 
 # Test if atomic operations compile and link without libatomic
 check_cxx_source_compiles(
@@ -28,3 +29,5 @@ if(NOT ATOMIC_WORKS_WITHOUT_LIB)
 else()
   message(STATUS "Atomic operations work without separate library")
 endif()
+
+set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS_STORE}")

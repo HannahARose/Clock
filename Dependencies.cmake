@@ -1,5 +1,4 @@
 include(cmake/CPM.cmake)
-include(cmake/Atomic.cmake)
 
 # Done as a function so that updates to variables like
 # CMAKE_CXX_FLAGS don't propagate out to other
