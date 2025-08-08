@@ -32,7 +32,7 @@ public:
   /**
    * @brief ID of the run this is a continuation of, if any.
    */
-  std::string continued_from;
+  std::string continued_from = "";
 
   /**
    * @brief Path to the output file.
