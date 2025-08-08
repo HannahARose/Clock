@@ -3,12 +3,12 @@
 include(../../cmake/Atomic.cmake)
 add_executable(date_time_tests date_time_tests.cpp)
 
-target_link_libraries(
-  date_time_tests
-  PRIVATE # Clock::Clock_warnings
-          # Clock::Clock_options
-          # Clock::misc_lib
-          Catch2::Catch2WithMain)
+# target_link_libraries(
+# date_time_tests
+# PRIVATE # Clock::Clock_warnings
+# Clock::Clock_options
+# Clock::misc_lib
+# Catch2::Catch2WithMain)
 
 if(WIN32 AND BUILD_SHARED_LIBS)
   add_custom_command(
