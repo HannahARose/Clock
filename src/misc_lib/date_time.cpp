@@ -28,6 +28,7 @@ std::string_view toString(Weekday day)
   case SATURDAY:
     return "Saturday";
   }
+  throw std::invalid_argument("Unknown Weekday enum value");
 }
 
 Weekday fromString(std::string_view str)
