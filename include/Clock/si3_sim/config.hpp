@@ -164,6 +164,8 @@ public:
     case RunSchedule::MJD:
       return mjd_mod_;
     }
+    throw std::invalid_argument(
+      "Unknown RunSchedule: " + std::string(toString(run_schedule_)));
   }
 
   /// Get the start frequency for the simulation.

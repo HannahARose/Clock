@@ -24,6 +24,11 @@ if(NOT DEFINED CMAKE_CXX_STANDARD)
   endif()
 endif()
 
+if((APPLE OR WIN32) AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  set(HAVE_CXX_ATOMICS64_WITHOUT_LIB True)
+  set(HAVE_CXX_ATOMICS_WITHOUT_LIB True)
+endif()
+
 # strongly encouraged to enable this globally to avoid conflicts between
 # -Wpedantic being enabled and -std=c++20 and -std=gnu++20 for example
 # when compiling with PCH enabled
