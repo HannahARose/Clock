@@ -28,6 +28,10 @@ if(APPLE AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   # Set the C++ standard library to libc++ for Clang on macOS
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++")
+  export(SDKROOT="$(xcrun --sdk macosx --show-sdk-path)")
+  export(
+    CPLUS_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1
+  )
 endif()
 
 if(WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
