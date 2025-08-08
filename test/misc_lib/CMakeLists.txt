@@ -1,17 +1,18 @@
 # ---- CMakeLists.txt for the misc_lib test suite ----
 
 add_executable(date_time_tests date_time_tests.cpp)
+
+find_library(ATOMIC_LIB atomic)
+if(ATOMIC_LIB)
+  target_link_libraries(Catch2::Catch2WithMain PUBLIC ${ATOMIC_LIB})
+endif()
+
 target_link_libraries(
   date_time_tests
   PRIVATE Clock::Clock_warnings
           Clock::Clock_options
           Clock::misc_lib
           Catch2::Catch2WithMain)
-
-find_library(ATOMIC_LIB atomic)
-if(ATOMIC_LIB)
-  target_link_libraries(date_time_tests PRIVATE ${ATOMIC_LIB})
-endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS)
   add_custom_command(
