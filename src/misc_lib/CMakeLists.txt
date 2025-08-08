@@ -14,7 +14,8 @@ target_link_libraries(
   PUBLIC Boost::date_time
          Boost::multiprecision
          Boost::json
-         Boost::uuid)
+         Boost::uuid
+         Boost::atomic)
 
 target_include_directories(
   misc_lib ${WARNING_GUARD}

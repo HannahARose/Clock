@@ -50,7 +50,8 @@ function(Clock_setup_dependencies)
         date_time
         json
         multiprecision
-        uuid)
+        uuid
+        atomic)
     cpmaddpackage("gh:HannahARose/boost-cmake#v1.87.0-rc5")
   endif()
 
