@@ -30,7 +30,7 @@ namespace clk::misc_lib {
  * @brief Enum for the days of the week.
  * @details This enum defines the days of the week, starting from Sunday.
  */
-enum MISC_LIB_EXPORT Weekday : std::uint8_t {
+enum Weekday : std::uint8_t {
   SUNDAY = 0,
   MONDAY,
   TUESDAY,
@@ -45,7 +45,7 @@ enum MISC_LIB_EXPORT Weekday : std::uint8_t {
  * @param day The Weekday enum value.
  * @return A string representation of the weekday.
  */
-MISC_LIB_EXPORT std::string_view toString(Weekday day);
+std::string_view toString(Weekday day);
 
 /**
  * @brief Convert a string to a Weekday enum.
@@ -53,7 +53,7 @@ MISC_LIB_EXPORT std::string_view toString(Weekday day);
  * @return The corresponding Weekday enum value.
  * @throws std::invalid_argument if the string does not match any known weekday.
  */
-MISC_LIB_EXPORT Weekday fromString(std::string_view str);
+Weekday fromString(std::string_view str);
 
 /**
  * @brief Class representing a point in time.
@@ -99,8 +99,7 @@ public:
    * - "Z" for UTC
    * - "+HH:MM" or "-HH:MM" for custom offsets.
    */
-  [[nodiscard]] MISC_LIB_EXPORT static DateTime fromISO(
-    const std::string &iso_string);
+  [[nodiscard]] static DateTime fromISO(const std::string &iso_string);
 
   /**
    * @brief Convert the Time object to an ISO 8601 string.
