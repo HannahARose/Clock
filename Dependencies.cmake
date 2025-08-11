@@ -41,19 +41,14 @@ function(Clock_setup_dependencies)
   endif()
 
   if(NOT TARGET Boost::headers)
-    set(BOOST_URL
-        https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-cmake.tar.xz
-    )
-    set(BOOST_URL_SHA256
-        7da75f171837577a52bbf217e17f8ea576c7c246e4594d617bfde7fafd408be5)
-    set(BOOST_INCLUDE_LIBRARIES date_time json multiprecision)
-    cpmaddpackage("gh:HannahARose/boost-cmake#v1.87.0-rc5")
-  endif()
+    set(BOOST_INCLUDE_LIBRARIES "date_time;json;multiprecision")
 
-  # Set SKIP_LINTING property on boost libraries to avoid warnings
-  # Set for each file in the target
-  foreach(file in ${Boost_sources})
-    set_property(SOURCE ${file} PROPERTY SKIP_LINTING TRUE)
-  endforeach()
+    cpmaddpackage(
+      NAME
+      Boost
+      URL
+      "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-cmake.tar.xz"
+    )
+  endif()
 
 endfunction()

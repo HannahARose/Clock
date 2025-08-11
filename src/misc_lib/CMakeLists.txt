@@ -6,12 +6,13 @@ add_library(Clock::misc_lib ALIAS misc_lib)
 
 target_link_libraries(misc_lib PRIVATE Clock_options Clock_warnings)
 
-target_link_libraries(
+target_link_system_libraries(
   misc_lib
-  PUBLIC Boost::date_time
-         Boost::multiprecision
-         Boost::json
-         fmt::fmt)
+  PUBLIC
+  Boost::date_time
+  Boost::multiprecision
+  Boost::json
+  fmt::fmt)
 
 target_include_directories(
   misc_lib ${WARNING_GUARD}
