@@ -33,7 +33,7 @@ public:
   /**
    * @brief ID of the run this is a continuation of, if any.
    */
-  std::string continued_from;
+  std::string continued_from = "";// NOLINT(readability-redundant-string-init)
 
   /**
    * @brief Path to the output file.
@@ -43,11 +43,11 @@ public:
   /**
    * Start time of the run in seconds.
    */
-  DateTime start_time;
+  DateTime start_time = DateTime();// NOLINT(readability-redundant-member-init)
   /**
    * End time of the run in seconds.
    */
-  DateTime end_time;
+  DateTime end_time = DateTime();// NOLINT(readability-redundant-member-init)
   /**
    * @brief Flag indicating whether the run ended in a clean state.
    */
@@ -92,7 +92,8 @@ public:
   /**
    * @brief JSON object storing any variables useful for continuing the run.
    */
-  boost::json::object continuation_vars;
+  boost::json::object
+    continuation_vars = {};// NOLINT(readability-redundant-member-init)
 
   /**
    * @brief Convert the run record to a JSON object.

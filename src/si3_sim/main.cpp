@@ -54,8 +54,7 @@ int main(int argc, char **argv)
     config.addRunRecord(clk::misc_lib::RunRecord{
       .output_file = app.get_option("-o")->as<std::string>(),
       .tool_name = std::string(TOOL_NAME),
-      .command_line_args = app.config_to_str(),
-      .continued_from = {} });
+      .command_line_args = app.config_to_str() });
     clk::si3_sim::Si3Sim sim(config);
 
     std::ofstream out(app.get_option("-o")->as<std::string>());
