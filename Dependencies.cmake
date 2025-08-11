@@ -50,6 +50,11 @@ function(Clock_setup_dependencies)
     cpmaddpackage("gh:HannahARose/boost-cmake#v1.87.0-rc5")
   endif()
 
+  get_target_property(original_target_name Boost::json ALIASED_TARGET)
+  set_target_properties(
+    ${original_target_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+                                       "${CMAKE_BINARY_DIR}/bin")
+
   # Set SKIP_LINTING property on boost libraries to avoid warnings
   # Set for each file in the target
   foreach(file in ${Boost_sources})
