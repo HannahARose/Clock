@@ -151,6 +151,18 @@ public:
   }
 
   /**
+   * @brief Convert the DateTime object to a Unix timestamp in milliseconds.
+   * @return A string representing the Unix timestamp in milliseconds.
+   */
+  [[nodiscard]] std::string toMilliUnixTimestamp() const
+  {
+    constexpr boost::posix_time::ptime EPOCH(
+      boost::gregorian::date(1970, 1, 1));
+
+    return std::to_string((time_point_ - EPOCH).total_milliseconds());
+  }
+
+  /**
    * @brief Overloaded output stream operator for DateTime.
    * @param out_stream The output stream.
    * @return The output stream.

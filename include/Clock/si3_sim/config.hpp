@@ -50,7 +50,7 @@ inline bool operator<(const MeasureEvent &lhs, const MeasureEvent &rhs)
  * used in the simulation. Primary use is to determine the periodicity of the
  * simulation run schedule.
  */
-enum class RunSchedule {
+enum class RunSchedule : std::uint8_t {
   DAILY,///< Same schedule every day
   WEEKLY,///< Same schedule every week
   MONTHLY,///< Same schedule every month
@@ -140,6 +140,10 @@ public:
   /// Get the end time for the simulation.
   /// @return The end time for the simulation.
   [[nodiscard]] misc_lib::DateTime endTime() const { return end_time_; }
+
+  /// Get the flag indicating whether to use Unix timestamps.
+  /// @return True if Unix timestamps are used, false otherwise.
+  [[nodiscard]] bool useUnixTimestamps() const { return use_unix_timestamps_; }
 
   /// Get the measurement events for the simulation.
   /// @return The measurement events for the simulation.
@@ -302,6 +306,9 @@ private:
 
   /// Drift Rate (Hz/s) for the simulation
   misc_lib::Quad drift_rate_ = misc_lib::asQuad("0.0002");
+
+  /// Flag indicating whether to use Unix timestamps
+  bool use_unix_timestamps_ = false;
 
   /// Records of previous runs
   std::vector<misc_lib::RunRecord> run_records_;

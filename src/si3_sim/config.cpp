@@ -85,6 +85,7 @@ bool Config::write(std::ostream &out_stream) const
     json["start_frequency"] = start_frequency_.str();
     json["drift_rate"] = drift_rate_.str();
     if (run_schedule_ == RunSchedule::MJD) { json["mjd_mod"] = mjd_mod_; }
+    json["unix_time"] = use_unix_timestamps_;
     json["run_records"] = boost::json::array();
 
     for (const auto &record : run_records_) {
@@ -147,6 +148,9 @@ Config Config::read(std::istream &in_stream)
   config.start_frequency_ =
     misc_lib::Quad(obj["start_frequency"].as_string().c_str());
   config.drift_rate_ = misc_lib::Quad(obj["drift_rate"].as_string().c_str());
+
+  config.use_unix_timestamps_ =
+    obj.contains("unix_time") ? obj["unix_time"].as_bool() : false;
 
   config.run_records_.clear();
   for (const auto &record : obj["run_records"].as_array()) {

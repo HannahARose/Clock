@@ -109,23 +109,25 @@ public:
     MeasureEvent event = nextMeasurementEvent();
     current_time_ = nextStart(event);
 
-    constexpr int PRECISION_DIGITS = 20;// Define the magic number
-
     while (current_time_ < config_.endTime()) {
 
       while (current_time_.timeOfDay() <= event.end_time) {
-        misc_lib::Quad frequency = config_.driftRate();
-        misc_lib::Quad qqq = 1;
-        qqq += qqq;
+        misc_lib::Quad frequency =
+          config_.startFrequency()
+          + config_.driftRate()
+              * current_time_.secondsSince(config_.startTime());
 
-        // NOLINTNEXTLINE(clang-analyzer-core.BitwiseShift)
-        output << qqq.str(PRECISION_DIGITS,
-          static_cast<std::ios_base::fmtflags>(std::ios_base::scientific));
-
-        frequency *= current_time_.secondsSince(config_.startTime());
-        frequency += config_.startFrequency();
-        output << current_time_.toSimpleString(0, true);
-        // output << "," << frequency;
+        if (config_.useUnixTimestamps()) {
+          constexpr int PRECISION_DIGITS = 10;
+          output << current_time_.toMilliUnixTimestamp();
+          output << "," << std::fixed << std::setprecision(PRECISION_DIGITS)
+                 << frequency;
+        } else {
+          constexpr int PRECISION_DIGITS = 2;
+          output << current_time_.toSimpleString(0, true);
+          output << "," << std::fixed << std::setprecision(PRECISION_DIGITS)
+                 << frequency;
+        }
         current_time_ += event.interval_seconds;
         output << "\n";
       }
@@ -140,7 +142,7 @@ public:
 private:
   /// The configuration for the Si3 simulation.
   Config config_;
-  misc_lib::DateTime current_time_ = misc_lib::DateTime();
+  misc_lib::DateTime current_time_;
 };
 
 }// namespace clk::si3_sim
