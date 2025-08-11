@@ -8,7 +8,7 @@ function(Clock_setup_dependencies)
   # For each dependency, see if it's
   # already been provided to us by a parent project
 
-  if(NOT TARGET fmtlib::fmtlib)
+  if(NOT TARGET fmt::fmt)
     cpmaddpackage("gh:fmtlib/fmt#11.1.4")
   endif()
 
@@ -38,6 +38,17 @@ function(Clock_setup_dependencies)
 
   if(NOT TARGET tools::tools)
     cpmaddpackage("gh:lefticus/tools#update_build_system")
+  endif()
+
+  if(NOT TARGET Boost::headers)
+    set(BOOST_INCLUDE_LIBRARIES "date_time;json;multiprecision")
+
+    cpmaddpackage(
+      NAME
+      Boost
+      URL
+      "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-cmake.tar.xz"
+    )
   endif()
 
 endfunction()
