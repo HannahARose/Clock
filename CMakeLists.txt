@@ -149,6 +149,8 @@ clock_package_project(
   si3sim
   Clock_options
   Clock_warnings
+  PUBLIC_DEPENDENCIES
+  Boost::json
   # FIXME: this does not work! CK
   # PRIVATE_DEPENDENCIES_CONFIGURED project_options project_warnings
 )
