@@ -28,11 +28,12 @@ public:
    * Unique identifier for the run.
    * @details This is a random number generated at runtime to ensure uniqueness.
    */
-  std::string run_id = fmt::format("{:X}", std::mt19937_64{}());
+  std::string run_id =
+    fmt::format("{:X}", std::mt19937_64{ std::random_device{}() }());
   /**
    * @brief ID of the run this is a continuation of, if any.
    */
-  std::string continued_from = "";
+  std::string continued_from;
 
   /**
    * @brief Path to the output file.
@@ -42,11 +43,11 @@ public:
   /**
    * Start time of the run in seconds.
    */
-  DateTime start_time = DateTime();
+  DateTime start_time;
   /**
    * End time of the run in seconds.
    */
-  DateTime end_time = DateTime();
+  DateTime end_time;
   /**
    * @brief Flag indicating whether the run ended in a clean state.
    */
@@ -86,12 +87,12 @@ public:
   /**
    * @brief JSON object containing any command line arguments used for the run.
    */
-  std::string command_line_args = {};
+  std::string command_line_args;
 
   /**
    * @brief JSON object storing any variables useful for continuing the run.
    */
-  boost::json::object continuation_vars = {};
+  boost::json::object continuation_vars;
 
   /**
    * @brief Convert the run record to a JSON object.

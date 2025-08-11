@@ -76,8 +76,17 @@ public:
    * @brief Default constructor for Time.
    * Initializes the time point to the current time in UTC.
    */
-  explicit DateTime(boost::posix_time::ptime time_point =
-                      boost::posix_time::microsec_clock::universal_time(),
+  DateTime() : DateTime(boost::posix_time::second_clock::universal_time()) {}
+
+  /**
+   * @brief Constructor for Time.
+   * @param time_point The time point to set.
+   * @param time_zone The time zone of the time point.
+   * @param offset_negative Whether the offset is negative.
+   * @param offset_h The hour component of the offset.
+   * @param offset_m The minute component of the offset.
+   */
+  explicit DateTime(boost::posix_time::ptime time_point,
     TimeZone time_zone = UTC,
     bool offset_negative = false,
     unsigned int offset_h = 0,

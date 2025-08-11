@@ -229,7 +229,10 @@ public:
   /// Reorder the measurement events in the simulation.
   void sortMeasurementEvents()
   {
-    std::sort(measurements_.begin(), measurements_.end());
+    std::ranges::sort(
+      measurements_, [](const MeasureEvent &arg1, const MeasureEvent &arg2) {
+        return arg1.start_time < arg2.start_time;
+      });
   }
 
   /// @brief Ensures measurements are valid
@@ -290,10 +293,10 @@ private:
   RunSchedule run_schedule_ = RunSchedule::DAILY;
 
   /// The start time of the simulation.
-  misc_lib::DateTime start_time_ = misc_lib::DateTime();
+  misc_lib::DateTime start_time_;
 
   /// The end time of the simulation.
-  misc_lib::DateTime end_time_ = misc_lib::DateTime();
+  misc_lib::DateTime end_time_;
 
   /// List of measurement events
   std::vector<MeasureEvent> measurements_;

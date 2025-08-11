@@ -36,6 +36,6 @@
   ],
   "start_frequency": "-2753484.34",
   "drift_rate": "0.0002",
-  "unix_time": true,
+  "unix_time": false,
   "run_records": []
 }
