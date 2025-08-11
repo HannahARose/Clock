@@ -6,7 +6,7 @@ target_link_libraries(si3sim PRIVATE Clock::Clock_options Clock::Clock_warnings)
 
 target_link_system_libraries(
   si3sim
-  PRIVATE
+  PUBLIC
   CLI11::CLI11
   fmt::fmt
   spdlog::spdlog
