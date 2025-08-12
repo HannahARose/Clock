@@ -1,6 +1,11 @@
 include(GenerateExportHeader)
 
-add_library(misc_lib STATIC date_time.cpp time.cpp)
+add_library(
+  misc_lib STATIC
+  date_time.cpp
+  time.cpp
+  quad.cpp
+  run_record.cpp)
 
 add_library(Clock::misc_lib ALIAS misc_lib)
 

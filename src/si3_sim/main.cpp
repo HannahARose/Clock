@@ -21,8 +21,6 @@ constexpr std::string_view TOOL_DESCRIPTION =
 
 int main(int argc, char **argv)
 {
-  clk::si3_sim::Config config;
-
   try {
     // Initialize the CLI application
     CLI::App app(fmt::format("{} {} v{}: {}",
@@ -48,7 +46,7 @@ int main(int argc, char **argv)
 
     if (app.get_option("-v")->count() > 0) { return EXIT_SUCCESS; }
 
-    config = clk::si3_sim::Config::readFromFile(
+    clk::si3_sim::Config config = clk::si3_sim::Config::readFromFile(
       app.get_option("-c")->as<std::string>());
 
     config.addRunRecord(clk::misc_lib::RunRecord{
@@ -64,18 +62,6 @@ int main(int argc, char **argv)
     sim.generateData(out);
   } catch (const std::exception &e) {
     std::cerr << "Unexpected error: " << e.what() << "\n";
-    return EXIT_FAILURE;
-  }
-
-  try {
-    clk::misc_lib::RunRecord run_record = config.lastRunRecord();
-    run_record.end_time = clk::misc_lib::DateTime();
-    run_record.clean_run = true;
-
-    config.updateLastRunRecord(run_record);
-    config.writeToFile(run_record.output_file + ".json");
-  } catch (const std::exception &e) {
-    std::cerr << "Error writing run record: " << e.what() << "\n";
     return EXIT_FAILURE;
   }
 

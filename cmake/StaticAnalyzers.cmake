@@ -77,7 +77,6 @@ macro(Clock_enable_clang_tidy target WARNINGS_AS_ERRORS)
     endif()
 
     # construct the clang-tidy command line
-    # Completely disable header analysis to avoid third-party library issues
     set(CLANG_TIDY_OPTIONS
         ${CLANGTIDY}
         -extra-arg=-Wno-unknown-warning-option

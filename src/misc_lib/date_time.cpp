@@ -1,11 +1,15 @@
 #include <Clock/misc_lib/date_time.hpp>
 
+#include <iomanip>
+#include <ios>
 #include <regex>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <string_view>
 
 #include <boost/date_time/posix_time/ptime.hpp>
+#include <boost/date_time/posix_time/time_formatters.hpp>
 #include <boost/date_time/posix_time/time_parsers.hpp>
 
 namespace clk::misc_lib {
@@ -88,6 +92,43 @@ DateTime DateTime::fromISO(const std::string &iso_string)
     return DateTime(
       time, TimeZone::OFFSET, offset_negative, offset_h, offset_m);
   }
+}
+
+std::string DateTime::toString() const
+{
+  std::stringstream time_str;
+  time_str << boost::posix_time::to_iso_extended_string(time_point_);
+  switch (time_zone_) {
+  case UTC:
+    time_str << "Z";// Append 'Z' for UTC
+    break;
+  case OFFSET:
+    time_str << (offset_negative_ ? "-" : "+") << std::setfill('0')
+             << std::setw(2) << offset_h_ << ":" << std::setw(2) << offset_m_;
+    break;
+  default:
+    // For LOCAL time, no suffix is added
+    break;
+  }
+
+  return time_str.str();
+}
+
+std::string DateTime::toSimpleString(int decimals, bool delimiters) const
+{
+  std::stringstream time_str;
+  const int century = 100;
+  time_str << std::setfill('0') << std::setw(2) << year() % century;
+  if (delimiters) { time_str << "-"; }
+  time_str << std::setw(2) << month();
+  if (delimiters) { time_str << "-"; }
+  time_str << std::setw(2) << day() << " " << std::setw(2) << hour();
+  if (delimiters) { time_str << ":"; }
+  time_str << std::setw(2) << minute();
+  if (delimiters) { time_str << ":"; }
+  time_str << std::fixed << std::setprecision(decimals)
+           << std::setw(2 + (decimals > 0 ? decimals + 1 : 0)) << seconds();
+  return time_str.str();
 }
 
 }// namespace clk::misc_lib

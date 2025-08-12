@@ -1,5 +1,7 @@
+#include <Clock/misc_lib/run_record.hpp>
 #include <Clock/si3_sim/si3_sim.hpp>
 
+#include <exception>
 #include <iomanip>
 #include <ios>
 #include <iostream>
@@ -28,6 +30,19 @@ unsigned int Si3Sim::scheduleDay() const
   }
   throw std::invalid_argument(
     "Unknown RunSchedule: " + std::string(toString(config_.runSchedule())));
+}
+
+Si3Sim::~Si3Sim() noexcept
+{
+  try {
+    misc_lib::RunRecord run_record = config_.lastRunRecord();
+    run_record.end_time = misc_lib::DateTime();
+    config_.updateLastRunRecord(run_record);
+    config_.writeToFile(run_record.output_file + ".json");
+  } catch (const std::exception &e) {
+    std::cerr << "Error writing run record during destructor: " << e.what()
+              << "\n";
+  }
 }
 
 MeasureEvent Si3Sim::nextMeasurementEvent()
@@ -102,6 +117,11 @@ void Si3Sim::generateData(std::ostream &output)
     event = nextMeasurementEvent();
     current_time_ = nextStart(event);
   }
+
+  // Mark that the computation completed cleanly
+  misc_lib::RunRecord run_record = config_.lastRunRecord();
+  run_record.clean_run = true;
+  config_.updateLastRunRecord(run_record);
 }
 
 }// namespace clk::si3_sim

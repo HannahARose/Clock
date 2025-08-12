@@ -3,9 +3,7 @@
 
 #include <Clock/misc_lib_export.hpp>
 
-#include <iomanip>
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <string_view>
 
@@ -114,25 +112,8 @@ public:
    * @brief Convert the Time object to an ISO 8601 string.
    * @return A string representing the time in ISO 8601 format.
    */
-  [[nodiscard]] std::string toString() const
-  {
-    std::stringstream time_str;
-    time_str << boost::posix_time::to_iso_extended_string(time_point_);
-    switch (time_zone_) {
-    case UTC:
-      time_str << "Z";// Append 'Z' for UTC
-      break;
-    case OFFSET:
-      time_str << (offset_negative_ ? "-" : "+") << std::setfill('0')
-               << std::setw(2) << offset_h_ << ":" << std::setw(2) << offset_m_;
-      break;
-    default:
-      // For LOCAL time, no suffix is added
-      break;
-    }
+  [[nodiscard]] std::string toString() const;
 
-    return time_str.str();
-  }
 
   /**
    * @brief Convert the DateTime object to a simple string representation.
@@ -142,22 +123,8 @@ public:
    * format.
    */
   [[nodiscard]] std::string toSimpleString(int decimals = 0,
-    bool delimiters = false) const
-  {
-    std::stringstream time_str;
-    const int century = 100;
-    time_str << std::setfill('0') << std::setw(2) << year() % century;
-    if (delimiters) { time_str << "-"; }
-    time_str << std::setw(2) << month();
-    if (delimiters) { time_str << "-"; }
-    time_str << std::setw(2) << day() << " " << std::setw(2) << hour();
-    if (delimiters) { time_str << ":"; }
-    time_str << std::setw(2) << minute();
-    if (delimiters) { time_str << ":"; }
-    time_str << std::fixed << std::setprecision(decimals)
-             << std::setw(2 + (decimals > 0 ? decimals + 1 : 0)) << seconds();
-    return time_str.str();
-  }
+    bool delimiters = false) const;
+
 
   /**
    * @brief Convert the DateTime object to a Unix timestamp in milliseconds.

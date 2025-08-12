@@ -25,6 +25,31 @@ public:
   }
 
   /**
+   * @brief Deleted copy constructor.
+   */
+  Si3Sim(const Si3Sim &) = delete;
+
+  /**
+   * @brief Deleted move constructor.
+   */
+  Si3Sim(Si3Sim &&) = delete;
+
+  /**
+   * @brief Deleted copy assignment operator.
+   */
+  Si3Sim &operator=(const Si3Sim &) = delete;
+
+  /**
+   * @brief Deleted move assignment operator.
+   */
+  Si3Sim &operator=(Si3Sim &&) = delete;
+
+  /**
+   * @brief Destructor
+   */
+  ~Si3Sim() noexcept;
+
+  /**
    * @brief Get the current schedule day.
    * @return The current schedule day.
    */
