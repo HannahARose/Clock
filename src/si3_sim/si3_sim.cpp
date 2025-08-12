@@ -1,4 +1,3 @@
-#include <Clock/misc_lib/run_record.hpp>
 #include <Clock/si3_sim/si3_sim.hpp>
 
 #include <exception>
@@ -8,8 +7,11 @@
 #include <stdexcept>
 #include <string>
 
+#include <boost/range/algorithm/find_if.hpp>
+
 #include <Clock/misc_lib/date_time.hpp>
 #include <Clock/misc_lib/quad.hpp>
+#include <Clock/misc_lib/run_record.hpp>
 #include <Clock/si3_sim/config.hpp>
 
 namespace clk::si3_sim {
@@ -53,17 +55,19 @@ MeasureEvent Si3Sim::nextMeasurementEvent()
 
   const unsigned int day = scheduleDay();
 
-  // Find the next measurement event based on the current time
-  for (const auto &event : config_.measurementEvents()) {
-    if (event.day > day
-        || (event.day == day
-            && event.start_time >= current_time_.timeOfDay())) {
-      return event;
-    }
-  }
+  auto events = config_.measurementEvents();
+
+  auto iter = boost::range::find_if(events,
+    [day, current_time_of_day = current_time_.timeOfDay()](
+      const MeasureEvent &event) {
+      return event.day > day
+             || (event.day == day && event.start_time >= current_time_of_day);
+    });
+
+  if (iter != events.end()) { return *iter; }
 
   // If we had to wrap around, the first event will be next
-  return config_.measurementEvents().front();
+  return events.front();
 }
 
 misc_lib::DateTime Si3Sim::nextStart(MeasureEvent event)
