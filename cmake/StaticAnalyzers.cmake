@@ -77,16 +77,13 @@ macro(Clock_enable_clang_tidy target WARNINGS_AS_ERRORS)
     endif()
 
     # construct the clang-tidy command line
-    set(CLANG_TIDY_HEADER_FILTER ".*Clock/include/.*")
-    set(CLANG_TIDY_HEADER_EXCLUDE "*_deps/.*")
+    # Completely disable header analysis to avoid third-party library issues
     set(CLANG_TIDY_OPTIONS
         ${CLANGTIDY}
         -extra-arg=-Wno-unknown-warning-option
         -extra-arg=-Wno-ignored-optimization-argument
         -extra-arg=-Wno-unused-command-line-argument
-        -header-filter=${CLANG_TIDY_HEADER_FILTER}
-        -exclude-header-filter=${CLANG_TIDY_HEADER_EXCLUDE}
-        -p)
+        -header-filter='.*/Clock/include/.*')
     # set standard
     if(NOT
        "${CMAKE_CXX_STANDARD}"
@@ -105,6 +102,9 @@ macro(Clock_enable_clang_tidy target WARNINGS_AS_ERRORS)
     if(${WARNINGS_AS_ERRORS})
       list(APPEND CLANG_TIDY_OPTIONS -warnings-as-errors=*)
     endif()
+
+    message("Also setting clang-tidy globally")
+    set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_OPTIONS})
   else()
     message(${WARNING_MESSAGE} "clang-tidy requested but executable not found")
   endif()

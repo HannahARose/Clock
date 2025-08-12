@@ -36,10 +36,6 @@ function(Clock_setup_dependencies)
     cpmaddpackage("gh:ArthurSonzogni/FTXUI@6.0.2")
   endif()
 
-  if(NOT TARGET tools::tools)
-    cpmaddpackage("gh:lefticus/tools#update_build_system")
-  endif()
-
   if(NOT TARGET Boost::headers)
     set(BOOST_INCLUDE_LIBRARIES "date_time;json;multiprecision")
 
