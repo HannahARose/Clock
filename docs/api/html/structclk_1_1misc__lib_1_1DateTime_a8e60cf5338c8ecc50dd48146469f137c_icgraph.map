@@ -1,0 +1,5 @@
+<map id="clk::misc_lib::DateTime::timePoint" name="clk::misc_lib::DateTime::timePoint">
+<area shape="rect" id="Node000001" title="Get the time point as a boost::posix_time::ptime object." alt="" coords="235,5,409,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1RunRecord.html#acdf40452c2d8223e8cd8cbfaf29880f2" title="Convert the run record to a JSON object." alt="" coords="5,5,187,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,28,187,28,187,23,221,23"/>
+</map>

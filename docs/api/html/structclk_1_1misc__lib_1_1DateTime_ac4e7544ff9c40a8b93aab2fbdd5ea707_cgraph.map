@@ -1,0 +1,15 @@
+<map id="clk::misc_lib::DateTime::toSimpleString" name="clk::misc_lib::DateTime::toSimpleString">
+<area shape="rect" id="Node000001" title="Convert the DateTime object to a simple string representation." alt="" coords="5,151,180,191"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#ac81376a4152c451232881cd4e39f78a4" title="Get the day of the month of the time point." alt="" coords="228,5,435,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,149,156,95,190,66,227,41,245,33,247,38,229,46,193,70,160,99,111,153"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#a1cde9aba22c103a9a294b7a8b74dc1f0" title="Get the hour of the time point." alt="" coords="244,55,419,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,149,227,105,248,97,250,102,229,110,134,154"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1misc__lib_1_1DateTime.html#ae97747961f59194776a6aaac91c495c8" title="Get the minute of the time point." alt="" coords="244,119,419,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="180,157,230,150,231,155,181,162"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1misc__lib_1_1DateTime.html#ac50f63d7635c88323c21c0aea2c564fc" title="Get the month of the time point." alt="" coords="244,183,419,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="181,180,231,187,230,192,180,186"/>
+<area shape="rect" id="Node000006" href="$structclk_1_1misc__lib_1_1DateTime.html#ac2f273b8491c35e2592547d4b126d7b5" title="Get the second of the time point." alt="" coords="244,247,419,287"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="134,189,229,233,250,240,248,246,227,238,132,194"/>
+<area shape="rect" id="Node000007" href="$structclk_1_1misc__lib_1_1DateTime.html#a5c4d34170b277de1654221b6572c9c54" title="Get the year of the time point." alt="" coords="244,311,419,351"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="112,190,161,243,194,272,229,297,242,304,239,308,227,302,190,276,157,247,108,193"/>
+</map>

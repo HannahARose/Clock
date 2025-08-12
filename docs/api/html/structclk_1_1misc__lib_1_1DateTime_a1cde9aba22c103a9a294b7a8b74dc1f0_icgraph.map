@@ -1,0 +1,7 @@
+<map id="clk::misc_lib::DateTime::hour" name="clk::misc_lib::DateTime::hour">
+<area shape="rect" id="Node000001" title="Get the hour of the time point." alt="" coords="428,5,603,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#ac4e7544ff9c40a8b93aab2fbdd5ea707" title="Convert the DateTime object to a simple string representation." alt="" coords="205,5,380,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,28,380,28,380,23,414,23"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="5,5,157,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="192,28,158,28,158,23,192,23"/>
+</map>

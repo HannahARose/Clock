@@ -1,0 +1,5 @@
+<map id="clk::si3_sim::Config::writeToFile" name="clk::si3_sim::Config::writeToFile">
+<area shape="rect" id="Node000001" title="Write the configuration to a file." alt="" coords="205,5,353,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a39de0c823b2732da108b81f240a85c7e" title="Destructor." alt="" coords="5,5,157,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,28,157,28,157,23,192,23"/>
+</map>

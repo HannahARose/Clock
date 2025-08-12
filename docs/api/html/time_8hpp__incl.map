@@ -1,0 +1,17 @@
+<map id="include/Clock/misc_lib/time.hpp" name="include/Clock/misc_lib/time.hpp">
+<area shape="rect" id="Node000001" title="DateTime data structure and utilities." alt="" coords="405,5,549,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,101,199,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="405,46,166,100,164,95,404,41"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="223,101,285,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="425,48,299,96,294,98,292,93,297,91,423,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="310,101,369,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="448,48,371,96,368,91,445,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="393,93,560,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="479,46,479,79,474,79,474,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="584,93,793,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="524,43,631,86,629,91,522,48"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="818,93,1042,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="549,38,818,88,817,93,549,43"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1066,93,1229,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="549,30,770,53,1053,91,1052,96,769,58,549,36"/>
+</map>

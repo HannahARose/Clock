@@ -1,0 +1,26 @@
+<map id="clk::si3_sim::Si3Sim::nextStart" name="clk::si3_sim::Si3Sim::nextStart">
+<area shape="rect" id="Node000001" title="Get the start time for the next occurance of the measurement event." alt="" coords="5,165,157,205"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a4014e2caac28d136ba7d692d8eac58e8" title="Add days to the time point." alt="" coords="205,51,380,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,163,204,107,230,94,232,99,207,112,114,167"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Config.html#aab4332af945fefc2b44e8694b0ba1caf" title="Get the interval for the current schedule." alt="" coords="458,5,606,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,163,296,125,379,100,393,90,402,78,412,67,427,55,444,46,446,51,429,60,415,71,406,82,397,94,381,105,298,130,158,168"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Si3Sim.html#aad0b41bfeec82f9da4e8447639bb8819" title="Get the current schedule day." alt="" coords="217,165,369,205"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,183,203,183,203,188,157,188"/>
+<area shape="rect" id="Node000010" href="$structclk_1_1misc__lib_1_1DateTime.html#a7310aa8f1068883206cec0f07b493b7d" title="Set the time of day for the time point." alt="" coords="205,229,380,269"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="149,203,214,223,212,228,147,208"/>
+<area shape="rect" id="Node000012" href="$structclk_1_1misc__lib_1_1DateTime.html#ae13f5a3680b8cb0f362850c43d86b329" title="Get the time of day of the time point." alt="" coords="205,293,380,333"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="106,204,151,241,207,279,219,285,217,290,204,284,148,245,103,208"/>
+<area shape="poly" id="edge7_Node000004_Node000003" title=" " alt="" coords="351,163,378,145,394,123,401,100,408,78,426,55,444,44,447,48,430,59,413,80,406,102,399,125,382,149,354,167"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1misc__lib_1_1DateTime.html#aa39a8d12e8298c9d2839d00655a40e25" title="Get the day of the month of the time point." alt="" coords="445,69,619,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="339,163,379,144,427,119,446,111,448,116,429,124,381,149,341,168"/>
+<area shape="rect" id="Node000006" href="$structclk_1_1misc__lib_1_1DateTime.html#a745eee7ebd157f7f9090a5ef0f70ed67" title="Get the weekday of the time point." alt="" coords="445,133,619,173"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="369,173,430,164,431,169,369,178"/>
+<area shape="rect" id="Node000007" href="$structclk_1_1misc__lib_1_1DateTime.html#a9ecea33a44b419d4c7f1eb9ddfb45aaa" title="Get the day of the year of the time point." alt="" coords="445,197,619,237"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="369,193,431,201,430,206,369,198"/>
+<area shape="rect" id="Node000008" href="$structclk_1_1misc__lib_1_1DateTime.html#a01d736f8e2fb0537bb0b94619c14a27f" title="Get the Modified Julian Date (MJD) of the time point." alt="" coords="428,262,636,287"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="355,203,381,215,405,232,429,247,452,255,450,260,427,252,402,236,379,220,352,208"/>
+<area shape="rect" id="Node000009" href="$structclk_1_1si3__sim_1_1Config.html#a9f523338979bcb682cbd847579a6239d" title=" " alt="" coords="458,312,606,352"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="363,203,382,215,399,236,406,257,414,277,430,297,447,308,444,312,426,301,409,280,401,259,394,239,378,219,360,208"/>
+<area shape="rect" id="Node000011" href="$structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" title="Returns the time as a boost object." alt="" coords="460,376,604,416"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="364,267,382,279,399,301,406,322,413,342,430,362,449,374,446,378,426,366,409,345,401,324,394,303,378,283,361,272"/>
+</map>

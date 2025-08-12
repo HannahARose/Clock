@@ -1,0 +1,5 @@
+<map id="clk::misc_lib::DateTime::toMilliUnixTimestamp" name="clk::misc_lib::DateTime::toMilliUnixTimestamp">
+<area shape="rect" id="Node000001" title="Convert the DateTime object to a Unix timestamp in milliseconds." alt="" coords="205,5,380,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="5,5,157,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,28,158,28,158,23,192,23"/>
+</map>

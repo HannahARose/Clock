@@ -1,0 +1,6 @@
+<map id="clk::misc_lib::fromSeconds" name="clk::misc_lib::fromSeconds">
+<area shape="rect" id="Node000001" title="Convert seconds to a Boost time_duration." alt="" coords="197,29,393,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="334,20,323,11,295,8,272,10,260,15,258,20,264,28,260,31,252,21,256,11,271,5,295,3,325,6,337,15"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1Time.html#a9bb154ffe9c7f5fe3a8f4297f612777c" title="Constructor for Time with specific hours, minutes, and seconds." alt="" coords="5,22,149,62"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="184,45,150,45,150,39,184,39"/>
+</map>

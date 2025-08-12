@@ -1,0 +1,15 @@
+<map id="clk::si3_sim::Si3Sim::scheduleDay" name="clk::si3_sim::Si3Sim::scheduleDay">
+<area shape="rect" id="Node000001" title="Get the current schedule day." alt="" coords="5,165,157,205"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#aa39a8d12e8298c9d2839d00655a40e25" title="Get the day of the month of the time point." alt="" coords="222,5,397,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,163,139,110,170,80,204,55,215,49,218,54,207,60,173,84,143,113,99,167"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#a745eee7ebd157f7f9090a5ef0f70ed67" title="Get the weekday of the time point." alt="" coords="222,69,397,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,163,204,119,224,111,226,116,206,124,118,168"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1misc__lib_1_1DateTime.html#a9ecea33a44b419d4c7f1eb9ddfb45aaa" title="Get the day of the year of the time point." alt="" coords="222,133,397,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,172,208,165,209,170,158,177"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1si3__sim_1_1Config.html#aab4332af945fefc2b44e8694b0ba1caf" title="Get the interval for the current schedule." alt="" coords="235,197,383,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="158,193,222,202,221,208,157,199"/>
+<area shape="rect" id="Node000006" href="$structclk_1_1misc__lib_1_1DateTime.html#a01d736f8e2fb0537bb0b94619c14a27f" title="Get the Modified Julian Date (MJD) of the time point." alt="" coords="205,262,413,287"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="117,203,159,226,206,247,233,256,232,261,204,252,157,231,115,208"/>
+<area shape="rect" id="Node000007" href="$structclk_1_1si3__sim_1_1Config.html#a9f523338979bcb682cbd847579a6239d" title=" " alt="" coords="235,312,383,352"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="101,204,146,250,175,275,207,296,224,305,221,310,204,301,172,279,142,254,97,207"/>
+</map>

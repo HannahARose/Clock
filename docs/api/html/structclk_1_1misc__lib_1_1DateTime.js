@@ -1,0 +1,35 @@
+var structclk_1_1misc__lib_1_1DateTime =
+[
+    [ "TimeZone", "structclk_1_1misc__lib_1_1DateTime.html#a6fb5f4a789216da4ad0b65a2da290dd9", [
+      [ "UTC", "structclk_1_1misc__lib_1_1DateTime.html#a6fb5f4a789216da4ad0b65a2da290dd9a2d708c40cb4fcac466bc44f8e3e243de", null ],
+      [ "LOCAL", "structclk_1_1misc__lib_1_1DateTime.html#a6fb5f4a789216da4ad0b65a2da290dd9a56d1a2ccf4849f80bc0ef85c0fe01553", null ],
+      [ "OFFSET", "structclk_1_1misc__lib_1_1DateTime.html#a6fb5f4a789216da4ad0b65a2da290dd9a38b6a3d8224feb202c003959aa11d1f1", null ]
+    ] ],
+    [ "DateTime", "structclk_1_1misc__lib_1_1DateTime.html#ab733205744a8059f03cb9f4fa81e83bd", null ],
+    [ "DateTime", "structclk_1_1misc__lib_1_1DateTime.html#a9afb5789b665a08772692ea127d2f601", null ],
+    [ "addDays", "structclk_1_1misc__lib_1_1DateTime.html#a4014e2caac28d136ba7d692d8eac58e8", null ],
+    [ "day", "structclk_1_1misc__lib_1_1DateTime.html#ac81376a4152c451232881cd4e39f78a4", null ],
+    [ "dayOfMonth", "structclk_1_1misc__lib_1_1DateTime.html#aa39a8d12e8298c9d2839d00655a40e25", null ],
+    [ "dayOfWeek", "structclk_1_1misc__lib_1_1DateTime.html#a745eee7ebd157f7f9090a5ef0f70ed67", null ],
+    [ "dayOfYear", "structclk_1_1misc__lib_1_1DateTime.html#a9ecea33a44b419d4c7f1eb9ddfb45aaa", null ],
+    [ "fractionalMJD", "structclk_1_1misc__lib_1_1DateTime.html#a24ca9963d82f1d8eee2abc048fd90b15", null ],
+    [ "hour", "structclk_1_1misc__lib_1_1DateTime.html#a1cde9aba22c103a9a294b7a8b74dc1f0", null ],
+    [ "minute", "structclk_1_1misc__lib_1_1DateTime.html#ae97747961f59194776a6aaac91c495c8", null ],
+    [ "mjd", "structclk_1_1misc__lib_1_1DateTime.html#a01d736f8e2fb0537bb0b94619c14a27f", null ],
+    [ "month", "structclk_1_1misc__lib_1_1DateTime.html#ac50f63d7635c88323c21c0aea2c564fc", null ],
+    [ "offset", "structclk_1_1misc__lib_1_1DateTime.html#a00e1346e933414d1e9e879ed7265a8e8", null ],
+    [ "operator+=", "structclk_1_1misc__lib_1_1DateTime.html#a49e6638a8d3e6f4e78bf79b7fcd6585d", null ],
+    [ "operator<", "structclk_1_1misc__lib_1_1DateTime.html#a753c1d117bb8c1f4290f80d0f5bb2015", null ],
+    [ "operator<<", "structclk_1_1misc__lib_1_1DateTime.html#a8026e9cfa161ae17575dd92e53d405a8", null ],
+    [ "operator==", "structclk_1_1misc__lib_1_1DateTime.html#ac53cde6b6e6f499869b41fe59ad3c301", null ],
+    [ "seconds", "structclk_1_1misc__lib_1_1DateTime.html#ac2f273b8491c35e2592547d4b126d7b5", null ],
+    [ "secondsSince", "structclk_1_1misc__lib_1_1DateTime.html#a7165ad31ae2540b4f19a784f9310c17e", null ],
+    [ "setTime", "structclk_1_1misc__lib_1_1DateTime.html#a7310aa8f1068883206cec0f07b493b7d", null ],
+    [ "timeOfDay", "structclk_1_1misc__lib_1_1DateTime.html#ae13f5a3680b8cb0f362850c43d86b329", null ],
+    [ "timePoint", "structclk_1_1misc__lib_1_1DateTime.html#a8e60cf5338c8ecc50dd48146469f137c", null ],
+    [ "timeZone", "structclk_1_1misc__lib_1_1DateTime.html#ac6972f963a8325e83cd981f423abb4b8", null ],
+    [ "toMilliUnixTimestamp", "structclk_1_1misc__lib_1_1DateTime.html#add09b1cd23d7e28e8c6fbb70bd7b4553", null ],
+    [ "toSimpleString", "structclk_1_1misc__lib_1_1DateTime.html#ac4e7544ff9c40a8b93aab2fbdd5ea707", null ],
+    [ "toString", "structclk_1_1misc__lib_1_1DateTime.html#a8b223c0f6e3f0282852414c2a6d0fd54", null ],
+    [ "year", "structclk_1_1misc__lib_1_1DateTime.html#a5c4d34170b277de1654221b6572c9c54", null ]
+];

@@ -1,0 +1,117 @@
+---
+Checks: "*,
+        -abseil-*,
+        -altera-*,
+        -android-*,
+        -clang-analyzer-*,
+        -fuchsia-*,
+        -google-*,
+        -llvm*,
+        -modernize-use-trailing-return-type,
+        -zircon-*,
+        -readability-else-after-return,
+        -readability-static-accessed-through-instance,
+        -readability-avoid-const-params-in-decls,
+        -cppcoreguidelines-non-private-member-variables-in-classes,
+        -misc-non-private-member-variables-in-classes,
+        -misc-no-recursion,
+        -misc-use-anonymous-namespace,
+        -misc-use-internal-linkage
+"
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+FormatStyle:     none
+
+CheckOptions:
+  - key: readability-identifier-length.IgnoredVariableNames
+    value: 'x|y|z'
+  - key: readability-identifier-length.IgnoredParameterNames
+    value: 'x|y|z'
+
+# Identifier Naming Conventions
+  
+# Class : ClassName
+  - key:             readability-identifier-naming.ClassCase
+    value:           CamelCase
+
+# Class Member : class_member_name_
+  - key:             readability-identifier-naming.ClassMemberCase
+    value:           lower_case
+  - key:             readability-identifier-naming.ClassMemberSuffix
+    value:           _
+
+# Const Expression Variable : CONST_EXPRESSION_VARIABLE_NAME
+  - key:             readability-identifier-naming.ConstexprVariableCase
+    value:           UPPER_CASE
+
+# Enum : EnumName
+  - key:             readability-identifier-naming.EnumCase
+    value:           CamelCase
+
+# Enum Constant : ENUM_CONSTANT_NAME
+  - key:             readability-identifier-naming.EnumConstantCase
+    value:           UPPER_CASE
+
+# Function : functionName
+  - key:             readability-identifier-naming.FunctionCase
+    value:           camelBack
+
+# Global Constant : GLOBAL_CONSTANT_NAME 
+  - key:             readability-identifier-naming.GlobalConstantCase
+    value:           UPPER_CASE
+
+# Static Constant : STATIC_CONSTANT_NAME
+  - key:             readability-identifier-naming.StaticConstantCase
+    value:           UPPER_CASE
+
+# Static Variable : static_variable_name
+  - key:             readability-identifier-naming.StaticVariableCase
+    value:           lower_case
+
+# Macro Definition: MACRO_DEFINITION_NAME or MACRO_DEFINITION_NAME_
+  - key:             readability-identifier-naming.MacroDefinitionCase
+    value:           UPPER_CASE
+  - key:             readability-identifier-naming.MacroDefinitionIgnoredRegexp
+    value:           '^[A-Z]+(_[A-Z]+)*_$'
+
+# Private Member : private_member_name_
+  - key:             readability-identifier-naming.PrivateMemberCase
+    value:           lower_case
+  - key:             readability-identifier-naming.PrivateMemberSuffix
+    value:           _
+
+# Protected Member : protected_member_name_
+  - key:             readability-identifier-naming.ProtectedMemberCase
+    value:           lower_case
+  - key:             readability-identifier-naming.ProtectedMemberSuffix
+    value:           _
+
+# Public Member : public_member_name
+  - key:             readability-identifier-naming.PublicMemberCase
+    value:           lower_case
+  - key:             readability-identifier-naming.PublicMemberSuffix
+    value:           ''
+
+# Namespace : namespace_name
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           lower_case
+
+# Parameter : parameter_name
+  - key:             readability-identifier-naming.ParameterCase
+    value:           lower_case
+
+# Type Alias : TypeAliasName
+  - key:             readability-identifier-naming.TypeAliasCase
+    value:           CamelCase
+
+# Typedef : TypedefName
+  - key:             readability-identifier-naming.TypedefCase
+    value:           CamelCase
+
+# Variable : variable_name
+  - key:             readability-identifier-naming.VariableCase
+    value:           lower_case
+
+# Ignore main-like functions
+  - key:             readability-identifier-naming.IgnoreMainLikeFunctions
+    value:           1

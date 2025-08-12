@@ -1,0 +1,13 @@
+<map id="clk::misc_lib::DateTime::timeOfDay" name="clk::misc_lib::DateTime::timeOfDay">
+<area shape="rect" id="Node000001" title="Get the time of day of the time point." alt="" coords="440,92,615,132"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a24ca9963d82f1d8eee2abc048fd90b15" title="Get the fractional Modified Julian Date (MJD) of the time point." alt="" coords="211,5,386,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="460,89,352,48,353,43,462,85"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="5,120,157,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="426,106,320,104,206,111,148,123,146,117,205,105,320,98,426,101"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Si3Sim.html#ac25a7d32cb0802f01b1796c979cd9771" title="find the first measurement event after the current time" alt="" coords="205,120,392,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="427,127,393,131,392,126,426,122"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a9e67ccf25001ad917a3d183febee082a" title="Get the start time for the next occurance of the measurement event." alt="" coords="223,184,375,224"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="472,140,393,174,361,186,359,181,391,170,470,135"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="192,143,157,143,157,137,192,137"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="216,183,149,163,151,157,218,178"/>
+</map>

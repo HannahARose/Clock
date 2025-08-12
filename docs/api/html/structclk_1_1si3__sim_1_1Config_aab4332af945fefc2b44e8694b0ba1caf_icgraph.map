@@ -1,0 +1,13 @@
+<map id="clk::si3_sim::Config::interval" name="clk::si3_sim::Config::interval">
+<area shape="rect" id="Node000001" title="Get the interval for the current schedule." alt="" coords="640,35,788,75"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a9e67ccf25001ad917a3d183febee082a" title="Get the start time for the next occurance of the measurement event." alt="" coords="223,5,375,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="626,51,375,33,375,28,627,46"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Si3Sim.html#aad0b41bfeec82f9da4e8447639bb8819" title="Get the current schedule day." alt="" coords="440,63,592,103"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="627,70,592,75,592,69,626,64"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="5,37,157,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,41,158,49,157,44,208,36"/>
+<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="426,62,374,48,375,43,427,57"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1si3__sim_1_1Si3Sim.html#ac25a7d32cb0802f01b1796c979cd9771" title="find the first measurement event after the current time" alt="" coords="205,69,392,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="426,88,392,89,392,84,426,83"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="191,76,157,71,158,66,192,71"/>
+</map>

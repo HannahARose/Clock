@@ -1,0 +1,21 @@
+<map id="clk::si3_sim::Si3Sim::nextMeasurementEvent" name="clk::si3_sim::Si3Sim::nextMeasurementEvent">
+<area shape="rect" id="Node000001" title="find the first measurement event after the current time" alt="" coords="5,165,192,205"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Config.html#a4a62ed93612e6e9ce4119903d0ae85b2" title=" " alt="" coords="245,101,410,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,163,242,142,243,148,172,168"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Si3Sim.html#aad0b41bfeec82f9da4e8447639bb8819" title="Get the current schedule day." alt="" coords="251,165,403,205"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,183,238,183,238,188,193,188"/>
+<area shape="rect" id="Node000010" href="$structclk_1_1misc__lib_1_1DateTime.html#ae13f5a3680b8cb0f362850c43d86b329" title="Get the time of day of the time point." alt="" coords="240,229,415,269"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="172,203,243,223,242,228,170,208"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1misc__lib_1_1DateTime.html#aa39a8d12e8298c9d2839d00655a40e25" title="Get the day of the month of the time point." alt="" coords="479,5,654,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="396,163,413,151,430,128,436,104,442,80,461,55,467,50,471,55,465,59,447,82,441,106,434,130,417,155,399,167"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1misc__lib_1_1DateTime.html#a745eee7ebd157f7f9090a5ef0f70ed67" title="Get the weekday of the time point." alt="" coords="479,69,654,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="387,163,413,151,437,135,461,119,478,112,480,117,464,124,440,139,416,156,389,168"/>
+<area shape="rect" id="Node000006" href="$structclk_1_1misc__lib_1_1DateTime.html#a9ecea33a44b419d4c7f1eb9ddfb45aaa" title="Get the day of the year of the time point." alt="" coords="479,133,654,173"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="403,173,465,164,466,169,404,178"/>
+<area shape="rect" id="Node000007" href="$structclk_1_1si3__sim_1_1Config.html#aab4332af945fefc2b44e8694b0ba1caf" title="Get the interval for the current schedule." alt="" coords="493,197,641,237"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="404,193,479,203,479,208,403,198"/>
+<area shape="rect" id="Node000008" href="$structclk_1_1misc__lib_1_1DateTime.html#a01d736f8e2fb0537bb0b94619c14a27f" title="Get the Modified Julian Date (MJD) of the time point." alt="" coords="463,262,671,287"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="389,203,416,215,440,232,464,247,487,255,485,260,461,252,437,236,413,220,387,208"/>
+<area shape="rect" id="Node000009" href="$structclk_1_1si3__sim_1_1Config.html#a9f523338979bcb682cbd847579a6239d" title=" " alt="" coords="493,312,641,352"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="398,203,416,215,434,237,441,258,448,278,464,298,482,309,479,313,461,302,443,281,436,260,429,239,413,219,395,208"/>
+</map>

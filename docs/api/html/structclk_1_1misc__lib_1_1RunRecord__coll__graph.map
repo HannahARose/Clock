@@ -1,0 +1,5 @@
+<map id="clk::misc_lib::RunRecord" name="clk::misc_lib::RunRecord">
+<area shape="rect" id="Node000001" title="Structure to hold information about a run of a tool." alt="" coords="5,108,187,133"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html" title="Class representing a point in time." alt="" coords="9,5,183,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,45,99,108,93,108,93,45"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="clk::si3_sim::Config::write" name="clk::si3_sim::Config::write">
+<area shape="rect" id="Node000001" title="write the configuration to a stream." alt="" coords="5,5,153,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a8b223c0f6e3f0282852414c2a6d0fd54" title="Convert the Time object to an ISO 8601 string." alt="" coords="201,5,376,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,23,188,23,188,28,154,28"/>
+</map>

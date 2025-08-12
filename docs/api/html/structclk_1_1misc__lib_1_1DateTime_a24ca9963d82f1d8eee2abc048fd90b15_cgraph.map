@@ -1,0 +1,9 @@
+<map id="clk::misc_lib::DateTime::fractionalMJD" name="clk::misc_lib::DateTime::fractionalMJD">
+<area shape="rect" id="Node000001" title="Get the fractional Modified Julian Date (MJD) of the time point." alt="" coords="5,63,180,103"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1Time.html#a9f4b6d42d1279f20a1562049b2d55011" title="Computes the fraction of the day elapsed since midnight." alt="" coords="260,5,404,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,60,246,43,247,48,177,65"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#a01d736f8e2fb0537bb0b94619c14a27f" title="Get the Modified Julian Date (MJD) of the time point." alt="" coords="228,70,436,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,80,214,80,214,85,180,85"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1misc__lib_1_1DateTime.html#ae13f5a3680b8cb0f362850c43d86b329" title="Get the time of day of the time point." alt="" coords="245,120,419,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,100,235,114,234,119,176,105"/>
+</map>

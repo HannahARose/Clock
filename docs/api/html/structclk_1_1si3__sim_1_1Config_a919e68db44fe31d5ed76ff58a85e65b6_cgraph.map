@@ -1,0 +1,5 @@
+<map id="clk::si3_sim::Config::validateMeasurementEvents" name="clk::si3_sim::Config::validateMeasurementEvents">
+<area shape="rect" id="Node000001" title="Ensures measurements are valid." alt="" coords="5,5,223,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Config.html#a456126ae84db202b34d645fdd26cd299" title="Reorder the measurement events in the simulation." alt="" coords="271,5,460,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,23,257,23,257,28,223,28"/>
+</map>
