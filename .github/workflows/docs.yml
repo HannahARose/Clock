@@ -67,7 +67,8 @@ jobs:
 
     - name: Moving Files
       run: |
-        mv ${{github.workspace}}/out/build/unixlike-clang-release-docs/html ./docs/api
+        mkdir -p ./docs/api
+        mv ./out/build/unixlike-clang-release-docs/html ./docs/api
 
       # Deploy to GitHub Pages
     - name: Deploy
