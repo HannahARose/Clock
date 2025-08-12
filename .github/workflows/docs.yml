@@ -1,4 +1,4 @@
-name: CMake
+name: Docs
   
 on:
   workflow_dispatch:
@@ -17,18 +17,6 @@ env:
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        compiler:
-          - llvm-19.1.1
-        generator:
-          - "Ninja Multi-Config"
-        build_type:
-          - Release
-        packaging_maintainer_mode:
-          - ON
-
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
@@ -43,10 +31,10 @@ jobs:
     - name: Setup Cache
       uses: ./.github/actions/setup_cache
       with:
-        compiler: ${{ matrix.compiler }}
-        build_type: ${{ matrix.build_type }}
-        packaging_maintainer_mode: ${{ matrix.packaging_maintainer_mode }}
-        generator: ${{ matrix.generator }}
+        compiler: llvm-19.1.1
+        build_type: Release
+        packaging_maintainer_mode: ON
+        generator: "Ninja Multi-Config"
 
     - name: Project Name
       uses: cardinalby/export-env-action@v2
@@ -56,34 +44,30 @@ jobs:
     - name: Setup Cpp
       uses: aminya/setup-cpp@v1
       with:
-        compiler: ${{ matrix.compiler }}
-        vcvarsall: ${{ contains(matrix.os, 'windows' )}}
+        compiler: llvm-19.1.1
 
         cmake: true
         ninja: true
         vcpkg: false
         ccache: true
-        clangtidy: false
+        clangtidy: "19.1.1"
 
-        cppcheck: false
-
-        gcovr: false
-        opencppcoverage: false
+        cppcheck: true
 
     - name: Install quetzal and Doxygen dependencies
       run: sudo apt-get install -y --no-install-recommends libboost-all-dev libgdal-dev doxygen graphviz
 
     - name: Configure CMake
       run: |
-        cmake -S . -B ./build -G "${{matrix.generator}}" -DCMAKE_BUILD_TYPE:STRING=${{matrix.build_type}} -D${{ env.PROJECT_NAME }}_PACKAGING_MAINTAINER_MODE:BOOL=${{matrix.packaging_maintainer_mode}} -D${{ env.PROJECT_NAME }}_ENABLE_DOCUMENTATION:BOOL=ON
+        cmake -S . --preset=unixlike-clang-release-docs
 
     - name: Generate documentation
       run: |
-        cmake --build ./build --config ${{matrix.build_type}}
+        cmake --build ./out/build/unixlike-clang-release-docs --target=doxygen-docs
 
     - name: Moving Files
       run: |
-        mv ${{github.workspace}}/build/html ./docs/api
+        mv ${{github.workspace}}/out/build/unixlike-clang-release-docs/html ./docs/api
 
       # Deploy to GitHub Pages
     - name: Deploy
