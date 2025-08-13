@@ -1,3 +1,11 @@
+/**
+ * @file main.cpp
+ * @brief Main entry point for the Si3 simulation tool.
+ * @details This file contains the implementation of the main function
+ * for the Si3 simulation tool, including command-line argument parsing
+ * and simulation execution.
+ */
+
 #include <cstdlib>
 #include <exception>
 #include <fstream>
@@ -15,14 +23,26 @@
 #include <internal_use_only/config.hpp>
 
 // Define constants for tool name and description
+
+/// Tool name
 constexpr std::string_view TOOL_NAME = "si3sim";
+/// Short description
 constexpr std::string_view TOOL_DESCRIPTION =
   "A simulation tool for Si3 systems.";
 
+/**
+ * @brief Main entry point for the Si3 simulation tool.
+ * @param argc The number of command-line arguments.
+ * @param argv The command-line arguments.
+ * @return Exit status code (0 for success, non-zero for failure).
+ * @details This function initializes the CLI application, parses command-line
+ * arguments, and executes the simulation.
+ * Arguments:
+ * - `-c,--config`: Path to the configuration file (required)
+ * - `-o,--output`: Path to the output file (required)
+ */
 int main(int argc, char **argv)
 {
-  clk::si3_sim::Config config;
-
   try {
     // Initialize the CLI application
     CLI::App app(fmt::format("{} {} v{}: {}",
@@ -48,7 +68,7 @@ int main(int argc, char **argv)
 
     if (app.get_option("-v")->count() > 0) { return EXIT_SUCCESS; }
 
-    config = clk::si3_sim::Config::readFromFile(
+    clk::si3_sim::Config config = clk::si3_sim::Config::readFromFile(
       app.get_option("-c")->as<std::string>());
 
     config.addRunRecord(clk::misc_lib::RunRecord{
@@ -64,18 +84,6 @@ int main(int argc, char **argv)
     sim.generateData(out);
   } catch (const std::exception &e) {
     std::cerr << "Unexpected error: " << e.what() << "\n";
-    return EXIT_FAILURE;
-  }
-
-  try {
-    clk::misc_lib::RunRecord run_record = config.lastRunRecord();
-    run_record.end_time = clk::misc_lib::DateTime();
-    run_record.clean_run = true;
-
-    config.updateLastRunRecord(run_record);
-    config.writeToFile(run_record.output_file + ".json");
-  } catch (const std::exception &e) {
-    std::cerr << "Error writing run record: " << e.what() << "\n";
     return EXIT_FAILURE;
   }
 

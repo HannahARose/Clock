@@ -1,28 +1,31 @@
+/**
+ * @file date_time.hpp
+ * @brief DateTime data structure and utilities.
+ * @details This file provides a DateTime class for handling date and time
+ * operations, including parsing and formatting.
+ *
+ * @note This file is part of the Clock library.
+ */
+
+/* Revision History
+ * - 2025-08-12 Initial revision history
+ */
+
 #ifndef CLOCK_MISC_LIB_DATE_TIME_H_
 #define CLOCK_MISC_LIB_DATE_TIME_H_
 
 #include <Clock/misc_lib_export.hpp>
 
-#include <iomanip>
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <string_view>
 
-#include <boost/date_time/posix_time/posix_time.hpp>
-#include <boost/date_time/posix_time/posix_time_config.hpp>
 #include <boost/date_time/posix_time/posix_time_duration.hpp>
-#include <boost/date_time/posix_time/time_parsers.hpp>
-#include <boost/date_time/time_duration.hpp>
-#include <boost/move/detail/type_traits.hpp>
+#include <boost/date_time/posix_time/posix_time_types.hpp>
+#include <boost/date_time/posix_time/ptime.hpp>
 
 #include <Clock/misc_lib/quad.hpp>
 #include <Clock/misc_lib/time.hpp>
-
-/**
- * @file time.hpp
- * @brief DateTime data structure and utilities.
- */
 
 namespace clk::misc_lib {
 
@@ -52,8 +55,10 @@ std::string_view toString(Weekday day);
  * @param str The string representation of the weekday.
  * @return The corresponding Weekday enum value.
  * @throws std::invalid_argument if the string does not match any known weekday.
+ * @details Checks the first two characters of the string (case-insensitive)
+ * to determine the weekday.
  */
-Weekday fromString(std::string_view str);
+Weekday fromString(const std::string &str);
 
 /**
  * @brief Class representing a point in time.
@@ -64,29 +69,30 @@ struct DateTime
 {
 public:
   /**
-   * @brief Enumeration of time zones options.
+   * @brief Enumeration of time zone options.
    */
   enum TimeZone : std::uint8_t {
     UTC,///< Coordinated Universal Time
     LOCAL,///< Local time zone
-    OFFSET///< Custom time zone (not implemented)
+    OFFSET///< Custom time zone
   };
 
   /**
-   * @brief Default constructor for Time.
-   * Initializes the time point to the current time in UTC.
+   * @name Constructors and Factory Methods
+   * @{
    */
-  DateTime() : DateTime(boost::posix_time::second_clock::universal_time()) {}
 
   /**
    * @brief Constructor for Time.
-   * @param time_point The time point to set.
-   * @param time_zone The time zone of the time point.
-   * @param offset_negative Whether the offset is negative.
-   * @param offset_h The hour component of the offset.
-   * @param offset_m The minute component of the offset.
+   * @param time_point The time point to set, defaults to the current time.
+   * @param time_zone The time zone of the time point, defaults to UTC.
+   * @param offset_negative Whether a custom offset is negative, defaults to
+   * false.
+   * @param offset_h The hour component of a custom offset, defaults to 0.
+   * @param offset_m The minute component of a custom offset, defaults to 0.
    */
-  explicit DateTime(boost::posix_time::ptime time_point,
+  explicit DateTime(boost::posix_time::ptime time_point =
+                      boost::posix_time::second_clock::universal_time(),
     TimeZone time_zone = UTC,
     bool offset_negative = false,
     unsigned int offset_h = 0,
@@ -97,9 +103,16 @@ public:
   {}
 
   /**
-   * @brief Factory method to create a Time object from an ISO 8601 string.
+   * @brief Factory method to create a DateTime object representing the current
+   * time.
+   * @details Initializes the time point to the current time in UTC.
+   */
+  static DateTime now() { return DateTime(); }
+
+  /**
+   * @brief Factory method to create a DateTime object from an ISO 8601 string.
    * @param iso_string The iso formatted string to parse.
-   * @return A Time object representing the parsed time.
+   * @return A DateTime object representing the parsed time.
    * @throws std::invalid_argument if the iso_string is empty or invalid.
    * @details This method uses boost's posix_time to parse the ISO string.
    * It assumes the string is in the format "YYYY-MM-DDTHH:MM:SS"
@@ -110,61 +123,41 @@ public:
    */
   [[nodiscard]] static DateTime fromISO(const std::string &iso_string);
 
+  /// @} // End of Constructors and Factory Methods group
+
   /**
-   * @brief Convert the Time object to an ISO 8601 string.
+   * @name String Conversion
+   * @{
+   */
+
+  /**
+   * @brief Convert the DateTime object to an ISO 8601 string.
    * @return A string representing the time in ISO 8601 format.
    */
-  [[nodiscard]] std::string toString() const
-  {
-    std::stringstream time_str;
-    time_str << boost::posix_time::to_iso_extended_string(time_point_);
-    switch (time_zone_) {
-    case UTC:
-      time_str << "Z";// Append 'Z' for UTC
-      break;
-    case OFFSET:
-      time_str << (offset_negative_ ? "-" : "+") << std::setfill('0')
-               << std::setw(2) << offset_h_ << ":" << std::setw(2) << offset_m_;
-      break;
-    default:
-      // For LOCAL time, no suffix is added
-      break;
-    }
+  [[nodiscard]] std::string toString() const;
 
-    return time_str.str();
-  }
 
   /**
    * @brief Convert the DateTime object to a simple string representation.
-   * @param decimals The number of decimal places for seconds.
-   * @param delimiters Whether to include delimiters in the output.
+   * @param decimals The number of decimal places for seconds, defaults to 0.
+   * @param delimiters Whether to include delimiters in the output, defaults to
+   * false.
    * @return A string representing the date and time in "YYYYMMDD HHMMSS.ff"
-   * format.
+   * format or "YYYY-MM-DD HH:MM:SS.ff" format.
    */
   [[nodiscard]] std::string toSimpleString(int decimals = 0,
-    bool delimiters = false) const
-  {
-    std::stringstream time_str;
-    const int century = 100;
-    time_str << std::setfill('0') << std::setw(2) << year() % century;
-    if (delimiters) { time_str << "-"; }
-    time_str << std::setw(2) << month();
-    if (delimiters) { time_str << "-"; }
-    time_str << std::setw(2) << day() << " " << std::setw(2) << hour();
-    if (delimiters) { time_str << ":"; }
-    time_str << std::setw(2) << minute();
-    if (delimiters) { time_str << ":"; }
-    time_str << std::fixed << std::setprecision(decimals)
-             << std::setw(2 + (decimals > 0 ? decimals + 1 : 0)) << seconds();
-    return time_str.str();
-  }
+    bool delimiters = false) const;
+
 
   /**
    * @brief Convert the DateTime object to a Unix timestamp in milliseconds.
    * @return A string representing the Unix timestamp in milliseconds.
+   * @details This method calculates the number of milliseconds since the Unix
+   * epoch (1970-01-01T00:00:00Z) and returns it as a string.
    */
   [[nodiscard]] std::string toMilliUnixTimestamp() const
   {
+    // TODO: Handle time zones
     constexpr boost::posix_time::ptime EPOCH(
       boost::gregorian::date(1970, 1, 1));
 
@@ -181,6 +174,7 @@ public:
     return out_stream << toString();
   }
 
+  /// @} // End of String Conversion group
 
   /**
    * @name Modifiers
@@ -206,6 +200,15 @@ public:
     time_point_ += time.toBoostDuration() - time_point_.time_of_day();
   }
 
+  // TODO: Timezone conversions
+
+  /// @} // End Modifiers Group
+
+  /**
+   * @name Arithmetic
+   * @{
+   */
+
   /**
    * @brief Seconds increment operator
    * @param seconds number of seconds to add
@@ -217,16 +220,9 @@ public:
       boost::posix_time::microseconds(static_cast<long>(seconds * sec_to_us));
   }
 
-  /// @} // End Modifiers Group
-
   /**
-   * @name Arithmetic
-   * @{
-   */
-
-  /**
-   * @brief Subtract another DateTime from this one.
-   * @param other The DateTime to subtract.
+   * @brief Get the difference in seconds between two DateTime objects.
+   * @param other The DateTime to compare against.
    * @return The difference in seconds as a double.
    */
   [[nodiscard]] Quad secondsSince(const DateTime &other) const
@@ -380,9 +376,7 @@ public:
     return mjd() + timeOfDay().fraction();
   }
 
-  /**
-   * @} // End of Time Accessors group
-   */
+  /// @} // End of Time Accessors group
 
   /**
    * @name Comparators
@@ -411,7 +405,7 @@ public:
     return time_point_ == other.time_point_;
   }
 
-  /// @}
+  /// @} // End of Comparators group
 
 private:
   /// The time point represented by this Time object.

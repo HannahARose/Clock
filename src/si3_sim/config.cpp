@@ -1,5 +1,17 @@
+/**
+ * @file config.cpp
+ * @brief Implementation of configuration utilities.
+ * @details This file contains the implementation of various utilities
+ * related to configuration management used in the simulation.
+ */
+
+/* Revision History
+ * - 2025-08-12 Initial revision history
+ */
+
 #include <Clock/si3_sim/config.hpp>
 
+#include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
@@ -15,6 +27,12 @@
 #include <Clock/misc_lib/time.hpp>
 
 namespace clk::si3_sim {
+
+bool operator<(const MeasureEvent &lhs, const MeasureEvent &rhs)
+{
+  if (lhs.day != rhs.day) { return lhs.day < rhs.day; }
+  return lhs.start_time < rhs.start_time;
+}
 
 std::string_view toString(RunSchedule schedule)
 {
@@ -180,6 +198,27 @@ Config Config::readFromFile(const std::string &filename)
   Config config = read(file);
   file.close();
   return config;// Return the read configuration.
+}
+
+bool Config::validateMeasurementEvents()
+{
+  sortMeasurementEvents();
+  for (size_t index = 0; index < measurements_.size(); ++index) {
+    const MeasureEvent current = measurements_[index];
+
+    // Ensure each measurement ends after it begins
+    if (current.end_time <= current.start_time) { return false; }
+
+    // Ensure measurements don't overlap
+    if (index > 0) {
+      const MeasureEvent prev = measurements_[index - 1];
+      if (current.day == prev.day && current.start_time < prev.end_time) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }
 
 }// namespace clk::si3_sim

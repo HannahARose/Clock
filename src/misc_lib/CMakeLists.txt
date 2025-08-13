@@ -1,6 +1,11 @@
 include(GenerateExportHeader)
 
-add_library(misc_lib STATIC date_time.cpp time.cpp)
+add_library(
+  misc_lib STATIC
+  date_time.cpp
+  time.cpp
+  quad.cpp
+  run_record.cpp)
 
 add_library(Clock::misc_lib ALIAS misc_lib)
 
@@ -13,6 +18,9 @@ target_link_system_libraries(
   Boost::multiprecision
   Boost::json
   fmt::fmt)
+
+target_include_directories(
+  misc_lib PRIVATE "${CMAKE_BINARY_DIR}/configured_files/include")
 
 target_include_directories(
   misc_lib ${WARNING_GUARD}
@@ -33,5 +41,3 @@ generate_export_header(misc_lib EXPORT_FILE_NAME
 if(NOT BUILD_SHARED_LIBS)
   target_compile_definitions(misc_lib PUBLIC MISC_LIB_STATIC_DEFINE)
 endif()
-
-clock_enable_clang_tidy(misc_lib ${Clock_WARNINGS_AS_ERRORS})
