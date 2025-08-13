@@ -66,7 +66,7 @@ Weekday fromString(const std::string &str)
   } else if (day_id == "sa") {
     return SATURDAY;
   } else {
-    throw std::invalid_argument("Unknown Weekday: " + std::string(str));
+    throw std::invalid_argument("Unknown Weekday: " + str);
   }
 }
 
