@@ -1,9 +1,11 @@
 <map id="clk::misc_lib::DateTime::seconds" name="clk::misc_lib::DateTime::seconds">
-<area shape="rect" id="Node000001" title="Get the second of the time point." alt="" coords="428,37,603,77"/>
-<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a49e6638a8d3e6f4e78bf79b7fcd6585d" title="Seconds increment operator." alt="" coords="205,5,380,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,45,380,40,380,35,415,40"/>
-<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#ac4e7544ff9c40a8b93aab2fbdd5ea707" title="Convert the DateTime object to a simple string representation." alt="" coords="205,69,380,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="415,74,380,79,380,74,414,69"/>
-<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="5,69,157,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="192,92,158,92,158,87,192,87"/>
+<area shape="rect" id="Node000001" title="Get the second of the time point." alt="" coords="531,37,705,77"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a49e6638a8d3e6f4e78bf79b7fcd6585d" title="Seconds increment operator." alt="" coords="308,5,483,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="517,45,482,40,483,35,517,40"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#ac4e7544ff9c40a8b93aab2fbdd5ea707" title="Convert the DateTime object to a simple string representation." alt="" coords="308,69,483,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="517,74,483,79,482,74,517,69"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="108,69,260,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="295,92,261,92,261,87,295,87"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the Si3 simulation tool." alt="" coords="5,77,60,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,92,60,92,60,87,94,87"/>
 </map>

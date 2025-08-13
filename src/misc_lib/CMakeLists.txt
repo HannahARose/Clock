@@ -20,6 +20,9 @@ target_link_system_libraries(
   fmt::fmt)
 
 target_include_directories(
+  misc_lib PRIVATE "${CMAKE_BINARY_DIR}/configured_files/include")
+
+target_include_directories(
   misc_lib ${WARNING_GUARD}
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
          $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>)

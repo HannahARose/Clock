@@ -1,15 +1,33 @@
 <map id="include/Clock/misc_lib/time.hpp" name="include/Clock/misc_lib/time.hpp">
-<area shape="rect" id="Node000001" title="DateTime data structure and utilities." alt="" coords="117,5,261,45"/>
-<area shape="rect" id="Node000002" href="$date__time_8hpp_source.html" title=" " alt="" coords="8,93,152,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,56,106,95,103,91,153,52"/>
-<area shape="rect" id="Node000003" href="$run__record_8hpp_source.html" title=" " alt="" coords="116,181,263,221"/>
-<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="192,59,192,181,187,181,187,59"/>
-<area shape="rect" id="Node000004" href="$config_8hpp.html" title="Configuration structure for the Si3 simulation." alt="" coords="87,269,249,309"/>
-<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="221,54,249,88,274,131,283,153,287,177,285,200,277,223,252,252,220,272,217,267,248,247,272,220,280,199,282,177,278,155,269,133,245,91,217,57"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,140,167,179,163,183,113,144"/>
-<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="85,146,92,183,106,220,125,246,146,267,142,271,120,249,102,223,87,184,80,147"/>
-<area shape="rect" id="Node000005" href="$si3__sim_8hpp_source.html" title=" " alt="" coords="5,357,168,397"/>
-<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="79,147,75,221,77,309,85,356,80,357,72,310,70,221,74,147"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="184,236,175,270,170,268,179,234"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="142,321,107,359,103,355,139,318"/>
+<area shape="rect" id="Node000001" title="DateTime data structure and utilities." alt="" coords="567,5,711,45"/>
+<area shape="rect" id="Node000002" href="$date__time_8hpp_source.html" title=" " alt="" coords="304,93,448,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="569,52,434,96,433,91,567,47"/>
+<area shape="rect" id="Node000004" href="$config_8hpp.html" title="Configuration structure for the Si3 simulation." alt="" coords="363,269,525,309"/>
+<area shape="poly" id="edge18_Node000001_Node000004" title=" " alt="" coords="623,59,574,135,510,223,466,271,462,267,506,220,570,132,618,56"/>
+<area shape="rect" id="Node000008" href="$config_8cpp.html" title="Implementation of configuration utilities." alt="" coords="480,365,645,390"/>
+<area shape="poly" id="edge20_Node000001_Node000008" title=" " alt="" coords="634,59,568,365,563,364,629,58"/>
+<area shape="rect" id="Node000011" href="$time_8cpp.html" title="Implementation of time utilities." alt="" coords="701,101,861,126"/>
+<area shape="poly" id="edge19_Node000001_Node000011" title=" " alt="" coords="683,50,764,98,761,103,680,55"/>
+<area shape="rect" id="Node000003" href="$run__record_8hpp.html" title="Run record structure and utilities." alt="" coords="107,181,253,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="322,141,224,184,222,179,320,136"/>
+<area shape="poly" id="edge13_Node000002_Node000004" title=" " alt="" coords="444,138,469,156,489,180,495,204,490,229,478,252,464,271,459,268,473,249,485,227,490,204,484,183,465,160,441,142"/>
+<area shape="rect" id="Node000005" href="$si3__sim_8hpp.html" title="Header file for the Si3Sim class." alt="" coords="108,357,271,397"/>
+<area shape="poly" id="edge14_Node000002_Node000005" title=" " alt="" coords="291,127,176,149,127,164,96,183,74,213,64,243,66,273,81,308,105,335,137,355,134,359,102,340,76,311,61,275,59,242,69,211,93,179,125,160,175,144,290,122"/>
+<area shape="rect" id="Node000007" href="$si3__sim_8cpp.html" title="Implementation of the Si3Sim class." alt="" coords="5,445,181,471"/>
+<area shape="poly" id="edge17_Node000002_Node000007" title=" " alt="" coords="291,124,224,132,156,144,99,161,78,172,63,183,45,209,34,234,29,257,30,282,43,334,63,396,74,422,87,444,82,447,69,425,57,398,38,336,25,282,24,257,28,232,40,206,59,179,75,167,97,156,155,139,223,127,290,119"/>
+<area shape="poly" id="edge16_Node000002_Node000008" title=" " alt="" coords="450,137,482,155,510,180,526,202,539,228,556,281,563,329,565,364,560,364,558,330,550,282,534,230,522,205,506,183,479,159,447,141"/>
+<area shape="rect" id="Node000010" href="$date__time_8cpp.html" title="Implementation of date and time utilities." alt="" coords="278,189,474,214"/>
+<area shape="poly" id="edge15_Node000002_Node000010" title=" " alt="" coords="379,147,379,188,373,188,373,147"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="252,223,387,267,385,272,250,228"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title="Main entry point for the Si3 simulation tool." alt="" coords="246,445,405,471"/>
+<area shape="poly" id="edge11_Node000003_Node000006" title=" " alt="" coords="252,225,280,243,303,268,316,291,325,316,333,367,333,413,330,446,325,445,328,412,328,367,320,317,311,293,299,271,277,247,249,229"/>
+<area shape="poly" id="edge12_Node000003_Node000007" title=" " alt="" coords="122,230,99,248,81,271,72,293,68,318,70,368,80,412,91,444,86,446,75,414,64,368,62,317,67,292,76,268,95,244,119,226"/>
+<area shape="rect" id="Node000009" href="$run__record_8cpp.html" title="Implementation of run record utilities." alt="" coords="90,277,289,302"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="186,235,191,276,185,276,181,235"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="376,316,246,360,244,355,374,311"/>
+<area shape="poly" id="edge8_Node000004_Node000006" title=" " alt="" coords="438,323,423,361,401,399,374,427,346,447,343,443,370,423,397,396,418,359,433,321"/>
+<area shape="poly" id="edge9_Node000004_Node000007" title=" " alt="" coords="411,320,353,360,284,400,211,428,143,448,142,443,209,423,282,395,350,356,408,316"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="483,315,548,362,545,367,480,320"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="235,402,307,443,304,447,233,407"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="157,408,109,447,106,443,154,404"/>
 </map>

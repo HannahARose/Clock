@@ -1,0 +1,85 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Main entry point for the Si3 simulation tool." alt="" coords="5,610,60,635"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Config.html#a7fce10cd194d7e9c0ca8b3482f42040a" title=" " alt="" coords="110,539,258,579"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,609,107,588,122,582,124,587,109,593,61,614"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="108,603,260,643"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,620,94,620,94,625,60,625"/>
+<area shape="rect" id="Node000034" href="$structclk_1_1si3__sim_1_1Config.html#a09f0cc8c38c23a276f293cf8edcd1925" title="Read a configuration from a file." alt="" coords="110,848,258,888"/>
+<area shape="poly" id="edge38_Node000001_Node000034" title=" " alt="" coords="44,634,166,835,161,837,40,637"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Config.html#a9bd9f88fbb1b213a7a31478efebd6ed7" title=" " alt="" coords="327,353,475,393"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="244,601,258,589,273,566,280,543,280,497,281,451,289,427,306,404,314,396,317,400,310,407,294,430,287,452,286,497,285,544,278,568,262,592,248,605"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1si3__sim_1_1Config.html#a759cda6d176130bde73fdec9c7ce2284" title=" " alt="" coords="327,417,475,457"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="243,600,258,589,270,574,276,559,281,529,286,499,293,483,306,467,314,461,317,465,310,471,298,486,291,500,286,530,281,561,274,577,262,593,247,605"/>
+<area shape="rect" id="Node000006" href="$structclk_1_1si3__sim_1_1Config.html#a448cc5eca66f692912a052a70765be43" title=" " alt="" coords="327,481,475,521"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="239,600,258,589,273,574,281,560,291,546,306,531,316,525,318,530,310,535,295,549,286,563,277,578,262,593,242,605"/>
+<area shape="rect" id="Node000007" href="$structclk_1_1si3__sim_1_1Si3Sim.html#ac25a7d32cb0802f01b1796c979cd9771" title="find the first measurement event after the current time" alt="" coords="308,545,495,585"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="260,600,311,586,313,591,261,605"/>
+<area shape="rect" id="Node000016" href="$structclk_1_1misc__lib_1_1DateTime.html#ae13f5a3680b8cb0f362850c43d86b329" title="Get the time of day of the time point." alt="" coords="559,603,733,643"/>
+<area shape="poly" id="edge27_Node000003_Node000016" title=" " alt="" coords="260,620,545,620,545,625,260,625"/>
+<area shape="rect" id="Node000017" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a9e67ccf25001ad917a3d183febee082a" title="Get the start time for the next occurance of the measurement event." alt="" coords="325,660,477,700"/>
+<area shape="poly" id="edge16_Node000003_Node000017" title=" " alt="" coords="261,640,313,654,312,659,260,645"/>
+<area shape="rect" id="Node000019" href="$structclk_1_1misc__lib_1_1DateTime.html#a7310aa8f1068883206cec0f07b493b7d" title="Set the time of day for the time point." alt="" coords="559,781,733,821"/>
+<area shape="poly" id="edge24_Node000003_Node000019" title=" " alt="" coords="209,641,254,676,309,710,555,775,553,780,307,714,251,680,206,645"/>
+<area shape="rect" id="Node000021" href="$structclk_1_1misc__lib_1_1DateTime.html#a7165ad31ae2540b4f19a784f9310c17e" title="Get the difference in seconds between two DateTime objects." alt="" coords="314,775,489,815"/>
+<area shape="poly" id="edge23_Node000003_Node000021" title=" " alt="" coords="202,641,246,696,276,727,310,754,330,766,328,771,306,758,273,731,242,700,197,644"/>
+<area shape="rect" id="Node000022" href="$structclk_1_1si3__sim_1_1Config.html#a9bafe691f3cf10222343c68156f4455d" title=" " alt="" coords="327,839,475,879"/>
+<area shape="poly" id="edge25_Node000003_Node000022" title=" " alt="" coords="195,642,210,681,235,730,268,781,310,825,317,830,314,834,306,829,264,784,230,733,205,683,190,644"/>
+<area shape="rect" id="Node000023" href="$structclk_1_1si3__sim_1_1Config.html#a10475920ce0b73bda6b5f39d63d9bdde" title=" " alt="" coords="327,903,475,943"/>
+<area shape="poly" id="edge26_Node000003_Node000023" title=" " alt="" coords="192,642,203,692,226,758,261,828,283,860,310,889,317,894,314,899,306,893,279,864,256,831,221,760,198,694,186,644"/>
+<area shape="rect" id="Node000024" href="$structclk_1_1misc__lib_1_1DateTime.html#add09b1cd23d7e28e8c6fbb70bd7b4553" title="Convert the DateTime object to a Unix timestamp in milliseconds." alt="" coords="314,967,489,1007"/>
+<area shape="poly" id="edge28_Node000003_Node000024" title=" " alt="" coords="195,642,257,820,291,910,310,953,314,957,311,961,306,956,286,912,252,822,190,644"/>
+<area shape="rect" id="Node000025" href="$structclk_1_1misc__lib_1_1DateTime.html#ac4e7544ff9c40a8b93aab2fbdd5ea707" title="Convert the DateTime object to a simple string representation." alt="" coords="314,161,489,201"/>
+<area shape="poly" id="edge29_Node000003_Node000025" title=" " alt="" coords="246,601,258,589,274,564,284,540,293,493,289,447,280,401,270,355,267,309,270,285,277,261,289,236,306,212,309,209,313,212,310,215,293,239,282,263,275,286,273,309,276,354,285,400,294,446,298,493,289,542,278,567,262,592,249,605"/>
+<area shape="rect" id="Node000032" href="$structclk_1_1si3__sim_1_1Config.html#a79c68f770974d265b018338fd42b259f" title="Update the last run record for the simulation." alt="" coords="315,225,487,265"/>
+<area shape="poly" id="edge36_Node000003_Node000032" title=" " alt="" coords="246,601,258,589,281,549,289,510,287,471,280,433,273,395,272,356,281,316,306,276,309,273,313,276,310,279,286,318,277,357,279,394,285,432,292,471,294,510,286,551,262,592,249,604"/>
+<area shape="rect" id="Node000033" href="$structclk_1_1si3__sim_1_1Config.html#a5db56278c848137d84f616f05e9d6232" title=" " alt="" coords="319,289,483,329"/>
+<area shape="poly" id="edge37_Node000003_Node000033" title=" " alt="" coords="245,601,258,589,277,557,284,526,284,496,280,465,276,435,277,404,285,372,306,340,309,336,313,340,310,343,290,374,282,404,282,434,286,465,289,495,290,527,282,559,262,592,249,605"/>
+<area shape="rect" id="Node000008" href="$structclk_1_1si3__sim_1_1Config.html#a4a62ed93612e6e9ce4119903d0ae85b2" title=" " alt="" coords="563,475,729,515"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="471,543,562,516,564,521,472,548"/>
+<area shape="rect" id="Node000009" href="$structclk_1_1si3__sim_1_1Si3Sim.html#aad0b41bfeec82f9da4e8447639bb8819" title="Get the current schedule day." alt="" coords="570,539,722,579"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="495,560,556,558,556,564,495,565"/>
+<area shape="poly" id="edge15_Node000007_Node000016" title=" " alt="" coords="488,583,547,597,546,602,487,588"/>
+<area shape="rect" id="Node000010" href="$structclk_1_1misc__lib_1_1DateTime.html#aa39a8d12e8298c9d2839d00655a40e25" title="Get the day of the month of the time point." alt="" coords="814,475,989,515"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="721,537,807,515,808,521,723,542"/>
+<area shape="rect" id="Node000011" href="$structclk_1_1misc__lib_1_1DateTime.html#a745eee7ebd157f7f9090a5ef0f70ed67" title="Get the weekday of the time point." alt="" coords="814,539,989,579"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="722,556,800,556,800,561,722,561"/>
+<area shape="rect" id="Node000012" href="$structclk_1_1misc__lib_1_1DateTime.html#a9ecea33a44b419d4c7f1eb9ddfb45aaa" title="Get the day of the year of the time point." alt="" coords="814,603,989,643"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="723,575,808,597,807,602,721,580"/>
+<area shape="rect" id="Node000013" href="$structclk_1_1si3__sim_1_1Config.html#aab4332af945fefc2b44e8694b0ba1caf" title="Get the interval for the current schedule." alt="" coords="827,667,975,707"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="724,574,751,589,767,605,776,621,784,637,799,653,816,662,813,667,796,657,780,640,771,624,763,608,748,593,721,579"/>
+<area shape="rect" id="Node000014" href="$structclk_1_1misc__lib_1_1DateTime.html#a01d736f8e2fb0537bb0b94619c14a27f" title="Get the Modified Julian Date (MJD) of the time point." alt="" coords="797,361,1005,386"/>
+<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="721,542,748,525,760,509,766,494,770,462,774,429,782,413,795,397,803,391,806,395,799,401,786,415,779,431,776,462,772,495,764,512,751,529,724,546"/>
+<area shape="rect" id="Node000015" href="$structclk_1_1si3__sim_1_1Config.html#a9f523338979bcb682cbd847579a6239d" title=" " alt="" coords="827,411,975,451"/>
+<area shape="poly" id="edge14_Node000009_Node000015" title=" " alt="" coords="721,539,748,525,763,509,771,493,780,477,796,461,813,450,816,455,799,465,784,480,776,496,767,512,751,529,724,543"/>
+<area shape="poly" id="edge19_Node000017_Node000009" title=" " alt="" coords="428,658,479,623,541,588,559,581,561,586,544,593,482,627,431,662"/>
+<area shape="poly" id="edge18_Node000017_Node000013" title=" " alt="" coords="478,678,814,683,814,688,478,684"/>
+<area shape="poly" id="edge22_Node000017_Node000016" title=" " alt="" coords="477,660,546,643,547,648,479,665"/>
+<area shape="rect" id="Node000018" href="$structclk_1_1misc__lib_1_1DateTime.html#a4014e2caac28d136ba7d692d8eac58e8" title="Add days to the time point." alt="" coords="559,717,733,757"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="479,695,547,712,546,717,477,700"/>
+<area shape="poly" id="edge20_Node000017_Node000019" title=" " alt="" coords="462,698,496,716,511,730,521,743,530,755,544,767,555,773,552,778,541,772,526,759,516,746,507,733,493,721,460,703"/>
+<area shape="rect" id="Node000020" href="$structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" title="Returns the time as a boost time_duration object." alt="" coords="829,781,973,821"/>
+<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="734,799,816,799,816,804,734,804"/>
+<area shape="rect" id="Node000026" href="$structclk_1_1misc__lib_1_1DateTime.html#ac81376a4152c451232881cd4e39f78a4" title="Get the day of the month of the time point." alt="" coords="543,198,749,223"/>
+<area shape="poly" id="edge30_Node000025_Node000026" title=" " alt="" coords="489,189,529,194,529,199,488,194"/>
+<area shape="rect" id="Node000027" href="$structclk_1_1misc__lib_1_1DateTime.html#a1cde9aba22c103a9a294b7a8b74dc1f0" title="Get the hour of the time point." alt="" coords="559,248,733,288"/>
+<area shape="poly" id="edge31_Node000025_Node000027" title=" " alt="" coords="464,199,496,211,544,232,568,241,566,246,542,237,494,216,462,204"/>
+<area shape="rect" id="Node000028" href="$structclk_1_1misc__lib_1_1DateTime.html#ae97747961f59194776a6aaac91c495c8" title="Get the minute of the time point." alt="" coords="559,312,733,352"/>
+<area shape="poly" id="edge32_Node000025_Node000028" title=" " alt="" coords="478,199,496,211,514,234,521,256,528,277,545,298,551,303,548,307,541,302,523,280,516,258,509,236,493,215,475,204"/>
+<area shape="rect" id="Node000029" href="$structclk_1_1misc__lib_1_1DateTime.html#ac50f63d7635c88323c21c0aea2c564fc" title="Get the month of the time point." alt="" coords="559,5,733,45"/>
+<area shape="poly" id="edge33_Node000025_Node000029" title=" " alt="" coords="418,159,470,108,504,80,541,55,554,48,557,53,544,60,507,84,474,112,422,163"/>
+<area shape="rect" id="Node000030" href="$structclk_1_1misc__lib_1_1DateTime.html#ac2f273b8491c35e2592547d4b126d7b5" title="Get the second of the time point." alt="" coords="559,69,733,109"/>
+<area shape="poly" id="edge34_Node000025_Node000030" title=" " alt="" coords="445,159,542,119,563,111,565,116,544,124,447,164"/>
+<area shape="rect" id="Node000031" href="$structclk_1_1misc__lib_1_1DateTime.html#a5c4d34170b277de1654221b6572c9c54" title="Get the year of the time point." alt="" coords="559,133,733,173"/>
+<area shape="poly" id="edge35_Node000025_Node000031" title=" " alt="" coords="488,169,545,162,545,168,489,174"/>
+<area shape="rect" id="Node000035" href="$structclk_1_1si3__sim_1_1Config.html#ae133c6ff4f7f1fb61db327e051de8812" title="read a configuration from a stream." alt="" coords="327,1031,475,1071"/>
+<area shape="poly" id="edge39_Node000034_Node000035" title=" " alt="" coords="199,887,242,950,274,986,310,1017,318,1022,315,1027,306,1021,270,990,238,954,194,890"/>
+<area shape="rect" id="Node000036" href="$structclk_1_1misc__lib_1_1DateTime.html#a8285a717c550e0188b22488da5945c69" title="Factory method to create a DateTime object from an ISO 8601 string." alt="" coords="814,999,989,1039"/>
+<area shape="poly" id="edge40_Node000035_Node000036" title=" " alt="" coords="475,1043,800,1022,800,1028,476,1049"/>
+<area shape="rect" id="Node000037" href="$structclk_1_1misc__lib_1_1RunRecord.html#acabfa9ce270724aa81b06ef1b4e8cf15" title="Factory method to construct a RunRecord from a JSON object." alt="" coords="555,973,737,1013"/>
+<area shape="poly" id="edge41_Node000035_Node000037" title=" " alt="" coords="475,1031,547,1014,548,1019,477,1036"/>
+<area shape="rect" id="Node000038" href="$structclk_1_1misc__lib_1_1Time.html#a6c199b196b0cb96045ea55916072d867" title="Read a Time object from a string." alt="" coords="574,1088,718,1128"/>
+<area shape="poly" id="edge43_Node000035_Node000038" title=" " alt="" coords="477,1065,561,1085,560,1091,475,1071"/>
+<area shape="poly" id="edge42_Node000037_Node000036" title=" " alt="" coords="737,1000,800,1006,800,1011,737,1005"/>
+<area shape="rect" id="Node000039" href="$structclk_1_1misc__lib_1_1Time.html#a48fe39d72cb179cc36f510aab72578e2" title="Default constructor for Time. Initializes the time to 00:00:00." alt="" coords="829,1088,973,1128"/>
+<area shape="poly" id="edge44_Node000038_Node000039" title=" " alt="" coords="718,1105,816,1105,816,1111,718,1111"/>
+</map>

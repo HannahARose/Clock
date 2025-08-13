@@ -1,5 +1,5 @@
 <map id="clk::misc_lib::DateTime::operator&lt;&lt;" name="clk::misc_lib::DateTime::operator&lt;&lt;">
 <area shape="rect" id="Node000001" title="Overloaded output stream operator for DateTime." alt="" coords="5,5,180,45"/>
-<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a8b223c0f6e3f0282852414c2a6d0fd54" title="Convert the Time object to an ISO 8601 string." alt="" coords="228,5,403,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a8b223c0f6e3f0282852414c2a6d0fd54" title="Convert the DateTime object to an ISO 8601 string." alt="" coords="228,5,403,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,23,214,23,214,28,180,28"/>
 </map>

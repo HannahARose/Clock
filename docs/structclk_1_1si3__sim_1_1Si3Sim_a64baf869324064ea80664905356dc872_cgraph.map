@@ -14,7 +14,7 @@
 <area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="131,396,234,355,236,360,133,401"/>
 <area shape="rect" id="Node000017" href="$structclk_1_1misc__lib_1_1DateTime.html#a7310aa8f1068883206cec0f07b493b7d" title="Set the time of day for the time point." alt="" coords="456,433,631,473"/>
 <area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="158,413,205,412,299,408,340,407,392,412,466,427,465,432,392,417,340,413,299,413,205,417,158,418"/>
-<area shape="rect" id="Node000019" href="$structclk_1_1misc__lib_1_1DateTime.html#a7165ad31ae2540b4f19a784f9310c17e" title="Subtract another DateTime from this one." alt="" coords="211,427,386,467"/>
+<area shape="rect" id="Node000019" href="$structclk_1_1misc__lib_1_1DateTime.html#a7165ad31ae2540b4f19a784f9310c17e" title="Get the difference in seconds between two DateTime objects." alt="" coords="211,427,386,467"/>
 <area shape="poly" id="edge21_Node000001_Node000019" title=" " alt="" coords="158,426,198,431,198,436,157,431"/>
 <area shape="rect" id="Node000020" href="$structclk_1_1si3__sim_1_1Config.html#a9bafe691f3cf10222343c68156f4455d" title=" " alt="" coords="225,491,373,531"/>
 <area shape="poly" id="edge23_Node000001_Node000020" title=" " alt="" coords="122,436,206,476,224,483,222,488,204,481,120,441"/>
@@ -51,7 +51,7 @@
 <area shape="rect" id="Node000016" href="$structclk_1_1misc__lib_1_1DateTime.html#a4014e2caac28d136ba7d692d8eac58e8" title="Add days to the time point." alt="" coords="456,369,631,409"/>
 <area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="376,347,445,364,444,369,375,352"/>
 <area shape="poly" id="edge18_Node000015_Node000017" title=" " alt="" coords="360,350,394,368,409,382,418,395,427,407,442,419,452,425,450,430,438,424,423,411,414,398,405,385,390,373,357,355"/>
-<area shape="rect" id="Node000018" href="$structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" title="Returns the time as a boost object." alt="" coords="727,433,871,473"/>
+<area shape="rect" id="Node000018" href="$structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" title="Returns the time as a boost time_duration object." alt="" coords="727,433,871,473"/>
 <area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="631,451,713,451,713,456,631,456"/>
 <area shape="rect" id="Node000024" href="$structclk_1_1misc__lib_1_1DateTime.html#ac81376a4152c451232881cd4e39f78a4" title="Get the day of the month of the time point." alt="" coords="440,537,647,562"/>
 <area shape="poly" id="edge28_Node000023_Node000024" title=" " alt="" coords="373,680,390,669,407,645,413,621,419,597,427,584,438,573,448,566,451,570,442,577,431,588,424,599,418,623,412,648,394,673,376,685"/>

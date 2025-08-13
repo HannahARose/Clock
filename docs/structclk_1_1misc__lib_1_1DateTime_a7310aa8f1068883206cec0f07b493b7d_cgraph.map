@@ -1,5 +1,5 @@
 <map id="clk::misc_lib::DateTime::setTime" name="clk::misc_lib::DateTime::setTime">
 <area shape="rect" id="Node000001" title="Set the time of day for the time point." alt="" coords="5,5,180,45"/>
-<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" title="Returns the time as a boost object." alt="" coords="228,5,372,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" title="Returns the time as a boost time_duration object." alt="" coords="228,5,372,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,23,214,23,214,28,180,28"/>
 </map>

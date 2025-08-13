@@ -102,20 +102,21 @@ $(document).ready(function(){initNavTree('config_8hpp.html',''); initResizable()
 <p>Configuration structure for the Si3 simulation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;Clock/misc_lib/date_time.hpp&gt;</code><br />
-<code>#include &lt;Clock/misc_lib/quad.hpp&gt;</code><br />
-<code>#include &lt;Clock/misc_lib/run_record.hpp&gt;</code><br />
+<code>#include &lt;<a class="el" href="quad_8hpp_source.html">Clock/misc_lib/quad.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="run__record_8hpp_source.html">Clock/misc_lib/run_record.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="time_8hpp_source.html">Clock/misc_lib/time.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for config.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="config_8hpp__incl.svg" width="2135" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="config_8hpp__incl.svg" width="1720" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="config_8hpp__dep__incl.svg" width="174" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="config_8hpp__dep__incl.svg" width="508" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="config_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -123,7 +124,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclk_1_1si3__sim_1_1MeasureEvent.html">clk::si3_sim::MeasureEvent</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure representing a run event in the simulation.  <a href="structclk_1_1si3__sim_1_1MeasureEvent.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure representing a scheduled run event in the simulation.  <a href="structclk_1_1si3__sim_1_1MeasureEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclk_1_1si3__sim_1_1Config.html">clk::si3_sim::Config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for the Si3 simulation.  <a href="structclk_1_1si3__sim_1_1Config.html#details">More...</a><br /></td></tr>
@@ -146,7 +147,7 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab9fca62f51c653bc9056c2be6d0964e9" id="r_ab9fca62f51c653bc9056c2be6d0964e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8hpp.html#ab9fca62f51c653bc9056c2be6d0964e9">clk::si3_sim::operator&lt;</a> (const <a class="el" href="structclk_1_1si3__sim_1_1MeasureEvent.html">MeasureEvent</a> &amp;lhs, const <a class="el" href="structclk_1_1si3__sim_1_1MeasureEvent.html">MeasureEvent</a> &amp;rhs)</td></tr>
-<tr class="memdesc:ab9fca62f51c653bc9056c2be6d0964e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator for <a class="el" href="structclk_1_1si3__sim_1_1MeasureEvent.html" title="Structure representing a run event in the simulation.">MeasureEvent</a>.  <br /></td></tr>
+<tr class="memdesc:ab9fca62f51c653bc9056c2be6d0964e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator for <a class="el" href="structclk_1_1si3__sim_1_1MeasureEvent.html" title="Structure representing a scheduled run event in the simulation.">MeasureEvent</a>.  <br /></td></tr>
 <tr class="separator:ab9fca62f51c653bc9056c2be6d0964e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dc02cb68eabd5b3e0604b10e8193441" id="r_a9dc02cb68eabd5b3e0604b10e8193441"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8hpp.html#a9dc02cb68eabd5b3e0604b10e8193441">clk::si3_sim::toString</a> (<a class="el" href="config_8hpp.html#a91407138cdfe209a39030b80c0262e71">RunSchedule</a> schedule)</td></tr>
 <tr class="memdesc:a9dc02cb68eabd5b3e0604b10e8193441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the RunSchedule enum to a string.  <br /></td></tr>
@@ -157,6 +158,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration structure for the Si3 simulation. </p>
+<p>This file contains the configuration structure and related functions for the Si3 simulation. </p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a91407138cdfe209a39030b80c0262e71" name="a91407138cdfe209a39030b80c0262e71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91407138cdfe209a39030b80c0262e71">&#9670;&#160;</a></span>RunSchedule</h2>
@@ -234,9 +236,6 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool clk::si3_sim::operator&lt; </td>
@@ -256,11 +255,6 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Comparison operator for MeasureEvent. </p>

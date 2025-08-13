@@ -1,15 +1,18 @@
 var searchData=
 [
-  ['time_0',['time',['../structclk_1_1misc__lib_1_1Time.html#a48fe39d72cb179cc36f510aab72578e2',1,'clk::misc_lib::Time::Time()'],['../structclk_1_1misc__lib_1_1Time.html#a12975b57e892055b4b6a2e1dabc4dd36',1,'clk::misc_lib::Time::Time(const boost::posix_time::time_duration &amp;time)'],['../structclk_1_1misc__lib_1_1Time.html#a9bb154ffe9c7f5fe3a8f4297f612777c',1,'clk::misc_lib::Time::Time(int hours, int minutes, double seconds)'],['../structclk_1_1misc__lib_1_1Time.html',1,'clk::misc_lib::Time']]],
-  ['time_2ehpp_1',['time.hpp',['../time_8hpp.html',1,'']]],
-  ['timeofday_2',['timeOfDay',['../structclk_1_1misc__lib_1_1DateTime.html#ae13f5a3680b8cb0f362850c43d86b329',1,'clk::misc_lib::DateTime']]],
-  ['timepoint_3',['timePoint',['../structclk_1_1misc__lib_1_1DateTime.html#a8e60cf5338c8ecc50dd48146469f137c',1,'clk::misc_lib::DateTime']]],
-  ['timezone_4',['timezone',['../structclk_1_1misc__lib_1_1DateTime.html#a6fb5f4a789216da4ad0b65a2da290dd9',1,'clk::misc_lib::DateTime::TimeZone'],['../structclk_1_1misc__lib_1_1DateTime.html#ac6972f963a8325e83cd981f423abb4b8',1,'clk::misc_lib::DateTime::timeZone() const']]],
-  ['toboostduration_5',['toBoostDuration',['../structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a',1,'clk::misc_lib::Time']]],
-  ['tojson_6',['toJson',['../structclk_1_1misc__lib_1_1RunRecord.html#acdf40452c2d8223e8cd8cbfaf29880f2',1,'clk::misc_lib::RunRecord']]],
-  ['tomilliunixtimestamp_7',['toMilliUnixTimestamp',['../structclk_1_1misc__lib_1_1DateTime.html#add09b1cd23d7e28e8c6fbb70bd7b4553',1,'clk::misc_lib::DateTime']]],
-  ['tool_5fname_8',['tool_name',['../structclk_1_1misc__lib_1_1RunRecord.html#a67dbb6650d7bf8a49f01fd28033b32b0',1,'clk::misc_lib::RunRecord']]],
-  ['tool_5fversion_9',['tool_version',['../structclk_1_1misc__lib_1_1RunRecord.html#a249a39f1f5da65a7b4e4ff8898d7a685',1,'clk::misc_lib::RunRecord']]],
-  ['tosimplestring_10',['toSimpleString',['../structclk_1_1misc__lib_1_1DateTime.html#ac4e7544ff9c40a8b93aab2fbdd5ea707',1,'clk::misc_lib::DateTime']]],
-  ['tostring_11',['tostring',['../structclk_1_1misc__lib_1_1DateTime.html#a8b223c0f6e3f0282852414c2a6d0fd54',1,'clk::misc_lib::DateTime::toString()'],['../structclk_1_1misc__lib_1_1Time.html#a6f5ba899bc26a355c08a57bfa9571e17',1,'clk::misc_lib::Time::toString()'],['../config_8hpp.html#a9dc02cb68eabd5b3e0604b10e8193441',1,'clk::si3_sim::toString()']]]
+  ['scheduleday_0',['scheduleDay',['../structclk_1_1si3__sim_1_1Si3Sim.html#aad0b41bfeec82f9da4e8447639bb8819',1,'clk::si3_sim::Si3Sim']]],
+  ['seconds_1',['seconds',['../structclk_1_1misc__lib_1_1DateTime.html#ac2f273b8491c35e2592547d4b126d7b5',1,'clk::misc_lib::DateTime']]],
+  ['secondssince_2',['secondsSince',['../structclk_1_1misc__lib_1_1DateTime.html#a7165ad31ae2540b4f19a784f9310c17e',1,'clk::misc_lib::DateTime']]],
+  ['setendtime_3',['setEndTime',['../structclk_1_1si3__sim_1_1Config.html#a77a8d562021b80949795c481c98d0ffe',1,'clk::si3_sim::Config']]],
+  ['setmjdmod_4',['setMjdMod',['../structclk_1_1si3__sim_1_1Config.html#a4a073589ea6df3022b60c4189b967f3d',1,'clk::si3_sim::Config']]],
+  ['setrunschedule_5',['setRunSchedule',['../structclk_1_1si3__sim_1_1Config.html#ae35adf09ccd22e3b2b9923246735beee',1,'clk::si3_sim::Config']]],
+  ['setstarttime_6',['setStartTime',['../structclk_1_1si3__sim_1_1Config.html#a684049301f199482d255305b89fb838a',1,'clk::si3_sim::Config']]],
+  ['settime_7',['setTime',['../structclk_1_1misc__lib_1_1DateTime.html#a7310aa8f1068883206cec0f07b493b7d',1,'clk::misc_lib::DateTime']]],
+  ['si3_5fsim_2ecpp_8',['si3_sim.cpp',['../si3__sim_8cpp.html',1,'']]],
+  ['si3_5fsim_2ehpp_9',['si3_sim.hpp',['../si3__sim_8hpp.html',1,'']]],
+  ['si3sim_10',['si3sim',['../structclk_1_1si3__sim_1_1Si3Sim.html',1,'clk::si3_sim::Si3Sim'],['../structclk_1_1si3__sim_1_1Si3Sim.html#a571eb7e12e2004604289473592fa3c80',1,'clk::si3_sim::Si3Sim::Si3Sim(Config config)'],['../structclk_1_1si3__sim_1_1Si3Sim.html#a84ac35456293b40ce6ef7eb730438bb4',1,'clk::si3_sim::Si3Sim::Si3Sim(const Si3Sim &amp;)=delete'],['../structclk_1_1si3__sim_1_1Si3Sim.html#a7e33818a8255bcf1764cbd0bf6f1820b',1,'clk::si3_sim::Si3Sim::Si3Sim(Si3Sim &amp;&amp;)=delete']]],
+  ['sortmeasurementevents_11',['sortMeasurementEvents',['../structclk_1_1si3__sim_1_1Config.html#a456126ae84db202b34d645fdd26cd299',1,'clk::si3_sim::Config']]],
+  ['start_5ftime_12',['start_time',['../structclk_1_1misc__lib_1_1RunRecord.html#a847ca3d0bc8bb841d25fcb925d22ddf0',1,'clk::misc_lib::RunRecord::start_time'],['../structclk_1_1si3__sim_1_1MeasureEvent.html#af9878cb3e529bbe901a93c629d14c16d',1,'clk::si3_sim::MeasureEvent::start_time']]],
+  ['startfrequency_13',['startFrequency',['../structclk_1_1si3__sim_1_1Config.html#a9bafe691f3cf10222343c68156f4455d',1,'clk::si3_sim::Config']]],
+  ['starttime_14',['startTime',['../structclk_1_1si3__sim_1_1Config.html#a10475920ce0b73bda6b5f39d63d9bdde',1,'clk::si3_sim::Config']]]
 ];

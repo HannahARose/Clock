@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="structclk_1_1misc__lib_1_1Time.html#ad64698d274c39cb65a7bce7ed8e59e2a" target="_top" xlink:title="Write the Time object to an output stream.">
+<g id="a_Node000002"><a xlink:href="structclk_1_1misc__lib_1_1Time.html#ad64698d274c39cb65a7bce7ed8e59e2a" target="_top" xlink:title="Write the Time object as a string to an output stream.">
 <polygon fill="white" stroke="#666666" points="108,-30 0,-30 0,0 108,0 108,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">clk::misc_lib::Time</text>
 <text text-anchor="middle" x="54" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::operator&lt;&lt;</text>

@@ -1,5 +1,5 @@
 <map id="clk::misc_lib::Time::operator&lt;&lt;" name="clk::misc_lib::Time::operator&lt;&lt;">
-<area shape="rect" id="Node000001" title="Write the Time object to an output stream." alt="" coords="5,5,149,45"/>
+<area shape="rect" id="Node000001" title="Write the Time object as a string to an output stream." alt="" coords="5,5,149,45"/>
 <area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1Time.html#a6f5ba899bc26a355c08a57bfa9571e17" title="Convert the Time object to a string representation." alt="" coords="197,5,341,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,23,184,23,184,28,150,28"/>
 </map>

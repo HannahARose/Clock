@@ -1,7 +1,19 @@
+/**
+ * @file config.hpp
+ * @brief Configuration structure for the Si3 simulation.
+ * @details This file contains the configuration structure and related
+ * functions for the Si3 simulation.
+ */
+
+/* Revision History
+ * - 2025-08-12 Initial revision history
+ */
+
 #ifndef CLOCK_SI3_SIM_CONFIG_H__
 #define CLOCK_SI3_SIM_CONFIG_H__
 
 #include <algorithm>
+#include <ostream>
 #include <vector>
 
 #include <Clock/misc_lib/date_time.hpp>
@@ -9,15 +21,10 @@
 #include <Clock/misc_lib/run_record.hpp>
 #include <Clock/misc_lib/time.hpp>
 
-/**
- * @file config.hpp
- * @brief Configuration structure for the Si3 simulation.
- */
-
 namespace clk::si3_sim {
 
 /**
- * @brief Structure representing a run event in the simulation.
+ * @brief Structure representing a scheduled run event in the simulation.
  * @details This structure defines the parameters for a run event, including
  * the day, start and end times, and the interval between measurements.
  */
@@ -38,11 +45,7 @@ struct MeasureEvent
  * @details This operator compares two MeasureEvent objects based on their
  * day and start_time members.
  */
-inline bool operator<(const MeasureEvent &lhs, const MeasureEvent &rhs)
-{
-  if (lhs.day != rhs.day) { return lhs.day < rhs.day; }
-  return lhs.start_time < rhs.start_time;
-}
+bool operator<(const MeasureEvent &lhs, const MeasureEvent &rhs);
 
 /**
  * @brief Enum for the run schedule types.
@@ -76,6 +79,9 @@ RunSchedule fromString(std::string_view str);
 
 /**
  * @brief Configuration for the Si3 simulation.
+ * @details This structure holds the configuration parameters for the Si3
+ * simulation, including the run schedule, start and end times, and
+ * measurement events.
  */
 struct Config
 {
@@ -237,26 +243,7 @@ public:
 
   /// @brief Ensures measurements are valid
   /// @return false if measurements overlap or end before they begin
-  bool validateMeasurementEvents()
-  {
-    sortMeasurementEvents();
-    for (size_t index = 0; index < measurements_.size(); ++index) {
-      const MeasureEvent current = measurements_[index];
-
-      // Ensure each measurement ends after it begins
-      if (current.end_time <= current.start_time) { return false; }
-
-      // Ensure measurements don't overlap
-      if (index > 0) {
-        const MeasureEvent prev = measurements_[index - 1];
-        if (current.day == prev.day && current.start_time < prev.end_time) {
-          return false;
-        }
-      }
-    }
-
-    return true;
-  }
+  bool validateMeasurementEvents();
 
   /// Set the modulus for a mjd schedule
   /// @param mjd_mod the new modulus

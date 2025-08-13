@@ -154,7 +154,7 @@
 <!-- Node19 -->
 <g id="Node000019" class="node">
 <title>Node19</title>
-<g id="a_Node000019"><a xlink:href="structclk_1_1misc__lib_1_1DateTime.html#a7165ad31ae2540b4f19a784f9310c17e" target="_top" xlink:title="Subtract another DateTime from this one.">
+<g id="a_Node000019"><a xlink:href="structclk_1_1misc__lib_1_1DateTime.html#a7165ad31ae2540b4f19a784f9310c17e" target="_top" xlink:title="Get the difference in seconds between two DateTime objects.">
 <polygon fill="white" stroke="#666666" points="285.5,-342 154.5,-342 154.5,-312 285.5,-312 285.5,-342"/>
 <text text-anchor="start" x="162.5" y="-330" font-family="Helvetica,sans-Serif" font-size="10.00">clk::misc_lib::DateTime</text>
 <text text-anchor="middle" x="220" y="-319" font-family="Helvetica,sans-Serif" font-size="10.00">::secondsSince</text>
@@ -502,7 +502,7 @@
 <!-- Node18 -->
 <g id="Node000018" class="node">
 <title>Node18</title>
-<g id="a_Node000018"><a xlink:href="structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" target="_top" xlink:title="Returns the time as a boost object.">
+<g id="a_Node000018"><a xlink:href="structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" target="_top" xlink:title="Returns the time as a boost time_duration object.">
 <polygon fill="white" stroke="#666666" points="649,-337 541,-337 541,-307 649,-307 649,-337"/>
 <text text-anchor="start" x="549" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00">clk::misc_lib::Time</text>
 <text text-anchor="middle" x="595" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">::toBoostDuration</text>

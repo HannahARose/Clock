@@ -1,5 +1,5 @@
 <map id="clk::misc_lib::DateTime::toString" name="clk::misc_lib::DateTime::toString">
-<area shape="rect" id="Node000001" title="Convert the Time object to an ISO 8601 string." alt="" coords="631,69,805,109"/>
+<area shape="rect" id="Node000001" title="Convert the DateTime object to an ISO 8601 string." alt="" coords="631,69,805,109"/>
 <area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a8026e9cfa161ae17575dd92e53d405a8" title="Overloaded output stream operator for DateTime." alt="" coords="405,5,579,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="633,68,562,48,564,43,634,63"/>
 <area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1RunRecord.html#acdf40452c2d8223e8cd8cbfaf29880f2" title="Convert the run record to a JSON object." alt="" coords="401,69,583,109"/>

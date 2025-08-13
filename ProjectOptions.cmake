@@ -89,6 +89,7 @@ macro(Clock_setup_options)
     option(Clock_ENABLE_UNITY_BUILD "Enable unity builds" OFF)
     option(Clock_ENABLE_CLANG_TIDY "Enable clang-tidy" OFF)
     option(Clock_ENABLE_CPPCHECK "Enable cpp-check analysis" OFF)
+    option(Clock_ENABLE_IWYU "Enable include-what-you-use" OFF)
     option(Clock_ENABLE_PCH "Enable precompiled headers" OFF)
     option(Clock_ENABLE_CACHE "Enable ccache" OFF)
   else()
@@ -105,6 +106,7 @@ macro(Clock_setup_options)
     option(Clock_ENABLE_UNITY_BUILD "Enable unity builds" OFF)
     option(Clock_ENABLE_CLANG_TIDY "Enable clang-tidy" ON)
     option(Clock_ENABLE_CPPCHECK "Enable cpp-check analysis" ON)
+    option(Clock_ENABLE_IWYU "Enable include-what-you-use" ON)
     option(Clock_ENABLE_PCH "Enable precompiled headers" OFF)
     option(Clock_ENABLE_CACHE "Enable ccache" ON)
   endif()
@@ -122,6 +124,7 @@ macro(Clock_setup_options)
       Clock_ENABLE_UNITY_BUILD
       Clock_ENABLE_CLANG_TIDY
       Clock_ENABLE_CPPCHECK
+      Clock_ENABLE_IWYU
       Clock_ENABLE_COVERAGE
       Clock_ENABLE_PCH
       Clock_ENABLE_CACHE)
@@ -237,6 +240,10 @@ macro(Clock_local_options)
     clock_enable_cppcheck(
       ${Clock_WARNINGS_AS_ERRORS} "" # override cppcheck options
     )
+  endif()
+
+  if(Clock_ENABLE_IWYU)
+    clock_enable_include_what_you_use()
   endif()
 
   if(Clock_ENABLE_COVERAGE)

@@ -101,21 +101,20 @@ $(document).ready(function(){initNavTree('time_8hpp.html',''); initResizable(); 
 <p>DateTime data structure and utilities.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;Clock/misc_lib_export.hpp&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;boost/date_time/posix_time/posix_time.hpp&gt;</code><br />
 <code>#include &lt;boost/date_time/posix_time/posix_time_config.hpp&gt;</code><br />
 <code>#include &lt;boost/date_time/posix_time/posix_time_duration.hpp&gt;</code><br />
-<code>#include &lt;boost/date_time/time_duration.hpp&gt;</code><br />
+<code>#include &lt;boost/date_time/posix_time/time_formatters.hpp&gt;</code><br />
+<code>#include &lt;boost/date_time/posix_time/time_parsers.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for time.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="time_8hpp__incl.svg" width="1235" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="time_8hpp__incl.svg" width="1192" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="time_8hpp__dep__incl.svg" width="291" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="time_8hpp__dep__incl.svg" width="867" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="time_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -123,7 +122,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclk_1_1misc__lib_1_1Time.html">clk::misc_lib::Time</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a time on the 24 hour clock.  <a href="structclk_1_1misc__lib_1_1Time.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct representing a time on a 24-hour clock.  <a href="structclk_1_1misc__lib_1_1Time.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -135,15 +134,15 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>DateTime data structure and utilities. </p>
 <p>Time data structure and utilities.</p>
+<p>This file provides a DateTime class for handling date and time operations, including parsing and formatting.</p>
+<dl class="section note"><dt>Note</dt><dd>This file is part of the Clock library.</dd></dl>
+<p>This file provides a Time class for handling time operations, including parsing and formatting.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a74d8a41ad2acb8e76c8947bbfd8c40bd" name="a74d8a41ad2acb8e76c8947bbfd8c40bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74d8a41ad2acb8e76c8947bbfd8c40bd">&#9670;&#160;</a></span>fromSeconds()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">boost::posix_time::time_duration clk::misc_lib::fromSeconds </td>
@@ -153,11 +152,6 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Convert seconds to a Boost time_duration. </p>
@@ -167,7 +161,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A Boost time_duration representing the time. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A Boost time_duration representing the time to microsecond resolution. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

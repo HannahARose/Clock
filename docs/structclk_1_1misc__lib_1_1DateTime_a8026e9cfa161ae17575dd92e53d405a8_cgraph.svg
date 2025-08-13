@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="structclk_1_1misc__lib_1_1DateTime.html#a8b223c0f6e3f0282852414c2a6d0fd54" target="_top" xlink:title="Convert the Time object to an ISO 8601 string.">
+<g id="a_Node000002"><a xlink:href="structclk_1_1misc__lib_1_1DateTime.html#a8b223c0f6e3f0282852414c2a6d0fd54" target="_top" xlink:title="Convert the DateTime object to an ISO 8601 string.">
 <polygon fill="white" stroke="#666666" points="298,-30 167,-30 167,0 298,0 298,-30"/>
 <text text-anchor="start" x="175" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">clk::misc_lib::DateTime</text>
 <text text-anchor="middle" x="232.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::toString</text>

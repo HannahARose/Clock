@@ -1,0 +1,9 @@
+<map id="include/Clock/misc_lib/quad.hpp" name="include/Clock/misc_lib/quad.hpp">
+<area shape="rect" id="Node000001" title="Quad precision floating&#45;point type and utilities." alt="" coords="199,5,343,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,101,199,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,48,138,97,135,92,233,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="223,101,320,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,46,274,87,269,87,269,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="345,93,499,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="306,43,379,84,376,89,303,48"/>
+</map>

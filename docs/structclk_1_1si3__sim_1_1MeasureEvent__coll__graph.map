@@ -1,5 +1,5 @@
 <map id="clk::si3_sim::MeasureEvent" name="clk::si3_sim::MeasureEvent">
-<area shape="rect" id="Node000001" title="Structure representing a run event in the simulation." alt="" coords="5,108,205,133"/>
-<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1Time.html" title="Represents a time on the 24 hour clock." alt="" coords="33,5,177,31"/>
+<area shape="rect" id="Node000001" title="Structure representing a scheduled run event in the simulation." alt="" coords="5,108,205,133"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1Time.html" title="Struct representing a time on a 24&#45;hour clock." alt="" coords="33,5,177,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,45,108,108,103,108,103,45"/>
 </map>

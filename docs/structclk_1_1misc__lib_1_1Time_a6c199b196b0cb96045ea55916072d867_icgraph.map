@@ -1,0 +1,9 @@
+<map id="clk::misc_lib::Time::fromString" name="clk::misc_lib::Time::fromString">
+<area shape="rect" id="Node000001" title="Read a Time object from a string." alt="" coords="500,5,644,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Config.html#ae133c6ff4f7f1fb61db327e051de8812" title="read a configuration from a stream." alt="" coords="304,5,452,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="486,28,452,28,452,23,486,23"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Config.html#a09f0cc8c38c23a276f293cf8edcd1925" title="Read a configuration from a file." alt="" coords="108,5,256,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,28,257,28,257,23,290,23"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the Si3 simulation tool." alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

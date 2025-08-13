@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7esi3sim_0',['~Si3Sim',['../structclk_1_1si3__sim_1_1Si3Sim.html#a39de0c823b2732da108b81f240a85c7e',1,'clk::si3_sim::Si3Sim']]]
+  ['year_0',['year',['../structclk_1_1misc__lib_1_1DateTime.html#a5c4d34170b277de1654221b6572c9c54',1,'clk::misc_lib::DateTime']]],
+  ['yearly_1',['YEARLY',['../config_8hpp.html#a91407138cdfe209a39030b80c0262e71ae50d62d1ede0a4ea1acb310ff6ca4d5b',1,'clk::si3_sim']]]
 ];

@@ -1,7 +1,0 @@
-<map id="clk::misc_lib::RunRecord::fromJson" name="clk::misc_lib::RunRecord::fromJson">
-<area shape="rect" id="Node000001" title="Factory method to construct a RunRecord from a JSON object." alt="" coords="5,5,187,45"/>
-<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a8285a717c550e0188b22488da5945c69" title="Factory method to create a Time object from an ISO 8601 string." alt="" coords="235,5,409,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,23,221,23,221,28,187,28"/>
-<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#ab733205744a8059f03cb9f4fa81e83bd" title="Default constructor for Time. Initializes the time point to the current time in UTC." alt="" coords="457,5,632,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="410,23,444,23,444,28,410,28"/>
-</map>

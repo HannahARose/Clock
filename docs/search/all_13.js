@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['year_0',['year',['../structclk_1_1misc__lib_1_1DateTime.html#a5c4d34170b277de1654221b6572c9c54',1,'clk::misc_lib::DateTime']]],
-  ['yearly_1',['YEARLY',['../config_8hpp.html#a91407138cdfe209a39030b80c0262e71ae50d62d1ede0a4ea1acb310ff6ca4d5b',1,'clk::si3_sim']]]
+  ['weekly_0',['WEEKLY',['../config_8hpp.html#a91407138cdfe209a39030b80c0262e71a35f20feb221d809190e45545c933c9dc',1,'clk::si3_sim']]],
+  ['write_1',['write',['../structclk_1_1si3__sim_1_1Config.html#a7a987d6de2f2cc60fcfc53a1ffb94cf4',1,'clk::si3_sim::Config']]],
+  ['writetofile_2',['writeToFile',['../structclk_1_1si3__sim_1_1Config.html#a52d2c0f38234645a9b0b431e867108d0',1,'clk::si3_sim::Config']]]
 ];

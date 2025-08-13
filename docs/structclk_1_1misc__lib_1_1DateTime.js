@@ -5,8 +5,7 @@ var structclk_1_1misc__lib_1_1DateTime =
       [ "LOCAL", "structclk_1_1misc__lib_1_1DateTime.html#a6fb5f4a789216da4ad0b65a2da290dd9a56d1a2ccf4849f80bc0ef85c0fe01553", null ],
       [ "OFFSET", "structclk_1_1misc__lib_1_1DateTime.html#a6fb5f4a789216da4ad0b65a2da290dd9a38b6a3d8224feb202c003959aa11d1f1", null ]
     ] ],
-    [ "DateTime", "structclk_1_1misc__lib_1_1DateTime.html#ab733205744a8059f03cb9f4fa81e83bd", null ],
-    [ "DateTime", "structclk_1_1misc__lib_1_1DateTime.html#a9afb5789b665a08772692ea127d2f601", null ],
+    [ "DateTime", "structclk_1_1misc__lib_1_1DateTime.html#afd0c13fe4164d0e602ec6d3a24fbe8f3", null ],
     [ "addDays", "structclk_1_1misc__lib_1_1DateTime.html#a4014e2caac28d136ba7d692d8eac58e8", null ],
     [ "day", "structclk_1_1misc__lib_1_1DateTime.html#ac81376a4152c451232881cd4e39f78a4", null ],
     [ "dayOfMonth", "structclk_1_1misc__lib_1_1DateTime.html#aa39a8d12e8298c9d2839d00655a40e25", null ],

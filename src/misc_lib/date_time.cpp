@@ -1,3 +1,14 @@
+/**
+ * @file date_time.cpp
+ * @brief Implementation of date and time utilities.
+ * @details This file contains the implementation of various date and time
+ * utilities used in the simulation.
+ */
+
+/* Revision History
+ * - 2025-08-12 Initial revision history
+ */
+
 #include <Clock/misc_lib/date_time.hpp>
 
 #include <iomanip>
@@ -8,6 +19,7 @@
 #include <string>
 #include <string_view>
 
+#include <boost/algorithm/string/case_conv.hpp>
 #include <boost/date_time/posix_time/ptime.hpp>
 #include <boost/date_time/posix_time/time_formatters.hpp>
 #include <boost/date_time/posix_time/time_parsers.hpp>
@@ -35,22 +47,23 @@ std::string_view toString(Weekday day)
   throw std::invalid_argument("Unknown Weekday enum value");
 }
 
-Weekday fromString(std::string_view str)
+Weekday fromString(const std::string &str)
 {
-  const auto day_id = str.substr(0, 2);
-  if (day_id == "Su") {
+
+  const auto day_id = boost::algorithm::to_lower_copy(str.substr(0, 2));
+  if (day_id == "su") {
     return SUNDAY;
-  } else if (day_id == "Mo") {
+  } else if (day_id == "mo") {
     return MONDAY;
-  } else if (day_id == "Tu") {
+  } else if (day_id == "tu") {
     return TUESDAY;
-  } else if (day_id == "We") {
+  } else if (day_id == "we") {
     return WEDNESDAY;
-  } else if (day_id == "Th") {
+  } else if (day_id == "th") {
     return THURSDAY;
-  } else if (day_id == "Fr") {
+  } else if (day_id == "fr") {
     return FRIDAY;
-  } else if (day_id == "Sa") {
+  } else if (day_id == "sa") {
     return SATURDAY;
   } else {
     throw std::invalid_argument("Unknown Weekday: " + std::string(str));

@@ -1,0 +1,19 @@
+<map id="include/Clock/misc_lib/run_record.hpp" name="include/Clock/misc_lib/run_record.hpp">
+<area shape="rect" id="Node000001" title="Run record structure and utilities." alt="" coords="403,5,550,45"/>
+<area shape="rect" id="Node000002" href="$config_8hpp.html" title="Configuration structure for the Si3 simulation." alt="" coords="311,93,474,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="451,57,413,95,409,91,447,53"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="Main entry point for the Si3 simulation tool." alt="" coords="5,269,164,295"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="390,36,313,50,228,77,188,96,149,120,115,148,87,183,78,204,76,228,83,269,78,270,71,228,73,203,82,180,111,145,146,115,185,91,227,72,312,45,389,31"/>
+<area shape="rect" id="Node000005" href="$si3__sim_8cpp.html" title="Implementation of the Si3Sim class." alt="" coords="423,269,599,295"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="489,58,504,115,517,181,517,221,515,269,509,269,511,221,511,182,499,116,484,59"/>
+<area shape="rect" id="Node000007" href="$run__record_8cpp.html" title="Implementation of run record utilities." alt="" coords="599,101,797,126"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="539,48,670,98,668,103,537,53"/>
+<area shape="rect" id="Node000003" href="$si3__sim_8hpp.html" title="Header file for the Si3Sim class." alt="" coords="311,181,474,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="395,147,395,181,390,181,390,147"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="298,129,188,151,142,166,112,183,98,203,90,227,87,269,81,269,85,226,93,201,108,179,139,161,186,146,297,124"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="444,139,468,157,488,180,500,203,508,228,514,269,508,270,502,229,495,205,484,183,464,161,441,143"/>
+<area shape="rect" id="Node000006" href="$config_8cpp.html" title="Implementation of configuration utilities." alt="" coords="122,189,287,214"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="340,141,231,191,229,186,338,137"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="306,227,130,272,129,267,305,222"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="435,227,495,267,492,271,432,231"/>
+</map>

@@ -1,7 +1,9 @@
 <map id="clk::si3_sim::Config::updateLastRunRecord" name="clk::si3_sim::Config::updateLastRunRecord">
-<area shape="rect" id="Node000001" title="Update the last run record for the simulation." alt="" coords="205,37,377,77"/>
-<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="5,5,157,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,45,157,40,158,34,192,40"/>
-<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a39de0c823b2732da108b81f240a85c7e" title="Destructor." alt="" coords="5,69,157,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,75,158,80,157,75,191,70"/>
+<area shape="rect" id="Node000001" title="Update the last run record for the simulation." alt="" coords="308,37,480,77"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="108,5,260,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,45,260,40,261,34,295,40"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a39de0c823b2732da108b81f240a85c7e" title="Destructor." alt="" coords="108,69,260,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="295,75,261,80,260,75,294,70"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the Si3 simulation tool." alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
 </map>

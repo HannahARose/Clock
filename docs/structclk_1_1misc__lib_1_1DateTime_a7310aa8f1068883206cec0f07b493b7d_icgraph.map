@@ -1,8 +1,10 @@
 <map id="clk::misc_lib::DateTime::setTime" name="clk::misc_lib::DateTime::setTime">
-<area shape="rect" id="Node000001" title="Set the time of day for the time point." alt="" coords="405,5,580,45"/>
-<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="5,5,157,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="392,25,357,24,205,24,158,25,158,20,205,19,357,19,392,19"/>
-<area shape="rect" id="Node000003" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a9e67ccf25001ad917a3d183febee082a" title="Get the start time for the next occurance of the measurement event." alt="" coords="205,33,357,73"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="392,41,358,46,358,41,392,36"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="191,43,157,39,158,33,192,38"/>
+<area shape="rect" id="Node000001" title="Set the time of day for the time point." alt="" coords="508,5,683,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a64baf869324064ea80664905356dc872" title="Generate the data for the si3 sim." alt="" coords="108,5,260,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,25,460,24,308,24,261,25,261,20,308,19,460,19,494,19"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1si3__sim_1_1Si3Sim.html#a9e67ccf25001ad917a3d183febee082a" title="Get the start time for the next occurance of the measurement event." alt="" coords="308,33,460,73"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="495,41,461,46,460,41,494,36"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main entry point for the Si3 simulation tool." alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="294,43,260,39,261,33,295,38"/>
 </map>

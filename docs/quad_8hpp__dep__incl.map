@@ -1,0 +1,33 @@
+<map id="include/Clock/misc_lib/quad.hpp" name="include/Clock/misc_lib/quad.hpp">
+<area shape="rect" id="Node000001" title="Quad precision floating&#45;point type and utilities." alt="" coords="760,5,904,45"/>
+<area shape="rect" id="Node000002" href="$date__time_8hpp_source.html" title=" " alt="" coords="598,93,742,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="786,54,707,96,704,91,783,49"/>
+<area shape="rect" id="Node000004" href="$config_8hpp.html" title="Configuration structure for the Si3 simulation." alt="" coords="420,269,582,309"/>
+<area shape="poly" id="edge18_Node000001_Node000004" title=" " alt="" coords="746,34,706,41,664,53,624,71,588,95,569,115,553,137,529,186,514,233,506,270,501,269,509,231,524,184,549,134,565,111,585,91,621,66,662,48,705,36,746,29"/>
+<area shape="rect" id="Node000007" href="$si3__sim_8cpp.html" title="Implementation of the Si3Sim class." alt="" coords="462,445,638,471"/>
+<area shape="poly" id="edge20_Node000001_Node000007" title=" " alt="" coords="882,50,920,76,956,110,984,152,993,175,996,200,996,291,993,306,984,321,954,347,909,371,854,392,732,425,621,448,620,443,731,420,853,387,907,366,951,343,980,317,988,304,990,290,990,200,987,176,980,154,952,114,916,80,879,54"/>
+<area shape="rect" id="Node000011" href="$quad_8cpp.html" title="Implementation of precision floating point." alt="" coords="1030,101,1193,126"/>
+<area shape="poly" id="edge19_Node000001_Node000011" title=" " alt="" coords="907,47,1075,98,1074,103,905,52"/>
+<area shape="rect" id="Node000003" href="$run__record_8hpp.html" title="Run record structure and utilities." alt="" coords="189,181,336,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="585,135,336,187,335,182,584,130"/>
+<area shape="poly" id="edge13_Node000002_Node000004" title=" " alt="" coords="642,145,603,183,520,271,516,267,599,179,638,141"/>
+<area shape="rect" id="Node000005" href="$si3__sim_8hpp.html" title="Header file for the Si3Sim class." alt="" coords="350,357,513,397"/>
+<area shape="poly" id="edge14_Node000002_Node000005" title=" " alt="" coords="668,148,660,185,646,228,625,272,596,311,557,340,514,360,511,355,555,336,592,307,621,269,641,226,655,183,663,146"/>
+<area shape="poly" id="edge17_Node000002_Node000007" title=" " alt="" coords="690,144,721,205,753,279,766,316,773,349,775,378,767,399,745,415,711,428,629,448,627,443,710,423,743,410,763,396,769,377,768,350,761,317,748,281,716,207,685,146"/>
+<area shape="rect" id="Node000008" href="$config_8cpp.html" title="Implementation of configuration utilities." alt="" coords="588,365,753,390"/>
+<area shape="poly" id="edge16_Node000002_Node000008" title=" " alt="" coords="673,147,673,364,668,364,668,147"/>
+<area shape="rect" id="Node000010" href="$date__time_8cpp.html" title="Implementation of date and time utilities." alt="" coords="759,189,955,214"/>
+<area shape="poly" id="edge15_Node000002_Node000010" title=" " alt="" coords="725,137,833,186,831,191,722,141"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="329,224,450,267,448,272,327,229"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title="Main entry point for the Si3 simulation tool." alt="" coords="234,445,392,471"/>
+<area shape="poly" id="edge11_Node000003_Node000006" title=" " alt="" coords="175,211,108,222,48,240,26,253,12,268,9,286,17,308,38,336,64,361,93,382,124,399,189,426,248,443,247,448,187,431,122,404,90,386,60,365,34,340,12,311,3,287,8,266,23,249,46,236,107,217,175,206"/>
+<area shape="poly" id="edge12_Node000003_Node000007" title=" " alt="" coords="269,235,276,272,289,315,310,359,340,395,367,415,398,430,463,448,461,453,396,435,365,420,336,399,306,361,284,317,271,273,263,236"/>
+<area shape="rect" id="Node000009" href="$run__record_8cpp.html" title="Implementation of run record utilities." alt="" coords="27,277,226,302"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="222,231,146,279,143,274,219,226"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="479,322,449,359,445,355,475,319"/>
+<area shape="poly" id="edge8_Node000004_Node000006" title=" " alt="" coords="408,315,371,333,340,359,328,380,320,403,315,445,310,444,315,402,323,378,336,356,368,329,406,310"/>
+<area shape="poly" id="edge9_Node000004_Node000007" title=" " alt="" coords="516,321,528,357,550,444,545,446,522,358,511,323"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="552,313,649,362,647,367,549,318"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="393,407,332,447,329,443,390,403"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="474,403,534,443,531,447,471,407"/>
+</map>

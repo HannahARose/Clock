@@ -219,7 +219,7 @@
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" target="_top" xlink:title="Returns the time as a boost object.">
+<g id="a_Node000011"><a xlink:href="structclk_1_1misc__lib_1_1Time.html#aa9e0167590fe556b087e37cc83d8092a" target="_top" xlink:title="Returns the time as a boost time_duration object.">
 <polygon fill="white" stroke="#666666" points="449,-30 341,-30 341,0 449,0 449,-30"/>
 <text text-anchor="start" x="349" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">clk::misc_lib::Time</text>
 <text text-anchor="middle" x="395" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::toBoostDuration</text>

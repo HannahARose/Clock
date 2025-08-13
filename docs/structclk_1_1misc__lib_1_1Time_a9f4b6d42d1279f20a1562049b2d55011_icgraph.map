@@ -1,0 +1,5 @@
+<map id="clk::misc_lib::Time::fraction" name="clk::misc_lib::Time::fraction">
+<area shape="rect" id="Node000001" title="Computes the fraction of the day elapsed since midnight." alt="" coords="228,5,372,45"/>
+<area shape="rect" id="Node000002" href="$structclk_1_1misc__lib_1_1DateTime.html#a24ca9963d82f1d8eee2abc048fd90b15" title="Get the fractional Modified Julian Date (MJD) of the time point." alt="" coords="5,5,180,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,28,180,28,180,23,214,23"/>
+</map>

@@ -2,15 +2,13 @@
 <area shape="rect" id="Node000001" title="Read a configuration from a file." alt="" coords="5,33,153,73"/>
 <area shape="rect" id="Node000002" href="$structclk_1_1si3__sim_1_1Config.html#ae133c6ff4f7f1fb61db327e051de8812" title="read a configuration from a stream." alt="" coords="201,33,349,73"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,51,187,51,187,56,154,56"/>
-<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#a8285a717c550e0188b22488da5945c69" title="Factory method to create a Time object from an ISO 8601 string." alt="" coords="627,5,801,45"/>
+<area shape="rect" id="Node000003" href="$structclk_1_1misc__lib_1_1DateTime.html#a8285a717c550e0188b22488da5945c69" title="Factory method to create a DateTime object from an ISO 8601 string." alt="" coords="627,5,801,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="339,31,397,19,509,12,613,14,613,20,509,17,398,24,340,36"/>
-<area shape="rect" id="Node000005" href="$structclk_1_1misc__lib_1_1RunRecord.html#ae4a219a613811bf5bb91961ac43c2f19" title="Factory method to construct a RunRecord from a JSON object." alt="" coords="397,33,579,73"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="350,51,384,51,384,56,350,56"/>
-<area shape="rect" id="Node000006" href="$structclk_1_1misc__lib_1_1Time.html#a6c199b196b0cb96045ea55916072d867" title="Read a Time object from a string." alt="" coords="416,97,560,137"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="343,71,409,91,407,96,342,76"/>
-<area shape="rect" id="Node000004" href="$structclk_1_1misc__lib_1_1DateTime.html#ab733205744a8059f03cb9f4fa81e83bd" title="Default constructor for Time. Initializes the time point to the current time in UTC." alt="" coords="849,5,1024,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="802,23,836,23,836,28,802,28"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="579,39,613,35,613,40,579,45"/>
-<area shape="rect" id="Node000007" href="$structclk_1_1misc__lib_1_1Time.html#a48fe39d72cb179cc36f510aab72578e2" title="Default constructor for Time. Initializes the time to 00:00:00." alt="" coords="642,97,786,137"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="561,115,628,115,628,120,561,120"/>
+<area shape="rect" id="Node000004" href="$structclk_1_1misc__lib_1_1RunRecord.html#acabfa9ce270724aa81b06ef1b4e8cf15" title="Factory method to construct a RunRecord from a JSON object." alt="" coords="397,33,579,73"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="350,51,384,51,384,56,350,56"/>
+<area shape="rect" id="Node000005" href="$structclk_1_1misc__lib_1_1Time.html#a6c199b196b0cb96045ea55916072d867" title="Read a Time object from a string." alt="" coords="416,97,560,137"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="343,71,409,91,407,96,342,76"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="579,39,613,35,613,40,579,45"/>
+<area shape="rect" id="Node000006" href="$structclk_1_1misc__lib_1_1Time.html#a48fe39d72cb179cc36f510aab72578e2" title="Default constructor for Time. Initializes the time to 00:00:00." alt="" coords="642,97,786,137"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="561,115,628,115,628,120,561,120"/>
 </map>

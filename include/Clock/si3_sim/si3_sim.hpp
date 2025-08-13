@@ -1,3 +1,14 @@
+/**
+ * @file si3_sim.hpp
+ * @brief Header file for the Si3Sim class.
+ * @details This file contains the declaration of the Si3Sim class, which
+ * encapsulates the simulation logic for Si3 systems.
+ */
+
+/* Revision History
+ * - 2025-08-12 Initial revision history
+ */
+
 #ifndef CLOCK_SI3_SIM_SI3_SIM_HPP__
 #define CLOCK_SI3_SIM_SI3_SIM_HPP__
 
@@ -9,13 +20,14 @@ namespace clk::si3_sim {
 
 /**
  * @brief The Si3Sim class encapsulates the simulation logic for Si3 systems.
+ * @details This class is responsible for managing the simulation state,
+ * including the current time and the configuration settings.
  */
 struct Si3Sim
 {
 public:
   /**
    * @brief Constructs a Si3Sim instance with the provided configuration.
-   *
    * @param config The configuration for the Si3 simulation.
    */
   explicit Si3Sim(Config config)
@@ -46,6 +58,7 @@ public:
 
   /**
    * @brief Destructor
+   * @details Ensures that the config file has been synced before destruction.
    */
   ~Si3Sim() noexcept;
 
