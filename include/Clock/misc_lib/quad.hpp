@@ -19,6 +19,7 @@
 #include <string_view>
 
 #include <boost/multiprecision/cpp_bin_float.hpp>
+#include <boost/multiprecision/fwd.hpp>
 
 namespace clk::misc_lib {
 
