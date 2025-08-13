@@ -1,15 +1,25 @@
+/**
+ * @file time.hpp
+ * @brief Time data structure and utilities.
+ * @details This file provides a Time class for handling time operations,
+ * including parsing and formatting.
+ */
+
+/* Revision History
+ * - 2025-08-12 Initial revision history
+ */
+
 #ifndef CLOCK_MISC_LIB_TIME_H_
 #define CLOCK_MISC_LIB_TIME_H_
 
 #include <Clock/misc_lib_export.hpp>
 
-#include <cmath>
 #include <string>
 
-#include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/date_time/posix_time/posix_time_config.hpp>
 #include <boost/date_time/posix_time/posix_time_duration.hpp>
-#include <boost/date_time/time_duration.hpp>
+#include <boost/date_time/posix_time/time_formatters.hpp>
+#include <boost/date_time/posix_time/time_parsers.hpp>
 
 /**
  * @file time.hpp
@@ -21,17 +31,15 @@ namespace clk::misc_lib {
 /**
  * @brief Convert seconds to a Boost time_duration.
  * @param seconds The time in seconds.
- * @return A Boost time_duration representing the time.
+ * @return A Boost time_duration representing the time to microsecond
+ * resolution.
  */
-[[nodiscard]] inline boost::posix_time::time_duration fromSeconds(
-  double seconds)
-{
-  constexpr double MICRO = 1e6;
-  return boost::posix_time::microseconds(std::lround(seconds * MICRO));
-}
+[[nodiscard]] boost::posix_time::time_duration fromSeconds(double seconds);
 
 /**
- * @brief Represents a time on the 24 hour clock
+ * @brief Struct representing a time on a 24-hour clock.
+ * @details This struct provides a way to represent and manipulate time
+ * on a 24-hour clock, including conversion to and from string formats.
  */
 struct Time
 {
@@ -50,9 +58,11 @@ public:
 
   /**
    * @brief Constructor for Time with specific hours, minutes, and seconds.
-   * @param hours The hour of the day (0-23).
-   * @param minutes The minute of the hour (0-59).
-   * @param seconds The second of the minute (0-59).
+   * @param hours The hour of the day, integer
+   * @param minutes The minute of the hour, integer
+   * @param seconds The second of the minute, double
+   * @details This constructor allows for the creation of a Time object to
+   * microsecond precision
    */
   Time(int hours, int minutes, double seconds)
     : time_(boost::posix_time::time_duration(hours, minutes, 0)
@@ -65,7 +75,7 @@ public:
    */
 
   /**
-   * @brief Compare two time objects <
+   * @brief Compare two time objects, strict increasing time order
    * @param other The other Time to compare with
    * @return result
    */
@@ -75,7 +85,7 @@ public:
   }
 
   /**
-   * @brief Compare two time objects <=
+   * @brief Compare two time objects, increasing time order
    * @param other The other Time to compare with
    * @return result
    */
@@ -85,7 +95,7 @@ public:
   }
 
   /**
-   * @brief Compare two time objects >
+   * @brief Compare two time objects, strict decreasing time order
    * @param other The other Time to compare with
    * @return result
    */
@@ -95,7 +105,7 @@ public:
   }
 
   /**
-   * @brief Compare two time objects >=
+   * @brief Compare two time objects, decreasing time order
    * @param other The other Time to compare with
    * @return result
    */
@@ -113,7 +123,9 @@ public:
 
   /**
    * @brief Computes the fraction of the day elapsed since midnight
-   *
+   * @details Currently assumes the day always has 86400 seconds, no leap second
+   * handling.
+   * Computed using nanosecond resolution.
    */
   [[nodiscard]] double fraction() const
   {
@@ -122,7 +134,7 @@ public:
   }
 
   /**
-   * @brief Returns the time as a boost object
+   * @brief Returns the time as a boost time_duration object
    */
   [[nodiscard]] boost::posix_time::time_duration toBoostDuration() const
   {
@@ -135,6 +147,8 @@ public:
 
   /**
    * @name Serialization IO
+   * @details This section provides functions for serializing and deserializing
+   * Time objects to and from strings.
    * @{
    */
 
@@ -148,7 +162,7 @@ public:
   }
 
   /**
-   * @brief Write the Time object to an output stream.
+   * @brief Write the Time object as a string to an output stream.
    * @param out_stream The output stream to write to.
    * @return The output stream after writing the Time object.
    */
@@ -159,6 +173,8 @@ public:
 
   /**
    * @brief Read a Time object from a string
+   * @param time_str The string representation of the Time object.
+   * @return A Time object constructed from the string.
    */
   static Time fromString(const std::string &time_str)
   {
@@ -169,6 +185,8 @@ public:
    * @brief Read a Time object from an input stream.
    * @param in_stream The input stream to read from.
    * @return The input stream after reading the Time object.
+   * @details Will extract a string from the input stream then attempt to parse
+   * it into a Time object.
    */
   std::istream &operator>>(std::istream &in_stream)
   {

@@ -1,3 +1,11 @@
+/**
+ * @file main.cpp
+ * @brief Main entry point for the Si3 simulation tool.
+ * @details This file contains the implementation of the main function
+ * for the Si3 simulation tool, including command-line argument parsing
+ * and simulation execution.
+ */
+
 #include <cstdlib>
 #include <exception>
 #include <fstream>
@@ -15,10 +23,18 @@
 #include <internal_use_only/config.hpp>
 
 // Define constants for tool name and description
+
+/// Tool name
 constexpr std::string_view TOOL_NAME = "si3sim";
+/// Short description
 constexpr std::string_view TOOL_DESCRIPTION =
   "A simulation tool for Si3 systems.";
 
+/**
+ * @brief Main entry point for the Si3 simulation tool.
+ * @details This function initializes the CLI application, parses command-line
+ * arguments, and executes the simulation.
+ */
 int main(int argc, char **argv)
 {
   try {

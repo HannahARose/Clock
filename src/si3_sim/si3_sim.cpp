@@ -1,3 +1,10 @@
+/**
+ * @file si3_sim.cpp
+ * @brief Implementation of the Si3Sim class.
+ * @details This file contains the implementation of the Si3Sim class,
+ * which simulates the Si3 system based on the provided configuration.
+ */
+
 #include <Clock/si3_sim/si3_sim.hpp>
 
 #include <exception>
