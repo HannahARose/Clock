@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="time_8hpp.html" target="_top" xlink:title="DateTime data structure and utilities.">
+<g id="a_Node000002"><a xlink:href="time_8hpp.html" target="_top" xlink:title="Time data structure and utilities.">
 <polygon fill="white" stroke="#666666" points="484.5,-85 350.5,-85 350.5,-66 484.5,-66 484.5,-85"/>
 <text text-anchor="middle" x="417.5" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">Clock/misc_lib/time.hpp</text>
 </a>

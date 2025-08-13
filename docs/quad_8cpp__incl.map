@@ -1,14 +1,16 @@
 <map id="src/misc_lib/quad.cpp" name="src/misc_lib/quad.cpp">
-<area shape="rect" id="Node000001" title="Implementation of precision floating point." alt="" coords="363,5,526,31"/>
-<area shape="rect" id="Node000002" href="$quad_8hpp.html" title="Quad precision floating&#45;point type and utilities." alt="" coords="221,79,401,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="424,33,346,74,344,70,422,28"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="403,159,500,185"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="448,31,453,146,448,146,443,31"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="483,79,649,104"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="466,28,536,69,533,74,463,33"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,159,199,185"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="282,107,146,157,144,152,280,102"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="333,102,420,150,417,155,331,107"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="223,152,378,192"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="312,105,308,139,302,138,307,104"/>
+<area shape="rect" id="Node000001" title="Implementation of precision floating point." alt="" coords="142,5,305,31"/>
+<area shape="rect" id="Node000002" href="$quad_8hpp.html" title="Quad precision floating&#45;point type and utilities." alt="" coords="133,79,313,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,31,226,65,221,65,221,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,159,103,185"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="198,33,161,53,122,81,92,115,69,149,65,146,88,112,119,77,158,49,196,28"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="337,79,504,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="256,28,376,71,375,76,254,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="127,159,320,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,104,226,145,221,145,221,104"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="200,106,92,156,90,151,198,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="345,152,499,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="253,102,363,145,361,150,251,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="523,152,678,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="280,101,510,149,509,154,279,107"/>
 </map>

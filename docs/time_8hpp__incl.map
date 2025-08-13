@@ -1,5 +1,5 @@
 <map id="include/Clock/misc_lib/time.hpp" name="include/Clock/misc_lib/time.hpp">
-<area shape="rect" id="Node000001" title="DateTime data structure and utilities." alt="" coords="459,5,603,45"/>
+<area shape="rect" id="Node000001" title="Time data structure and utilities." alt="" coords="459,5,603,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,101,199,126"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="460,44,173,101,172,95,458,38"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="223,101,282,126"/>

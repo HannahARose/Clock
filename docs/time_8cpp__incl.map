@@ -1,6 +1,6 @@
 <map id="src/misc_lib/time.cpp" name="src/misc_lib/time.cpp">
 <area shape="rect" id="Node000001" title="Implementation of time utilities." alt="" coords="545,5,705,31"/>
-<area shape="rect" id="Node000002" href="$time_8hpp.html" title="DateTime data structure and utilities." alt="" coords="473,79,651,104"/>
+<area shape="rect" id="Node000002" href="$time_8hpp.html" title="Time data structure and utilities." alt="" coords="473,79,651,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="616,33,583,70,579,66,612,29"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="5,152,215,192"/>
 <area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="587,33,187,151,186,146,585,28"/>

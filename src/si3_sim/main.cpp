@@ -32,8 +32,14 @@ constexpr std::string_view TOOL_DESCRIPTION =
 
 /**
  * @brief Main entry point for the Si3 simulation tool.
+ * @param argc The number of command-line arguments.
+ * @param argv The command-line arguments.
+ * @return Exit status code (0 for success, non-zero for failure).
  * @details This function initializes the CLI application, parses command-line
  * arguments, and executes the simulation.
+ * Arguments:
+ * - `-c,--config`: Path to the configuration file (required)
+ * - `-o,--output`: Path to the output file (required)
  */
 int main(int argc, char **argv)
 {

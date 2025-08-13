@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="DateTime data structure and utilities.">
+<g id="a_Node000001"><a xlink:title="Time data structure and utilities.">
 <polygon fill="#999999" stroke="#666666" points="448.5,-96 340.5,-96 340.5,-66 448.5,-66 448.5,-96"/>
 <text text-anchor="start" x="348.5" y="-84" font-family="Helvetica,sans-Serif" font-size="10.00">include/Clock/misc</text>
 <text text-anchor="middle" x="394.5" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">_lib/time.hpp</text>

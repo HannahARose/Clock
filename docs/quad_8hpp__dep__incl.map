@@ -1,6 +1,6 @@
 <map id="include/Clock/misc_lib/quad.hpp" name="include/Clock/misc_lib/quad.hpp">
 <area shape="rect" id="Node000001" title="Quad precision floating&#45;point type and utilities." alt="" coords="760,5,904,45"/>
-<area shape="rect" id="Node000002" href="$date__time_8hpp_source.html" title=" " alt="" coords="598,93,742,133"/>
+<area shape="rect" id="Node000002" href="$date__time_8hpp.html" title="DateTime data structure and utilities." alt="" coords="598,93,742,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="786,54,707,96,704,91,783,49"/>
 <area shape="rect" id="Node000004" href="$config_8hpp.html" title="Configuration structure for the Si3 simulation." alt="" coords="420,269,582,309"/>
 <area shape="poly" id="edge18_Node000001_Node000004" title=" " alt="" coords="746,34,706,41,664,53,624,71,588,95,569,115,553,137,529,186,514,233,506,270,501,269,509,231,524,184,549,134,565,111,585,91,621,66,662,48,705,36,746,29"/>

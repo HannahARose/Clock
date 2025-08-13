@@ -1,6 +1,6 @@
 <map id="include/Clock/misc_lib/time.hpp" name="include/Clock/misc_lib/time.hpp">
-<area shape="rect" id="Node000001" title="DateTime data structure and utilities." alt="" coords="567,5,711,45"/>
-<area shape="rect" id="Node000002" href="$date__time_8hpp_source.html" title=" " alt="" coords="304,93,448,133"/>
+<area shape="rect" id="Node000001" title="Time data structure and utilities." alt="" coords="567,5,711,45"/>
+<area shape="rect" id="Node000002" href="$date__time_8hpp.html" title="DateTime data structure and utilities." alt="" coords="304,93,448,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="569,52,434,96,433,91,567,47"/>
 <area shape="rect" id="Node000004" href="$config_8hpp.html" title="Configuration structure for the Si3 simulation." alt="" coords="363,269,525,309"/>
 <area shape="poly" id="edge18_Node000001_Node000004" title=" " alt="" coords="623,59,574,135,510,223,466,271,462,267,506,220,570,132,618,56"/>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="DateTime data structure and utilities.">
+<g id="a_Node000001"><a xlink:title="Time data structure and utilities.">
 <polygon fill="#999999" stroke="#666666" points="529,-349 421,-349 421,-319 529,-319 529,-349"/>
 <text text-anchor="start" x="429" y="-337" font-family="Helvetica,sans-Serif" font-size="10.00">include/Clock/misc</text>
 <text text-anchor="middle" x="475" y="-326" font-family="Helvetica,sans-Serif" font-size="10.00">_lib/time.hpp</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="date__time_8hpp_source.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="date__time_8hpp.html" target="_top" xlink:title="DateTime data structure and utilities.">
 <polygon fill="white" stroke="#666666" points="332,-283 224,-283 224,-253 332,-253 332,-283"/>
 <text text-anchor="start" x="232" y="-271" font-family="Helvetica,sans-Serif" font-size="10.00">include/Clock/misc</text>
 <text text-anchor="middle" x="278" y="-260" font-family="Helvetica,sans-Serif" font-size="10.00">_lib/date_time.hpp</text>

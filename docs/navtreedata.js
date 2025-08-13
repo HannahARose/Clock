@@ -26,7 +26,8 @@ var NAVTREE =
 [
   [ "Clock", "index.html", [
     [ "About Clock", "index.html#autotoc_md1", null ],
-    [ "More Details", "index.html#autotoc_md2", null ],
+    [ "Tools:", "index.html#autotoc_md2", null ],
+    [ "si3sim", "si3sim.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
