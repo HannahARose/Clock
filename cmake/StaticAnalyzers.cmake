@@ -102,7 +102,7 @@ macro(Clock_enable_clang_tidy target WARNINGS_AS_ERRORS)
       list(APPEND CLANG_TIDY_OPTIONS -warnings-as-errors=*)
     endif()
 
-    message("Also setting clang-tidy globally")
+    message(STATUS "Also setting clang-tidy globally")
     set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_OPTIONS})
   else()
     message(${WARNING_MESSAGE} "clang-tidy requested but executable not found")
