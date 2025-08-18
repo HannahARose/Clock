@@ -106,16 +106,18 @@ public:
   /**
    * @brief read a configuration from a stream.
    * @param in_stream The input stream to read the configuration from.
+   * @param base_path The base path to resolve any relative paths.
    * @return A Config object representing the read configuration.
    */
-  static Config read(std::istream &in_stream);
+  static Config read(std::istream &in_stream,
+    const std::filesystem::path &base_path);
 
   /**
    * @brief Write the configuration to a file.
    * @param filename The name of the file to write the configuration to.
    * @return True if the write was successful, false otherwise.
    */
-  bool writeToFile(const std::string &filename) const;
+  bool writeToFile(const std::string &filename = "") const;
 
   /**
    * @brief Read a configuration from a file.

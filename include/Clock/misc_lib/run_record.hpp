@@ -16,6 +16,7 @@
 
 #include <Clock/misc_lib_export.hpp>
 
+#include <filesystem>
 #include <random>
 #include <string>
 
@@ -50,9 +51,9 @@ public:
   std::string continued_from = "";// NOLINT(readability-redundant-string-init)
 
   /**
-   * @brief Relative path to the output file.
+   * @brief Absolute path to the output file.
    */
-  std::string output_file;
+  std::filesystem::path output_file;
 
   /**
    * @brief Start time of the run in seconds.
@@ -122,9 +123,11 @@ public:
   /**
    * @brief Factory method to construct a RunRecord from a JSON object.
    * @param obj The JSON object containing the run record data.
+   * @param base_path The base path to resolve any relative paths.
    * @return A RunRecord constructed from the JSON data.
    */
-  [[nodiscard]] static RunRecord fromJson(const boost::json::object &obj);
+  [[nodiscard]] static RunRecord fromJson(const boost::json::object &obj,
+    const std::filesystem::path &base_path);
 };
 
 }// namespace clk::misc_lib

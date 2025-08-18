@@ -21,7 +21,7 @@ boost::json::object RunRecord::toJson() const
   boost::json::object obj;
   obj["run_id"] = run_id;
   if (!continued_from.empty()) { obj["continued_from"] = continued_from; }
-  obj["output_file"] = output_file;
+  obj["output_file"] = output_file.filename().string();
   obj["start_time"] = start_time.toString();
   obj["end_time"] = end_time.toString();
   obj["duration"] = boost::posix_time::to_simple_string(
@@ -38,7 +38,8 @@ boost::json::object RunRecord::toJson() const
   return obj;
 }
 
-RunRecord RunRecord::fromJson(const boost::json::object &obj)
+RunRecord RunRecord::fromJson(const boost::json::object &obj,
+  const std::filesystem::path &base_path)
 {
   RunRecord record;
   record.run_id = obj.at("run_id").as_string().c_str();
@@ -46,7 +47,9 @@ RunRecord RunRecord::fromJson(const boost::json::object &obj)
       && !obj.at("continued_from").as_string().empty()) {
     record.continued_from = obj.at("continued_from").as_string().c_str();
   }
-  record.output_file = obj.at("output_file").as_string();
+  record.output_file =
+    base_path
+    / std::filesystem::path(obj.at("output_file").as_string().c_str());
   record.start_time =
     DateTime::fromISO(obj.at("start_time").as_string().c_str());
   record.end_time = DateTime::fromISO(obj.at("end_time").as_string().c_str());

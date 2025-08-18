@@ -47,7 +47,7 @@ Si3Sim::~Si3Sim() noexcept
     misc_lib::RunRecord run_record = config_.lastRunRecord();
     run_record.end_time = misc_lib::DateTime();
     config_.updateLastRunRecord(run_record);
-    config_.writeToFile(run_record.output_file + ".json");
+    config_.writeToFile();
   } catch (const std::exception &e) {
     std::cerr << "Error writing run record during destructor: " << e.what()
               << "\n";

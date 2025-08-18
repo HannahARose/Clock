@@ -12,6 +12,7 @@
 #include <Clock/si3_sim/config.hpp>
 
 #include <cstddef>
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
@@ -121,7 +122,8 @@ bool Config::write(std::ostream &out_stream) const
   return false;
 }
 
-Config Config::read(std::istream &in_stream)
+Config Config::read(std::istream &in_stream,
+  const std::filesystem::path &base_path)
 {
   Config config;
   // Read the configuration from the input stream.
@@ -173,7 +175,7 @@ Config Config::read(std::istream &in_stream)
   config.run_records_.clear();
   for (const auto &record : obj["run_records"].as_array()) {
     config.run_records_.push_back(
-      misc_lib::RunRecord::fromJson(record.as_object()));
+      misc_lib::RunRecord::fromJson(record.as_object(), base_path));
   }
 
   return config;
@@ -181,8 +183,14 @@ Config Config::read(std::istream &in_stream)
 
 bool Config::writeToFile(const std::string &filename) const
 {
+  std::string file_path;
+  if (filename.empty()) {
+    file_path = lastRunRecord().output_file.string() + ".json";
+  } else {
+    file_path = filename;
+  }
   // Write the configuration to a file.
-  std::ofstream file(filename);
+  std::ofstream file(file_path);
   if (!file.is_open()) { return false; }
   const bool success = write(file);
   file.close();
@@ -195,7 +203,7 @@ Config Config::readFromFile(const std::string &filename)
   if (!file.is_open()) {
     throw std::runtime_error("Failed to open file for reading: " + filename);
   }
-  Config config = read(file);
+  Config config = read(file, std::filesystem::path(filename).parent_path());
   file.close();
   return config;// Return the read configuration.
 }
