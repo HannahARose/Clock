@@ -47,4 +47,14 @@ function(Clock_setup_dependencies)
     )
   endif()
 
+  if(NOT TARGET base64)
+    cpmaddpackage(
+      NAME
+      base64
+      GIT_REPOSITORY
+      https://github.com/tobiaslocker/base64.git
+      GIT_TAG
+      master)
+  endif()
+
 endfunction()
