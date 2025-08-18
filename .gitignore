@@ -6,6 +6,9 @@ cmake-build-*/
 conan-cache/
 .cache/
 
+# Exclude the examples folder for now
+examples/
+
 # User spesific settings
 CMakeUserPresets.json
 
