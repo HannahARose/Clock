@@ -37,7 +37,8 @@ function(Clock_setup_dependencies)
   endif()
 
   if(NOT TARGET Boost::headers)
-    set(BOOST_INCLUDE_LIBRARIES "date_time;json;multiprecision")
+    set(BOOST_INCLUDE_LIBRARIES
+        "date_time;json;multiprecision;tokenizer;algorithm")
 
     cpmaddpackage(
       NAME

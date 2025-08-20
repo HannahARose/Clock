@@ -31,6 +31,7 @@ macro(Clock_enable_cppcheck WARNINGS_AS_ERRORS CPPCHECK_OPTIONS)
           # ignores static_assert type failures
           --suppress=knownConditionTrueFalse
           --inconclusive
+          --check-level=exhaustive
           --suppress=${SUPPRESS_DIR})
     else()
       # if the user provides a CPPCHECK_OPTIONS with a template specified, it will override this template

@@ -1,18 +1,20 @@
 include(GenerateExportHeader)
 
-add_library(
-  csv_lib STATIC
-  csv_file.cpp
-  csv_file_metadata.cpp
-  time_series.cpp
-  time_series_metadata.cpp
-  line_map.cpp)
+add_library(csv_lib STATIC csv_file.cpp time_series.cpp time_format.cpp)
 
 add_library(Clock::csv_lib ALIAS csv_lib)
 
 target_link_libraries(csv_lib PRIVATE Clock_options Clock_warnings)
 
-# target_link_system_libraries(csv_lib PUBLIC)
+target_link_system_libraries(
+  csv_lib
+  PRIVATE
+  Boost::json
+  Boost::tokenizer
+  Boost::algorithm
+  Clock::hash)
+
+target_link_libraries(csv_lib PUBLIC Clock::misc_lib)
 
 target_include_directories(
   csv_lib PRIVATE "${CMAKE_BINARY_DIR}/configured_files/include")
