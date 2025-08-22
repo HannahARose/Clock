@@ -8,14 +8,13 @@
 #include <Clock/si3_sim/si3_sim.hpp>
 
 #include <exception>
-#include <iomanip>
-#include <ios>
 #include <iostream>
 #include <stdexcept>
 #include <string>
 
 #include <boost/range/algorithm/find_if.hpp>
 
+#include <Clock/csv_lib/group_writer.hpp>
 #include <Clock/misc_lib/date_time.hpp>
 #include <Clock/misc_lib/quad.hpp>
 #include <Clock/misc_lib/run_record.hpp>
@@ -92,13 +91,20 @@ misc_lib::DateTime Si3Sim::nextStart(MeasureEvent event)
   return time;
 }
 
-void Si3Sim::generateData(std::ostream &output)
+void Si3Sim::generateData(csv_lib::GroupWriter &output)
 {
-  output << "# This data was manufactured by the Si3Sim tool\n";
-  output << R"("Time","Si3 si3_estimate")"
-         << "\n";
+  output.setHeader(
+    "# This data was manufactured by the Si3Sim tool\n"
+    R"("Time","Si3 si3_estimate")");
 
-  output.precision(2);
+  constexpr int STD_PRECISION = 2;
+  constexpr int UNIX_PRECISION = 10;
+  output.precision(
+    config_.useUnixTimestamps() ? UNIX_PRECISION : STD_PRECISION);
+  output.useFixedPoint(true);
+
+  output.useUnixTimestamps(config_.useUnixTimestamps());
+
   MeasureEvent event = nextMeasurementEvent();
   current_time_ = nextStart(event);
 
@@ -109,19 +115,9 @@ void Si3Sim::generateData(std::ostream &output)
         config_.startFrequency()
         + config_.driftRate() * current_time_.secondsSince(config_.startTime());
 
-      if (config_.useUnixTimestamps()) {
-        constexpr int PRECISION_DIGITS = 10;
-        output << current_time_.toMilliUnixTimestamp();
-        output << "," << std::fixed << std::setprecision(PRECISION_DIGITS)
-               << frequency;
-      } else {
-        constexpr int PRECISION_DIGITS = 2;
-        output << current_time_.toSimpleString(0, true);
-        output << "," << std::fixed << std::setprecision(PRECISION_DIGITS)
-               << frequency;
-      }
+      output << current_time_;
+      output << frequency;
       current_time_ += event.interval_seconds;
-      output << "\n";
     }
 
     current_time_.setTime(event.end_time);

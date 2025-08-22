@@ -1,6 +1,11 @@
 include(GenerateExportHeader)
 
-add_library(csv_lib STATIC csv_file.cpp time_series.cpp time_format.cpp)
+add_library(
+  csv_lib STATIC
+  csv_file.cpp
+  time_series.cpp
+  time_format.cpp
+  group_writer.cpp)
 
 add_library(Clock::csv_lib ALIAS csv_lib)
 

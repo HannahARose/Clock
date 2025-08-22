@@ -12,9 +12,9 @@
 #ifndef CLOCK_SI3_SIM_SI3_SIM_HPP__
 #define CLOCK_SI3_SIM_SI3_SIM_HPP__
 
+#include <Clock/csv_lib/group_writer.hpp>
 #include <Clock/misc_lib/date_time.hpp>
 #include <Clock/si3_sim/config.hpp>
-#include <ostream>
 
 namespace clk::si3_sim {
 
@@ -85,7 +85,7 @@ public:
    * @brief Generate the data for the si3 sim
    * @param output the stream to write the data to
    */
-  void generateData(std::ostream &output);
+  void generateData(csv_lib::GroupWriter &output);
 
 
 private:

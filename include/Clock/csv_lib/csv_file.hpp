@@ -228,6 +228,8 @@ private:
     column_names_;///< Names of the columns in the CSV file.
 
   std::ifstream ifs_;///< Input file stream for reading the CSV file.
+  std::streampos first_row_pos_ =
+    -1;///< Position of the first row in the CSV file.
 };
 
 }// namespace clk::csv_lib

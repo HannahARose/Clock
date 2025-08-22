@@ -11,7 +11,8 @@ target_link_system_libraries(
   fmt::fmt
   spdlog::spdlog
   Boost::json
-  Clock::misc_lib)
+  Clock::misc_lib
+  Clock::csv_lib)
 
 target_include_directories(
   si3sim PRIVATE "${CMAKE_BINARY_DIR}/configured_files/include")

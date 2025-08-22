@@ -9,6 +9,7 @@
 
 #include <Clock/csv_lib/csv_file.hpp>
 
+#include <algorithm>
 #include <cstddef>
 #include <cstring>
 #include <filesystem>
@@ -54,6 +55,7 @@ CsvFile::CsvFile(const std::string &file_path,
     column_names_(std::move(column_names))
 {
   if (!overwrite_existing) { loadCache(); }
+  seekStart();
   updateMetadata(overwrite_existing);
   updateCache();
 }
@@ -64,7 +66,7 @@ CsvFile::CsvFile(const CsvFile &other)
     data_end_(other.data_end_), header_(other.header_),
     comment_(other.comment_), combine_delimiters_(other.combine_delimiters_),
     delimiter_(other.delimiter_), time_format_(other.time_format_),
-    column_names_(other.column_names_)
+    column_names_(other.column_names_), first_row_pos_(other.first_row_pos_)
 {
   ifs_.open(file_path_);
 }
@@ -83,6 +85,7 @@ CsvFile &CsvFile::operator=(const CsvFile &other)
     delimiter_ = other.delimiter_;
     time_format_ = other.time_format_;
     column_names_ = other.column_names_;
+    first_row_pos_ = other.first_row_pos_;
 
     ifs_.close();
     ifs_.open(file_path_);
@@ -144,6 +147,18 @@ bool CsvFile::updateMetadata(bool force_update)
 {
   if (!checkForUpdate() && !force_update) { return false; }
   file_hash_ = clk::hash::hashFile(file_path_);
+
+  if (header_) {
+    seekStart();
+    std::string header_line = prevLine();
+    while (header_line.empty() || header_line[0] == comment_[0]) {
+      header_line = prevLine();
+    }
+    const boost::escaped_list_separator<char> sep("\\", delimiter_, "\"");
+    const boost::tokenizer<boost::escaped_list_separator<char>> tok(
+      header_line, sep);
+    column_names_ = { tok.begin(), tok.end() };
+  }
 
   data_end_ = rowTime(lastRow());
   data_start_ = rowTime(firstRow());
@@ -271,27 +286,31 @@ std::map<std::string, std::string> CsvFile::prevRow()
 {
   ensureOpen();
 
-  if (ifs_.tellg() == 0) { return {}; }
+  if (ifs_.tellg() <= first_row_pos_) { return {}; }
 
   std::string line_data = prevLine();
 
   while (line_data.empty() || line_data[0] == comment_[0]) {
-    if (ifs_.tellg() == 0) { return {}; }
+    if (ifs_.tellg() <= first_row_pos_) { return {}; }
     line_data = prevLine();
   }
 
-  return parseRow(line_data);
+  auto row = parseRow(line_data);
+
+  // Check if this is the header row
+  if (header_ && std::ranges::all_of(row, [](const auto &col) {
+        return col.second == col.first;
+      })) {
+    return {};
+  }
+
+  return row;
 }
 
 std::map<std::string, std::string> CsvFile::firstRow()
 {
-  ifs_.seekg(0, std::ios::beg);
-  std::map<std::string, std::string> row = nextRow();
-  if (header_) {
-    // Skip the header row
-    row = nextRow();
-  }
-  return row;
+  seekStart();
+  return nextRow();
 }
 
 std::map<std::string, std::string> CsvFile::lastRow()
@@ -307,6 +326,7 @@ misc_lib::DateTime CsvFile::rowTime(
   std::string date_str;
   std::string time_str;
   std::string date_time_str;
+
   switch (time_format_) {
   case TWO_COL_NO_DELIM:
     date_str = row.at("Date");
@@ -316,16 +336,30 @@ misc_lib::DateTime CsvFile::rowTime(
                     + ":" + time_str.substr(2, 2) + ":" + time_str.substr(4);
 
     return misc_lib::DateTime::fromISO(date_time_str);
+
+  case UNIX:
+    return misc_lib::DateTime::fromMilliUnixTimestamp(row.at("Time"));
+
+  case ONE_COL:
+    date_time_str = row.at("Time");
+    constexpr size_t SEP_POS = 8;// Position of the Date/Time separator
+    date_time_str.replace(SEP_POS, 1, "T");
+    return misc_lib::DateTime::fromISO("20" + date_time_str);
   }
   throw std::runtime_error("Unsupported time format or missing columns");
 }
 
 void CsvFile::seekStart()
 {
-  ifs_.seekg(0, std::ios::beg);
-  if (header_) {
-    // Skip the header row
-    skipRow();
+  if (first_row_pos_ != -1) {
+    ifs_.seekg(first_row_pos_);
+  } else {
+    ifs_.seekg(0, std::ios::beg);
+    if (header_) {
+      // Skip the header row
+      skipRow();
+    }
+    first_row_pos_ = ifs_.tellg();
   }
 }
 

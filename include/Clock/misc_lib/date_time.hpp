@@ -110,6 +110,19 @@ public:
   static DateTime now() { return DateTime(); }
 
   /**
+   * @brief Factory method to create a DateTime object representing the Unix
+   * epoch.
+   * @return A DateTime object representing the Unix epoch
+   * (1970-01-01T00:00:00Z).
+   */
+  static DateTime epoch()
+  {
+    constexpr boost::posix_time::ptime EPOCH(
+      boost::gregorian::date(1970, 1, 1));
+    return DateTime(EPOCH);
+  }
+
+  /**
    * @brief Factory method to create a DateTime object from an ISO 8601 string.
    * @param iso_string The iso formatted string to parse.
    * @return A DateTime object representing the parsed time.
@@ -162,6 +175,23 @@ public:
       boost::gregorian::date(1970, 1, 1));
 
     return std::to_string((time_point_ - EPOCH).total_milliseconds());
+  }
+
+  /**
+   * @brief Convert a Unix timestamp in milliseconds to a DateTime object.
+   * @param timestamp The Unix timestamp in milliseconds.
+   * @return A DateTime object representing the parsed time.
+   * @throws std::invalid_argument if the timestamp is empty or invalid.
+   * @details This method uses boost's posix_time to parse the timestamp.
+   */
+  static DateTime fromMilliUnixTimestamp(const std::string &timestamp)
+  {
+    // TODO: Handle time zones
+    constexpr boost::posix_time::ptime EPOCH(
+      boost::gregorian::date(1970, 1, 1));
+
+    return DateTime(
+      EPOCH + boost::posix_time::milliseconds(std::stoll(timestamp)));
   }
 
   /**

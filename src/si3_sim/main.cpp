@@ -9,15 +9,14 @@
 #include <cstdlib>
 #include <exception>
 #include <filesystem>
-#include <fstream>
 #include <iostream>
-#include <stdexcept>
 #include <string_view>
 
 #include <CLI/CLI.hpp>
 #include <fmt/base.h>
 #include <fmt/format.h>
 
+#include <Clock/csv_lib/group_writer.hpp>
 #include <Clock/misc_lib/run_record.hpp>
 #include <Clock/si3_sim/config.hpp>
 #include <Clock/si3_sim/si3_sim.hpp>
@@ -72,18 +71,18 @@ int main(int argc, char **argv)
     clk::si3_sim::Config config = clk::si3_sim::Config::readFromFile(
       app.get_option("-c")->as<std::string>());
 
-    config.addRunRecord(
-      clk::misc_lib::RunRecord{ .output_file = std::filesystem::path(
-                                  app.get_option("-o")->as<std::string>()),
-        .tool_name = std::string(TOOL_NAME),
-        .command_line_args = app.config_to_str() });
+    config.addRunRecord(clk::misc_lib::RunRecord{
+      .output_file =
+        std::filesystem::path(app.get_option("-o")->as<std::string>())
+        / "si3sim_YYYYMMDD_S.csv",
+      .tool_name = std::string(TOOL_NAME),
+      .command_line_args = app.config_to_str() });
     clk::si3_sim::Si3Sim sim(config);
 
-    std::ofstream out(app.get_option("-o")->as<std::string>());
-    if (!out) {
-      throw std::runtime_error("Failed to open output file for writing.");
-    }
-    sim.generateData(out);
+    clk::csv_lib::GroupWriter output(
+      app.get_option("-o")->as<std::string>(), "si3sim");
+
+    sim.generateData(output);
   } catch (const std::exception &e) {
     std::cerr << "Unexpected error: " << e.what() << "\n";
     return EXIT_FAILURE;
