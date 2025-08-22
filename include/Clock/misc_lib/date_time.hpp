@@ -225,9 +225,10 @@ public:
    * @brief Set the time of day for the time point.
    * @param time The Time object representing the new time of day.
    */
-  void setTime(Time time)
+  DateTime &setTime(Time time)
   {
     time_point_ += time.toBoostDuration() - time_point_.time_of_day();
+    return *this;
   }
 
   // TODO: Timezone conversions

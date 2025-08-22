@@ -98,7 +98,6 @@ struct CsvFile
    */
   void updateCache() const;
 
-
   /**
    * @brief Get the next row of data without moving position.
    * @return A map representing the next row, with column names as keys and
@@ -179,6 +178,12 @@ struct CsvFile
    * @return The time of the last data point.
    */
   [[nodiscard]] misc_lib::DateTime dataEnd() const { return data_end_; }
+
+  /**
+   * @brief Check if the CSV file is empty.
+   * @return true if the file is empty, false otherwise.
+   */
+  [[nodiscard]] bool empty() const;
 
 private:
   /**

@@ -24,12 +24,16 @@ namespace clk::csv_lib {
 enum TimeFormat : uint8_t {
   TWO_COL_NO_DELIM = 0,///< Separate Date and Time cols, no delimiters
   UNIX = 1,///< Unix Timestamp
-  ONE_COL = 2///< YY-MM-DD hh:mm:ss
+  ONE_COL = 2,///< YY-MM-DD hh:mm:ss
+  ONE_COL_DECIMAL = 3,///< YY-MM-DD hh:mm:ss.sss
+  ISO = 4///< ISO 8601 format (YYYY-MM-DDTHH:MM:SS)
 };
 /// Array of time format names.
-constexpr static std::array<std::string, 3> TF_NAMES = { "TWO_COL_NO_DELIM",
+constexpr static std::array<std::string, 5> TF_NAMES = { "TWO_COL_NO_DELIM",
   "UNIX",
-  "ONE_COL" };
+  "ONE_COL",
+  "ONE_COL_DECIMAL",
+  "ISO" };
 
 /**
  * @brief Convert a time format value to a string.

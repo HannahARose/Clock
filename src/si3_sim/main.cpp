@@ -17,6 +17,7 @@
 #include <fmt/format.h>
 
 #include <Clock/csv_lib/group_writer.hpp>
+#include <Clock/csv_lib/time_format.hpp>
 #include <Clock/misc_lib/run_record.hpp>
 #include <Clock/si3_sim/config.hpp>
 #include <Clock/si3_sim/si3_sim.hpp>
@@ -63,6 +64,7 @@ int main(int argc, char **argv)
 
     app.add_option("-o,--output", "Path to the output file")->required();
 
+    app.add_flag("-a,--append", "Whether to append to existing files");
 
     CLI11_PARSE(app, argc, argv);
 
@@ -71,18 +73,49 @@ int main(int argc, char **argv)
     clk::si3_sim::Config config = clk::si3_sim::Config::readFromFile(
       app.get_option("-c")->as<std::string>());
 
-    config.addRunRecord(clk::misc_lib::RunRecord{
+    auto run_record = clk::misc_lib::RunRecord{
       .output_file =
         std::filesystem::path(app.get_option("-o")->as<std::string>())
         / "si3sim_YYYYMMDD_S.csv",
       .tool_name = std::string(TOOL_NAME),
-      .command_line_args = app.config_to_str() });
+      .command_line_args = app.config_to_str()
+    };
+
+    bool continue_calc = false;
+
+    if (app.get_option("-a")->count() > 0) {
+      auto output_config = clk::si3_sim::Config::readFromFile(
+        app.get_option("-o")->as<std::string>() + "si3sim_YYYYMMDD_S.csv.json");
+      const auto last_run = output_config.lastRunRecord();
+
+      if (last_run.clean_run
+          && output_config.useUnixTimestamps() == config.useUnixTimestamps()) {
+        continue_calc = true;
+        config.copyRunRecords(output_config);
+        run_record.continued_from = last_run.run_id;
+      } else {
+        std::cerr
+          << "Warning: Cannot append to output file as the last run did not "
+             "complete cleanly or the timestamp format does not match. Please "
+             "check the configuration and try again.\n";
+        return EXIT_FAILURE;
+      }
+    }
+
+    config.addRunRecord(run_record);
+
     clk::si3_sim::Si3Sim sim(config);
 
-    clk::csv_lib::GroupWriter output(
-      app.get_option("-o")->as<std::string>(), "si3sim");
+    const clk::csv_lib::TimeFormat output_format =
+      config.useUnixTimestamps() ? clk::csv_lib::TimeFormat::UNIX
+                                 : clk::csv_lib::TimeFormat::ONE_COL;
 
-    sim.generateData(output);
+    clk::csv_lib::GroupWriter output(app.get_option("-o")->as<std::string>(),
+      "si3sim",
+      output_format,
+      continue_calc);
+
+    sim.generateData(output, continue_calc);
   } catch (const std::exception &e) {
     std::cerr << "Unexpected error: " << e.what() << "\n";
     return EXIT_FAILURE;

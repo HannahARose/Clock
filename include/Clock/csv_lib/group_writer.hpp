@@ -15,6 +15,7 @@
 #include <filesystem>
 #include <fstream>
 
+#include <Clock/csv_lib/time_format.hpp>
 #include <Clock/misc_lib/date_time.hpp>
 #include <Clock/misc_lib/quad.hpp>
 
@@ -30,12 +31,13 @@ public:
    * @brief Constructor for GroupWriter.
    * @param directory The directory to write CSV files to.
    * @param identifier The identifier for the group of CSV files.
+   * @param time_format The time format to use for timestamps.
+   * @param append Whether to append to an existing file or overwrite.
    */
-  GroupWriter(std::filesystem::path directory, std::string identifier)
-    : directory_(std::move(directory)), identifier_(std::move(identifier))
-  {
-    std::filesystem::create_directories(directory_);
-  }
+  GroupWriter(std::filesystem::path directory,
+    std::string identifier,
+    TimeFormat time_format = TimeFormat::ISO,
+    bool append = false);
 
   /**
    * @brief Overloaded output operator for writing DateTime objects.
@@ -86,13 +88,16 @@ public:
   void setHeader(const std::string &header) { header_ = header; }
 
   /**
-   * @brief Set whether to use Unix timestamps instead of ISO timestamps.
-   * @param use_unix_timestamps Whether to use Unix timestamps.
+   * @brief Set the time format for timestamps.
+   * @param time_format The time format to use.
    */
-  void useUnixTimestamps(bool use_unix_timestamps)
-  {
-    use_unix_timestamps_ = use_unix_timestamps;
-  }
+  void setTimeFormat(TimeFormat time_format) { time_format_ = time_format; }
+
+  /**
+   * @brief Get the last time written to the CSV file.
+   * @return The last time written.
+   */
+  misc_lib::DateTime lastTime() const { return latest_time_; }
 
 private:
   /**
@@ -106,15 +111,19 @@ private:
   std::string identifier_;
   /// The header row for the CSV files.
   std::string header_;
-  /// Whether to write unix timestamps instead of ISO timestamps.
-  bool use_unix_timestamps_ = false;
+  /// The time format to use for timestamps.
+  TimeFormat time_format_ = TimeFormat::ISO;
   /// Whether to use fixed-point notation for floating-point values.
   bool use_fixed_point_ = false;
+  /// Whether to append to existing files.
+  bool append_ = false;
 
   /// The output file stream for the current CSV file.
   std::ofstream ofs_;
   /// The time at which the current file should be closed and a new one opened.
   misc_lib::DateTime file_break_ = misc_lib::DateTime::epoch();
+  /// The latest time written
+  misc_lib::DateTime latest_time_ = misc_lib::DateTime::epoch();
 };
 
 }// namespace clk::csv_lib

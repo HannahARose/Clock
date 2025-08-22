@@ -274,6 +274,15 @@ public:
   }
 
   /**
+   * @brief Copy run records from another vector.
+   * @param other The Config object to copy from.
+   */
+  void copyRunRecords(const Config &other)
+  {
+    run_records_ = other.run_records_;
+  }
+
+  /**
    * @} // End of Configuration Setters group
    */
 

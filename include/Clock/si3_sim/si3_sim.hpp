@@ -82,10 +82,25 @@ public:
   [[nodiscard]] misc_lib::DateTime nextStart(MeasureEvent event);
 
   /**
+   * @brief find the first measurement event end after the current time
+   * @return the measurement event
+   */
+  [[nodiscard]] MeasureEvent nextMeasurementEventEnd();
+
+  /**
+   * @brief Get the next occurance of the measurement event end time
+   * @param event The measurement event
+   * @return The end time
+   */
+  [[nodiscard]] misc_lib::DateTime nextEnd(MeasureEvent event);
+
+  /**
    * @brief Generate the data for the si3 sim
    * @param output the stream to write the data to
+   * @param continue_calc whether to continue the calculation from a previous
+   * run
    */
-  void generateData(csv_lib::GroupWriter &output);
+  void generateData(csv_lib::GroupWriter &output, bool continue_calc);
 
 
 private:

@@ -160,8 +160,16 @@ bool CsvFile::updateMetadata(bool force_update)
     column_names_ = { tok.begin(), tok.end() };
   }
 
-  data_end_ = rowTime(lastRow());
-  data_start_ = rowTime(firstRow());
+  if (!lastRow().empty()) {
+    data_end_ = rowTime(lastRow());
+  } else {
+    data_end_ = misc_lib::DateTime::epoch();
+  }
+  if (!firstRow().empty()) {
+    data_start_ = rowTime(firstRow());
+  } else {
+    data_start_ = misc_lib::DateTime::epoch();
+  }
 
   return true;
 }
@@ -191,6 +199,11 @@ void CsvFile::ensureOpen()
   if (!ifs_.is_open()) {
     throw std::runtime_error("Failed to open CSV file: " + file_path_.string());
   }
+}
+
+bool CsvFile::empty() const
+{
+  return data_start_ == misc_lib::DateTime::epoch();
 }
 
 std::string CsvFile::peekLine()
@@ -326,6 +339,7 @@ misc_lib::DateTime CsvFile::rowTime(
   std::string date_str;
   std::string time_str;
   std::string date_time_str;
+  constexpr size_t ONE_COL_SEP_POS = 8;// Position of the Date/Time separator
 
   switch (time_format_) {
   case TWO_COL_NO_DELIM:
@@ -342,11 +356,12 @@ misc_lib::DateTime CsvFile::rowTime(
 
   case ONE_COL:
     date_time_str = row.at("Time");
-    constexpr size_t SEP_POS = 8;// Position of the Date/Time separator
-    date_time_str.replace(SEP_POS, 1, "T");
+    date_time_str.replace(ONE_COL_SEP_POS, 1, "T");
     return misc_lib::DateTime::fromISO("20" + date_time_str);
+
+  default:
+    throw std::runtime_error("Unsupported time format or missing columns");
   }
-  throw std::runtime_error("Unsupported time format or missing columns");
 }
 
 void CsvFile::seekStart()

@@ -15,6 +15,7 @@
 #include <boost/range/algorithm/find_if.hpp>
 
 #include <Clock/csv_lib/group_writer.hpp>
+#include <Clock/csv_lib/time_format.hpp>
 #include <Clock/misc_lib/date_time.hpp>
 #include <Clock/misc_lib/quad.hpp>
 #include <Clock/misc_lib/run_record.hpp>
@@ -76,6 +77,29 @@ MeasureEvent Si3Sim::nextMeasurementEvent()
   return events.front();
 }
 
+MeasureEvent Si3Sim::nextMeasurementEventEnd()
+{
+  if (config_.measurementEvents().empty()) {
+    throw std::runtime_error("No measurement events configured.");
+  }
+
+  const unsigned int day = scheduleDay();
+
+  auto events = config_.measurementEvents();
+
+  auto iter = boost::range::find_if(events,
+    [day, current_time_of_day = current_time_.timeOfDay()](
+      const MeasureEvent &event) {
+      return event.day > day
+             || (event.day == day && event.end_time >= current_time_of_day);
+    });
+
+  if (iter != events.end()) { return *iter; }
+
+  // If we had to wrap around, the first event will be next
+  return events.front();
+}
+
 misc_lib::DateTime Si3Sim::nextStart(MeasureEvent event)
 {
   misc_lib::DateTime time = current_time_;
@@ -91,7 +115,22 @@ misc_lib::DateTime Si3Sim::nextStart(MeasureEvent event)
   return time;
 }
 
-void Si3Sim::generateData(csv_lib::GroupWriter &output)
+misc_lib::DateTime Si3Sim::nextEnd(MeasureEvent event)
+{
+  misc_lib::DateTime time = current_time_;
+  int day_diff = static_cast<int>(event.day) - static_cast<int>(scheduleDay());
+  while (day_diff < 0) { day_diff += static_cast<int>(config_.interval()); }
+  if (day_diff == 0 && current_time_.timeOfDay() > event.end_time) {
+    day_diff = static_cast<int>(config_.interval());
+  }
+  time.addDays(day_diff);
+
+  time.setTime(event.end_time);
+
+  return time;
+}
+
+void Si3Sim::generateData(csv_lib::GroupWriter &output, bool continue_calc)
 {
   output.setHeader(
     "# This data was manufactured by the Si3Sim tool\n"
@@ -103,14 +142,29 @@ void Si3Sim::generateData(csv_lib::GroupWriter &output)
     config_.useUnixTimestamps() ? UNIX_PRECISION : STD_PRECISION);
   output.useFixedPoint(true);
 
-  output.useUnixTimestamps(config_.useUnixTimestamps());
+  output.setTimeFormat(config_.useUnixTimestamps()
+                         ? csv_lib::TimeFormat::UNIX
+                         : csv_lib::TimeFormat::ONE_COL);
 
   MeasureEvent event = nextMeasurementEvent();
   current_time_ = nextStart(event);
 
+  if (continue_calc && current_time_ < output.lastTime()) {
+    current_time_ = output.lastTime();
+    event = nextMeasurementEventEnd();
+    const misc_lib::DateTime start_time =
+      nextEnd(event).setTime(event.start_time);
+    if (current_time_ < start_time) {
+      current_time_.setTime(event.start_time);
+    } else {
+      current_time_ += event.interval_seconds;// Advance to the next interval
+    }
+  }
+
   while (current_time_ < config_.endTime()) {
 
-    while (current_time_.timeOfDay() <= event.end_time) {
+    while (current_time_.timeOfDay() <= event.end_time
+           && current_time_ < config_.endTime()) {
       const misc_lib::Quad frequency =
         config_.startFrequency()
         + config_.driftRate() * current_time_.secondsSince(config_.startTime());

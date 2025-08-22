@@ -73,6 +73,12 @@ public:
   void updateCache() const;
 
   /**
+   * @brief Check if the time series is empty.
+   * @return true if the time series is empty, false otherwise.
+   */
+  [[nodiscard]] bool empty() const;
+
+  /**
    * @brief Get the next row of data without moving position.
    * @return A map representing the next row, with column names as keys and
    * cell values as values.
@@ -130,6 +136,18 @@ public:
    * @param time The time to seek to.
    */
   void seek(const misc_lib::DateTime &time);
+
+  /**
+   * @brief Get the start time of the time series.
+   * @return The start time of the time series.
+   */
+  [[nodiscard]] misc_lib::DateTime startTime() const { return data_start_; }
+
+  /**
+   * @brief Get the end time of the time series.
+   * @return The end time of the time series.
+   */
+  [[nodiscard]] misc_lib::DateTime endTime() const { return data_end_; }
 
 private:
   /**

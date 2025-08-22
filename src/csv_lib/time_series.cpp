@@ -193,6 +193,13 @@ void TimeSeries::updateCache() const
   ofs << boost::json::serialize(metadata);
 }
 
+bool TimeSeries::empty() const
+{
+  return files_.empty() || std::ranges::all_of(files_, [](const auto &file) {
+    return file.empty();
+  });
+}
+
 std::map<std::string, std::string> TimeSeries::peekRow()
 {
   if (files_.empty() || current_file_index_ >= files_.size()) { return {}; }
