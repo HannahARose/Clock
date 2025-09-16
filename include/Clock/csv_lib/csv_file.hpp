@@ -111,6 +111,11 @@ struct CsvFile
   void skipRow();
 
   /**
+   * @brief Align the read position to the start of the current line.
+   */
+  void alignBack();
+
+  /**
    * @brief Get the next row of data.
    * @return A map representing the next row, with column names as keys and
    * cell values as values.

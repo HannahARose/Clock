@@ -86,6 +86,11 @@ public:
   [[nodiscard]] std::map<std::string, std::string> peekRow();
 
   /**
+   * @brief Skip the current row of data.
+   */
+  void skipRow();
+
+  /**
    * @brief Get the next row of data.
    * @return A map representing the next row, with column names as keys and
    * cell values as values.

@@ -194,7 +194,7 @@ void CsvFile::updateCache() const
 
 void CsvFile::ensureOpen()
 {
-  if (!ifs_ || !ifs_.is_open()) { ifs_ = std::ifstream(file_path_); }
+  if (!ifs_.is_open()) { ifs_ = std::ifstream(file_path_); }
 
   if (!ifs_.is_open()) {
     throw std::runtime_error("Failed to open CSV file: " + file_path_.string());
@@ -281,6 +281,22 @@ void CsvFile::skipRow()
   }
 }
 
+void CsvFile::alignBack()
+{
+  ensureOpen();
+  if (ifs_.tellg() == 0) { return; }
+  ifs_.peek();
+  if (ifs_.tellg() == -1) {
+    ifs_.clear();
+    ifs_.seekg(-1, std::ios::end);
+    ifs_.clear();
+  }
+  while (ifs_.peek() != '\n' && ifs_.tellg() > 0) {
+    ifs_.seekg(-1, std::ios::cur);
+  }
+  if (ifs_.peek() == '\n') { ifs_.seekg(1, std::ios::cur); }
+}
+
 std::map<std::string, std::string> CsvFile::nextRow()
 {
   ensureOpen();
@@ -359,6 +375,10 @@ misc_lib::DateTime CsvFile::rowTime(
     date_time_str.replace(ONE_COL_SEP_POS, 1, "T");
     return misc_lib::DateTime::fromISO("20" + date_time_str);
 
+  case ISO:
+    date_time_str = row.at("Time");
+    return misc_lib::DateTime::fromISO(date_time_str);
+
   default:
     throw std::runtime_error("Unsupported time format or missing columns");
   }
@@ -395,7 +415,8 @@ void CsvFile::seek(const misc_lib::DateTime &time)
   ifs_.seekg(static_cast<std::streamoff>(round(file_length * time_fraction)),
     std::ios::beg);
   // Skip a row to ensure we are aligned to the rows
-  skipRow();
+  // std::cout << "Peeking line: '" << peekLine() << "'\n";
+  alignBack();
 
   // Move forward until we find a row with a time greater than the target time
   auto row = peekRow();

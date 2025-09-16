@@ -211,6 +211,21 @@ std::map<std::string, std::string> TimeSeries::peekRow()
   return row;
 }
 
+void TimeSeries::skipRow()
+{
+  if (files_.empty() || current_file_index_ >= files_.size()) { return; }
+  if (files_[current_file_index_].peekRow().empty()) {
+    while (++current_file_index_ < files_.size()) {
+      if (!files_[current_file_index_].empty()) {
+        files_[current_file_index_].skipRow();
+        break;
+      }
+    }
+  } else {
+    files_[current_file_index_].skipRow();
+  }
+}
+
 std::map<std::string, std::string> TimeSeries::nextRow()
 {
   if (files_.empty() || current_file_index_ >= files_.size()) { return {}; }
