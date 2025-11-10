@@ -201,7 +201,7 @@ jobs:
     steps:
       - name: Get OS version
         id: os-version
-        uses: sersoft-gmbh/os-version-action@v3
+        uses: sersoft-gmbh/os-version-action@v4
 
       - name: Clang Format
         if: ${{ steps.os-version.outputs.version == 22.04 }}
